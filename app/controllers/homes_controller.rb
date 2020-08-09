@@ -7,7 +7,7 @@ class HomesController < ApplicationController
 
     end
 
-    def dropped_letter
+    def letter
         
     end
 end

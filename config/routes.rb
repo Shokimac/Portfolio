@@ -1,22 +1,9 @@
 Rails.application.routes.draw do
-  namespace :admins do
-    get 'searches/search'
-  end
-  namespace :admins do
-    get 'users/index'
-    get 'users/show'
-  end
-  namespace :admins do
-    get 'proverbs/show'
-  end
-  namespace :admins do
-    get 'episodes/show'
-  end
-  namespace :admins do
-    get 'dropped_letters/index'
-    get 'dropped_letters/edit'
-  end
-  get 'contact/contact'
+  root 'homes#top'
+  get '/about' => 'homes#about'
+  get '/dropped_letter' => 'homes#letter'
+  get '/contact' => 'contacts#contact'
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -28,21 +15,34 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
-  
-  get 'bookmarks/index'
-  get 'proverbs/new'
-  get 'proverbs/show'
-  get 'proverbs/edit'
-  get 'proverbs/index'
-  get 'episodes/new'
-  get 'episodes/show'
-  get 'episodes/edit'
-  get 'episodes/index'
-  get 'users/show'
-  get 'users/edit'
+  namespace :admins do
+    resources :users, only: [:show, :edit, :update] do
+    get '/withdrawal' => 'users#withdrawal'
+    patch '/withdrawal' => 'users#withdrawal_update'
+    put '/withdrawal' => 'users#withdrawal_update'
+    end
+    resources :dropped_letters, only: [:index, :create, :edit, :update, :destroy]
+    resources :episodes, only: [:show]
+    resources :proverbs, only: [:show]
+    get '/search' => 'searches#search'
+  end
 
-
-
+  resources :users, only: [:show, :edit, :update] do
+  get '/withdrawal' => 'users#withdrawal'
+  patch '/withdrawal' => 'users#withdrawal_update'
+  put '/withdrawal' => 'users#withdrawal_update'
+  end
+  resources :episodes
+  resources :episodes_favorites, only: [:create, :destroy]
+  resources :proverbs
+  resources :proverb_favorites, only: [:create, :destroy]
+  resources :post_comments, only: [:create, :destroy]
+  resources :bookmarks, only: [:index]
+  get '/search' => 'searches#search'
+  post '/episode_bookmarks' => 'bookmarks#episode_create'
+  delete '/episode_bookmarks' => 'bookmarks#episode_destroy'
+  post '/proverb_bookmarks' => 'bookmarks#proverb_create'
+  delete '/proverb_bookmarks' => 'bookmarks#proverb_destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
