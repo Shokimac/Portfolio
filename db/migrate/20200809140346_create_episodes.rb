@@ -7,5 +7,6 @@ class CreateEpisodes < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :episodes, :title
   end
 end
