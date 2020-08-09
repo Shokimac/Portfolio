@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
+  
   get 'bookmarks/index'
   get 'proverbs/new'
   get 'proverbs/show'
@@ -21,5 +22,9 @@ Rails.application.routes.draw do
   get 'episodes/index'
   get 'users/show'
   get 'users/edit'
+
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
