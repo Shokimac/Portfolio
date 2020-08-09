@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'bookmarks/index'
   get 'proverbs/new'
   get 'proverbs/show'

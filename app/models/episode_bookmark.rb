@@ -1,0 +1,2 @@
+class EpisodeBookmark < ApplicationRecord
+end

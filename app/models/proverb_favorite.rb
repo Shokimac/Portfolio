@@ -1,0 +1,2 @@
+class ProverbFavorite < ApplicationRecord
+end

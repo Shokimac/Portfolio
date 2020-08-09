@@ -1,0 +1,2 @@
+class DroppedLetter < ApplicationRecord
+end
