@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
   namespace :admins do
+    get 'searches/search'
+  end
+  namespace :admins do
+    get 'users/index'
+    get 'users/show'
+  end
+  namespace :admins do
+    get 'proverbs/show'
+  end
+  namespace :admins do
+    get 'episodes/show'
+  end
+  namespace :admins do
     get 'dropped_letters/index'
     get 'dropped_letters/edit'
   end

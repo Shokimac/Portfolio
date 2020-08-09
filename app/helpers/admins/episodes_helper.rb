@@ -1,0 +1,2 @@
+module Admins::EpisodesHelper
+end
