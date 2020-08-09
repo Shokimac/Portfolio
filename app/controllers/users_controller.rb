@@ -4,4 +4,9 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def withdrawal
+
+  end
+
 end

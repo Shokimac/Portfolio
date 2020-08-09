@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'dropped_letters/index'
+    get 'dropped_letters/edit'
+  end
+  get 'contact/contact'
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
