@@ -1,0 +1,2 @@
+class EpisodeFavoritesController < ApplicationController
+end

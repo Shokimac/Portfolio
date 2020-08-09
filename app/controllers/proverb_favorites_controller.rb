@@ -1,0 +1,2 @@
+class ProverbFavoritesController < ApplicationController
+end
