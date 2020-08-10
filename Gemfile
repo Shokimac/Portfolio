@@ -71,7 +71,6 @@ gem 'kaminari','~> 1.2.1'
 gem 'dotenv-rails'
 
 gem 'devise'
-
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'

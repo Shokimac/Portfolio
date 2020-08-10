@@ -7,8 +7,9 @@ class User < ApplicationRecord
          :registerable,
          :recoverable,
          :rememberable,
-         :validatable
-  :omniauthable
+         :validatable,
+         :omniauthable,
+         omniauth_providers: [:google_oauth2]
 
   has_many :episodes, dependent: :destroy
   has_many :episode_favorites, dependent: :destroy
@@ -17,4 +18,20 @@ class User < ApplicationRecord
   has_many :proverb_favorites, dependent: :destroy
   has_many :proverb_bookmarks, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+
+  protected
+  # 以下を追加
+    def self.from_omniauth(access_token)
+      data = access_token.info
+      user = User.where(email: data['email']).first
+
+      # Uncomment the section below if you want users to be created if they don't exist
+      unless user
+          user = User.create(name: data['name'],
+             email: data['email'],
+             password: Devise.friendly_token[0,20]
+          )
+      end
+      user
+    end
 end

@@ -19,6 +19,11 @@
             <h1>LOGO</h1>
           </div>
           <div class="col-xs-8">
+            <ul class="nav navbar-nav navbar-right navbar-inverse" style="background-color: #192437;">
+              <li>
+                <%= link_to(" ログアウト", destroy_user_session_path, { method: :delete ,class: "glyphicon glyphicon-log-out"}) %>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

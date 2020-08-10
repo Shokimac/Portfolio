@@ -17,7 +17,8 @@ Rails.application.routes.draw do
              controllers: {
                sessions: 'users/sessions',
                passwords: 'users/passwords',
-               registrations: 'users/registrations'
+               registrations: 'users/registrations',
+               omniauth_callbacks: 'users/omniauth_callbacks'
              }
   namespace :admins do
     resources :users, only: %i[show edit update] do
