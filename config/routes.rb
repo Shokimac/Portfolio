@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  
   namespace :admins do
     resources :users, only: [:show, :edit, :update] do
     get '/withdrawal' => 'users#withdrawal'
