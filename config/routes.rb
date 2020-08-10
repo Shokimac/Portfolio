@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'tops/top'
+  end
   root 'homes#top'
   get '/about' => 'homes#about'
   get '/dropped_letter' => 'homes#letter'
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
     resources :dropped_letters, only: %i[index create edit update destroy]
     resources :episodes, only: %i[show]
     resources :proverbs, only: %i[show]
+    get '/top' => 'tops#top'
     get '/search' => 'searches#search'
   end
 
