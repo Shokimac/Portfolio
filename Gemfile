@@ -73,7 +73,5 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-gem 'omniauth-twitter'
 
 gem 'bootstrap-sass', '~> 3.3.6'
-

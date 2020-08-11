@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_082654) do
+ActiveRecord::Schema.define(version: 2020_08_11_011848) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_082654) do
     t.text "body", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "introduction"
     t.index ["name"], name: "index_proverbs_on_name"
   end
 

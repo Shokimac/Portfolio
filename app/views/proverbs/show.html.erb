@@ -1,2 +1,37 @@
-<h1>Proverbs#show</h1>
-<p>Find me in app/views/proverbs/show.html.erb</p>
+<div class="row">
+<div>
+<h1> <%= @proverb.name %> の格言 </h1>
+</div>
+
+<div>
+<h2><%= @proverb.body %></h2>
+</div>
+
+<div class="col-xs-6">
+
+<div>
+<p>この言葉を投稿した <%= link_to @user.name, user_path(@user) %> さんのコメント</p>
+</div>
+
+<div>
+<%= @proverb.introduction %>
+</div>
+
+<div> ♡ いいね </div>
+
+<div>
+<p>お気に入りに登録</p>
+</div>
+
+<div>編集する</div>
+<div> <%= link_to "削除する", @proverb_path, method: :destroy %> </div>
+
+</div>
+
+<div class="col-xs-6">
+<p>みんなのコメント</p>
+
+</div>
+
+
+</div>

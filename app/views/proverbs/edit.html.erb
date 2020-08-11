@@ -1,2 +1,18 @@
-<h1>Proverbs#edit</h1>
-<p>Find me in app/views/proverbs/edit.html.erb</p>
+<h1>格言編集</h1>
+<div class="row">
+
+<%= form_with model:@proverb do |f| %>
+<%= f.label :body, "格言" %>
+<%= f.text_field :body%>
+
+<%= f.label :name, "誰の格言か" %>
+<%= f.text_field :name %>
+
+<%= f.label :introduction, "格言に対してのコメント" %>
+<%= f.text_area :introduction %>
+
+<%= f.submit "投稿する" %>
+
+<% end %>
+
+</div>
