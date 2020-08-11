@@ -21,6 +21,18 @@
           <div class="col-xs-8">
             <ul class="nav navbar-nav navbar-right navbar-inverse" style="background-color: #192437;">
               <li>
+                <%= link_to " マイページ", user_path(current_user) %>
+              </li>
+              <li>
+                <%= link_to " エピソード", episodes_path %>
+              </li>
+              <li>
+                <%= link_to " 格言", proverbs_path %>
+              </li>
+              <li>
+                <%= link_to " 検索", search_path %>
+              </li>
+              <li>
                 <%= link_to(" ログアウト", destroy_user_session_path, { method: :delete ,class: "glyphicon glyphicon-log-out"}) %>
               </li>
             </ul>

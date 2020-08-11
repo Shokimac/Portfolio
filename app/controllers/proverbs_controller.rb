@@ -8,7 +8,6 @@ class ProverbsController < ApplicationController
     @proverb.user_id = current_user.id
     @proverb.save
     redirect_to proverbs_path
-
   end
 
   def index
@@ -17,6 +16,8 @@ class ProverbsController < ApplicationController
   def show
     @proverb = Proverb.find(params[:id])
     @user = User.find(@proverb.user_id)
+    @comment = PostComment.new
+    @comments = PostComment.where(proverb_id: @proverb.id)
   end
 
   def edit
@@ -34,7 +35,6 @@ class ProverbsController < ApplicationController
     @proverb = Proverb.find(params[:id])
     @proverb.destroy
     redirect_to proverbs_path
-
   end
 
   private
@@ -42,5 +42,4 @@ class ProverbsController < ApplicationController
   def proverb_params
     params.require(:proverb).permit(:body, :name, :introduction)
   end
-
 end

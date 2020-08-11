@@ -30,7 +30,6 @@ class EpisodesController < ApplicationController
 
   def destroy
     @episode = Episode.find(params[:id])
-    binding.pry
     @episode.destroy
     redirect_to episodes_path
   end
