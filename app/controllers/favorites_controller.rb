@@ -5,7 +5,6 @@ class FavoritesController < ApplicationController
             @proverb = Proverb.find(params[:proverb_id])
             favorite = current_user.proverb_favorites.new
             favorite.proverb_id = @proverb.id
-            binding.pry
             favorite.save
             redirect_to proverb_path(@proverb)
         end

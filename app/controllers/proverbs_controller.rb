@@ -19,7 +19,6 @@ class ProverbsController < ApplicationController
     @comment = PostComment.new
     @comments = PostComment.where(proverb_id: @proverb.id)
     @favorite = ProverbFavorite.where(proverb_id: @proverb.id).count
-    binding.pry
   end
 
   def edit
@@ -29,7 +28,6 @@ class ProverbsController < ApplicationController
   def update
     @proverb = Proverb.find(params[:id])
     @proverb.update(proverb_params)
-    binding.pry
     redirect_to proverb_path(@proverb)
   end
 
