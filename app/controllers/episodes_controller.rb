@@ -19,10 +19,14 @@ class EpisodesController < ApplicationController
   end
 
   def edit
+    @episode = Episode.find(params[:id])
   end
 
   def update
-    
+    @episode = Episode.find(params[:id])
+    @episode.update(episode_params)
+    binding.pry
+    redirect_to episode_path(@episode)
   end
 
   def destroy
