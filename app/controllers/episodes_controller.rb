@@ -6,16 +6,16 @@ class EpisodesController < ApplicationController
   def create
     @episode = Episode.new(episode_params)
     @episode.user_id = current_user.id
-    binding.pry
     @episode.save
     redirect_to episode_path(@episode)
-
   end
 
   def index
   end
 
   def show
+    @episode = Episode.find(params[:id])
+    @user = User.find(@episode.user_id)
   end
 
   def edit
