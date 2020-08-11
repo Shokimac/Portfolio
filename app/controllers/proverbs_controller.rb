@@ -31,7 +31,10 @@ class ProverbsController < ApplicationController
   end
 
   def destroy
+    @proverb = Proverb.find(params[:id])
     binding.pry
+    @proverb.destroy
+    redirect_to proverbs_path
 
   end
 
