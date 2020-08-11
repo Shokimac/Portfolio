@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     get '/withdrawal' => 'users#withdrawal'
     patch '/withdrawal' => 'users#withdrawal_update'
     put '/withdrawal' => 'users#withdrawal_update'
+    resources :favorites, only: %i[create destroy]
     resources :bookmarks, only: %i[index]
     post '/episode_bookmarks' => 'bookmarks#episode_create'
     delete '/episode_bookmarks' => 'bookmarks#episode_destroy'
