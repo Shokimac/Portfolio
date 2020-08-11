@@ -37,19 +37,20 @@ Rails.application.routes.draw do
     get '/withdrawal' => 'users#withdrawal'
     patch '/withdrawal' => 'users#withdrawal_update'
     put '/withdrawal' => 'users#withdrawal_update'
+    resources :bookmarks, only: %i[index]
+    post '/episode_bookmarks' => 'bookmarks#episode_create'
+    delete '/episode_bookmarks' => 'bookmarks#episode_destroy'
+    post '/proverb_bookmarks' => 'bookmarks#proverb_create'
+    delete '/proverb_bookmarks' => 'bookmarks#proverb_destroy'
   end
-  resources :episodes
-  resources :episodes_favorites, only: %i[create destroy]
+  resources :episodes do
+    resources :episodes_favorites, only: %i[create destroy]
+  end
   resources :proverbs do
-  resources :post_comments, only: %i[create destroy]
+    resources :post_comments, only: %i[create destroy]
+    resources :proverb_favorites, only: %i[create destroy]
   end
-  resources :proverb_favorites, only: %i[create destroy]
-  resources :bookmarks, only: %i[index]
   get '/search' => 'searches#search'
-  post '/episode_bookmarks' => 'bookmarks#episode_create'
-  delete '/episode_bookmarks' => 'bookmarks#episode_destroy'
-  post '/proverb_bookmarks' => 'bookmarks#proverb_create'
-  delete '/proverb_bookmarks' => 'bookmarks#proverb_destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
