@@ -37,7 +37,6 @@ Rails.application.routes.draw do
     get '/withdrawal' => 'users#withdrawal'
     patch '/withdrawal' => 'users#withdrawal_update'
     put '/withdrawal' => 'users#withdrawal_update'
-    resources :favorites, only: %i[create destroy]
     resources :bookmarks, only: %i[index]
     post '/episode_bookmarks' => 'bookmarks#episode_create'
     delete '/episode_bookmarks' => 'bookmarks#episode_destroy'
@@ -45,11 +44,11 @@ Rails.application.routes.draw do
     delete '/proverb_bookmarks' => 'bookmarks#proverb_destroy'
   end
   resources :episodes do
-    resources :episodes_favorites, only: %i[create destroy]
+  resource :favorites, only: %i[create destroy]
   end
   resources :proverbs do
+    resource :favorites, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
-    resources :proverb_favorites, only: %i[create destroy]
   end
   get '/search' => 'searches#search'
 

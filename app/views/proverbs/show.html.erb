@@ -17,7 +17,8 @@
             <%= @proverb.introduction %>
         </div>
 
-        
+        <div> <%= link_to "いいね", proverb_favorites_path(@proverb, favorite_sort:0 ), method: :post %> </div>
+        p
 
         <div>
             <p>お気に入りに登録</p>
