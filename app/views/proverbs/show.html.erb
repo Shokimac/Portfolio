@@ -34,11 +34,12 @@
         </div>
 
         <div>
-        <% @comments.each do |comment| %>
-        <%= attachment_image_tag(comment.user, :image, size: "150x100", fallback: "no_image.png") %>
-        <%= comment.user.name %>
-        <%= comment.comment %>
-        <% end %>
+            <% @comments.each do |comment| %>
+            <%= attachment_image_tag(comment.user, :image, size: "150x100", fallback: "no_image.png") %>
+            <%= comment.user.name %>
+            <%= comment.comment %>
+            <%= link_to "削除する", proverb_post_comment_path(comment.proverb, comment), method: :delete %>
+            <% end %>
         </div>
 
         <div>
@@ -48,6 +49,7 @@
             <%= f.submit "投稿" %>
         </div>
         <% end %>
+
     </div>
 
 
