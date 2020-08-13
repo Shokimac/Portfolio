@@ -8,4 +8,8 @@ class Proverb < ApplicationRecord
     def favorited_by?(user)
         proverb_favorites.where(user_id: user.id).exists?
     end
+
+    def bookmarked_by?(user)
+        proverb_bookmarks.where(user_id: user.id).exists?
+    end
 end

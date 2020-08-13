@@ -15,7 +15,6 @@ class FavoritesController < ApplicationController
             favorite.save
             redirect_to episode_path(@episode)
         end
-
     end
 
     def destroy
@@ -32,5 +31,4 @@ class FavoritesController < ApplicationController
             redirect_to episode_path(@episode)
         end
     end
-
 end

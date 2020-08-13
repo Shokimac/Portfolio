@@ -35,8 +35,20 @@
 </div>
 
 <div>
-お気に入りに登録
-</div>
+        <% if @episode.bookmarked_by?(current_user) %>
+        <li>
+        <%= link_to episode_bookmarks_path(@episode, bookmark_sort: 1), method: :delete do %>
+        <i class="fas fa-bookmark"></i>
+        <% end %>
+        </li>
+        <% else %>
+        <li>
+        <%= link_to episode_bookmarks_path(@episode, bookmark_sort: 1), method: :post do %>
+        <i class="far fa-bookmark"></i>
+        <% end %>
+        </li>
+        <% end %>
+        </div>
 
 <div>
 編集する

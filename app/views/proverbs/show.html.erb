@@ -34,7 +34,19 @@
         <p>いいね件数： <%= @proverb.proverb_favorites.count %> </p>
 
         <div>
-            <p>お気に入りに登録</p>
+        <% if @proverb.bookmarked_by?(current_user) %>
+        <li>
+        <%= link_to proverb_bookmarks_path(@proverb, bookmark_sort:0 ), method: :delete do %>
+        <i class="fas fa-bookmark"></i>
+        <% end %>
+        </li>
+        <% else %>
+        <li>
+        <%= link_to proverb_bookmarks_path(@proverb, bookmark_sort:0 ), method: :post do %>
+        <i class="far fa-bookmark"></i>
+        <% end %>
+        </li>
+        <% end %>
         </div>
 
         <div> <%= link_to "編集する", edit_proverb_path(@proverb) %> </div>
