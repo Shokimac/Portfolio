@@ -18,7 +18,6 @@ class ProverbsController < ApplicationController
     @user = User.find(@proverb.user_id)
     @comment = PostComment.new
     @comments = PostComment.where(proverb_id: @proverb.id)
-    @favorite = ProverbFavorite.where(proverb_id: @proverb.id).count
   end
 
   def edit
