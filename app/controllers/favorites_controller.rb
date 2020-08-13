@@ -28,7 +28,6 @@ class FavoritesController < ApplicationController
         when "1"
             @episode = Episode.find(params[:episode_id])
             favorite = EpisodeFavorite.find_by(episode_id: @episode.id, user_id: current_user.id)
-            binding.pry
             favorite.destroy
             redirect_to episode_path(@episode)
         end
