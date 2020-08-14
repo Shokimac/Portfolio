@@ -21,5 +21,43 @@
         margin: 10px;
         font-size: 25px;
     }
+}
 
+.leftSide {
+    margin-left: 250px;
+    float: left;
+}
+
+.rightSide {
+    margin-right: 350px;
+    float: right;
+
+    &__button {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #97afc9;
+    }
+}
+
+.itemBox {
+    display: flex;
+    margin: 30px auto;
+
+    &__subject {
+        margin-right: 50px;
+    }
+
+    &__subject--rightMarginSmall {
+        margin-right: 25px;
+    }
+
+    &__form {
+        margin: 0 20px;
+    }
+
+    &__button {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
 }
