@@ -1,2 +1,56 @@
-<h1>Proverbs#show</h1>
-<p>Find me in app/views/proverbs/show.html.erb</p>
+<div class="row">
+    <div>
+        <h1> <%= @proverb.name %> の格言 </h1>
+    </div>
+
+    <div>
+        <h2><%= @proverb.body %></h2>
+    </div>
+
+    <div class="col-xs-6">
+
+        <div>
+            <p>この言葉を投稿した <%= link_to @user.name, user_path(@user) %> さんのコメント</p>
+        </div>
+
+        <div>
+            <%= @proverb.introduction %>
+        </div>
+
+        <div> ♡ いいね </div>
+
+        <div>
+            <p>お気に入りに登録</p>
+        </div>
+
+        <div> <%= link_to "編集する", edit_proverb_path(@proverb) %> </div>
+        <div> <%= link_to "削除する", @proverb_path, method: :delete %> </div>
+
+    </div>
+
+    <div class="col-xs-6">
+        <div>
+            <p>みんなのコメント</p>
+        </div>
+
+        <div>
+            <% @comments.each do |comment| %>
+            <%= attachment_image_tag(comment.user, :image, size: "150x100", fallback: "no_image.png") %>
+            <%= comment.user.name %>
+            <%= comment.comment %>
+            <%= link_to "削除する", proverb_post_comment_path(comment.proverb, comment), method: :delete %>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form_with model:[@proverb, @comment] do |f| %>
+            <%= f.label :comment, "コメントする" %>
+            <%= f.text_area :comment, placeholder:"この格言に対してのコメントを入力してください" %>
+            <%= f.submit "投稿" %>
+        </div>
+        <% end %>
+
+    </div>
+
+
+</div>

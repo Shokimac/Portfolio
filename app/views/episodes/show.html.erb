@@ -1,2 +1,36 @@
-<h1>Episodes#show</h1>
-<p>Find me in app/views/episodes/show.html.erb</p>
+<div class="row">
+
+<div>
+<h1>エピソード詳細</h1>
+</div>
+
+<div class="col-xs-4">
+<p>ユーザー名： <%= @user.name %> </p>
+<%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png") %><br>
+</div>
+
+<div class="col-xs-8">
+
+<div>
+<p>タイトル： <%= @episode.title %> </p>
+<p>内容： <%= @episode.body %> </p>
+</div>
+
+<div>
+♡　いいね
+</div>
+
+<div>
+お気に入りに登録
+</div>
+
+<div>
+編集する
+</div>
+
+<div>
+<%= link_to "削除する", @episode_path, method: :delete %>
+</div>
+
+</div>
+</div>

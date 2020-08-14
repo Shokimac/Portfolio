@@ -1,2 +1,16 @@
-<h1>Episodes#new</h1>
-<p>Find me in app/views/episodes/new.html.erb</p>
+<h1>エピソード投稿</h1>
+<div class="row">
+
+<%= form_with model:@episode do |f| %>
+
+<%= f.label :title, "タイトル" %>
+<%= f.text_field :title, placeholder:"タイトルを入力してください" %>
+
+<%= f.label :body, "内容" %>
+<%= f.text_area :body, placeholder:"あなたのエピソードを入力してください" %>
+
+<%= f.submit "投稿する" %>
+
+<% end %>
+
+</div>
