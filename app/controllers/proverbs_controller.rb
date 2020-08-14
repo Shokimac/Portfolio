@@ -27,7 +27,6 @@ class ProverbsController < ApplicationController
   def update
     @proverb = Proverb.find(params[:id])
     @proverb.update(proverb_params)
-    binding.pry
     redirect_to proverb_path(@proverb)
   end
 
