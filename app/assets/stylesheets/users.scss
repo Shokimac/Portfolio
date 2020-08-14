@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile {
+    text-align: center;
+
+    &__title {
+        margin: 15px;
+        font-size: xx-large;
+    }
+
+    &__image {}
+
+    &__introductionTitle {
+        margin: 10px;
+        font-size: 30px;
+    }
+
+    &__introduction {
+        margin: 10px;
+        font-size: 25px;
+    }
+
+}

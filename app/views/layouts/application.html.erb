@@ -20,6 +20,7 @@
           </div>
           <div class="col-xs-8">
             <ul class="nav navbar-nav navbar-right navbar-inverse" style="background-color: #192437;">
+            <% if user_signed_in? %>
               <li>
                 <%= link_to " マイページ", user_path(current_user) %>
               </li>
@@ -35,6 +36,17 @@
               <li>
                 <%= link_to(" ログアウト", destroy_user_session_path, { method: :delete ,class: "glyphicon glyphicon-log-out"}) %>
               </li>
+              <% else %>
+              <li>
+                <%= link_to " いとをかしとは", about_path %>
+              </li>
+              <li>
+                <%= link_to " ログイン", new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to " 新規登録", new_user_registration_path %>
+              </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -42,10 +54,8 @@
     </nav>
   </header>
   <main>
-    <div class='container'>
       <p class="notice"><%= notice %></p>
       <%= yield %>
-    </div>
   </main>
   <footer align="right">お問い合わせ</footer>
 </body>

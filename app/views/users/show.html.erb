@@ -1,7 +1,14 @@
-
-<div class="center-block">
-<h1><%= @user.name %> さんのプロフィール</h1>
-<%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png") %><br>
-<h2>自己紹介</h2>
-<p> <%= @user.introduction %> </p>
+<div class="profile">
+    <div class="profile__title">
+        <strong><%= @user.name %></strong> さんのプロフィール
+    </div>
+    <div class="profile__image">
+        <%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png") %><br>
+    </div>
+    <div class="profile__introductionTitle">
+        自己紹介
+    </div>
+    <div class="profile__introduction">
+        <%= @user.introduction %>
+    </div>
 </div>
