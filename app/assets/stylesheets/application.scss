@@ -17,10 +17,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.field-form {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+.footer{
+    height: 70px;
+    text-align: right;
+}
+
+
