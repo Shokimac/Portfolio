@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.1"
 
-set :application, "itowokashi"
+set :application, "Portfolio"
 set :repo_url, "git@github.com:Shokimac/Portfolio.git"
 
 set :deploy_to, "/home/ec2-user/Portfolio"
