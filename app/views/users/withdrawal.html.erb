@@ -1,0 +1,11 @@
+<div class="text-center">
+	<h3><strong>本当に退会しますか？</strong></h3>
+
+	<br><br>
+	<%= link_to "退会しない",user_path(@user), class: "btn btn-primary" %>
+	<br><br><br>
+
+	<%= form_with url: user_withdrawal_path, method: :patch do |f| %>
+		<%= f.submit "退会する", class: "btn btn-danger" %>
+	<% end %>
+</div>

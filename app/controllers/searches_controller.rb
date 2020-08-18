@@ -4,9 +4,9 @@ class SearchesController < ApplicationController
     @word = params[:word]
 
     if @range == '1'
-      @users = Episode.search(@word)
+      @episodes = Episode.search(@word)
     else
-      @products = Proverb.search(@word)
+      @proverbs = Proverb.search(@word)
     end
   end
 end

@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Itowokashi</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>いとをかし</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+  <header>
+    <nav class="navbar navbar-default" style="background-color: #192437;">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <h1>LOGO</h1>
+          </div>
+          <div class="col-xs-8">
+            <ul class="nav navbar-nav navbar-right navbar-inverse" style="background-color: #192437;">
+              <% if user_signed_in? %>
+              <li>
+                <%= link_to " マイページ", user_path(current_user) %>
+              </li>
+              <li>
+                <%= link_to " エピソード", episodes_path %>
+              </li>
+              <li>
+                <%= link_to " 格言", proverbs_path %>
+              </li>
+              <li>
+                <%= link_to " 検索", search_path %>
+              </li>
+              <li>
+                <%= link_to(" ログアウト", destroy_user_session_path, { method: :delete ,class: "glyphicon glyphicon-log-out"}) %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to " いとをかしとは", about_path %>
+              </li>
+              <li>
+                <%= link_to " ログイン", new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to " 新規登録", new_user_registration_path %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="search">
+        <div class="search__form">
+          <%= form_tag(search_path, method: :get) do %>
+          <%= text_field_tag (:word), "", class:"form-inline" %>
+          <%= select_tag 'range' ,options_for_select([['エピソードから検索', '1'], ['格言から検索', '2']]), class:"btn-default btn-sm" %>
+          <%= submit_tag "検索", class:"btn-default btn-sm" %>
+          <% end %>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+  <main>
+    <p class="notice"><%= notice %></p>
     <%= yield %>
-  </body>
+  </main>
+  <footer class="footer">お問い合わせ</footer>
+</body>
+
 </html>

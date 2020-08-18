@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_142942) do
+ActiveRecord::Schema.define(version: 2020_08_16_090355) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2020_08_09_142942) do
   end
 
   create_table "dropped_letters", force: :cascade do |t|
-    t.text "body", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "body"
   end
 
   create_table "episode_bookmarks", force: :cascade do |t|
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 2020_08_09_142942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_episodes_on_title"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -81,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_142942) do
     t.text "body", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "introduction"
     t.index ["name"], name: "index_proverbs_on_name"
   end
 
@@ -98,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_142942) do
     t.boolean "delete_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
