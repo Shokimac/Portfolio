@@ -2,35 +2,123 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top {
+@mixin background {
+    position: relative;
     width: 100%;
     height: 100vh;
+}
+
+@mixin center-position($top, $left) {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: $top;
+    left: $left;
+}
+
+@mixin button {
+    display: inline-block;
+    max-width: 200px;
+    text-align: left;
+    border: 2px solid #9ec34b;
+    font-size: 16px;
+    color: #9ec34b;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: .4s;
+
+    &:hover {
+        background-color: #9ec34b;
+        border-color: #cbe585;
+        color: #FFF;
+    }
+}
+
+
+.top {
+    @include background;
+    background-image: image-url('cairns.jpg');
+    background-size: cover;
+    background-position: center;
 
     &__title {
+        @include center-position(30%, 50%);
         text-align: center;
-        position: relative;
+        color: #b9fa2a;
     }
 
-    &__image {
-        background-image: image-url('cairns.jpg');
-        background-size: cover;
-        background-position: center;
+    &__login {
+        @include center-position(60%, 40%);
+        @include button;
+    }
+
+    &__signup {
+        @include center-position(60%, 60%);
+        @include button;
     }
 }
 
 .about {
-    width: 100%;
-    height: 100vh;
+    @include background();
 
     &__title {
+        @include center-position(15%, 15%);
         text-align: center;
+        font-size: 45px;
+    }
+
+    &__body {
+        @include center-position(50%, 25%)
+    }
+
+    &__image {
+        @include center-position(50%, 75%);
+        width: 50%;
+        height: 100vh;
+        background-image: url(kumachan.jpg);
+    }
+
+    &__login {
+        @include center-position(87%, 15%);
+        @include button;
+    }
+
+    &__signup {
+        @include center-position(87%, 30%);
+        @include button;
     }
 }
 
-.rightSide {
-    
+span {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 35px;
 }
 
-span {
-    font-weight: 100;
+.letter {
+    @include background();
+
+    &__title {
+        @include center-position(20%, 50%);
+        text-align: center;
+        font-size: 45px;
+    }
+
+    &__body {
+        @include center-position(45%, 50%);
+        font-size: 40px;
+        text-align: center;
+    }
+
+    &__login {
+        @include center-position(65%, 40%);
+        @include button;
+    }
+
+    &__signup {
+        @include center-position(65%, 60%);
+        @include button;
+    }
+
 }

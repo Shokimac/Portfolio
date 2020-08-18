@@ -12,14 +12,14 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-default" style="background-color: #192437;">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-4">
+    <nav style="background-color: #192437;">
+      <div>
+        <div>
+          <div>
             <h1>LOGO</h1>
           </div>
-          <div class="col-xs-8">
-            <ul class="nav navbar-nav navbar-right navbar-inverse" style="background-color: #192437;">
+          <div>
+            <ul style="background-color: #192437;">
               <% if user_signed_in? %>
               <li>
                 <%= link_to " マイページ", user_path(current_user) %>
@@ -60,14 +60,14 @@
           <% end %>
         </div>
       </div>
-
     </nav>
   </header>
   <main>
     <p class="notice"><%= notice %></p>
     <%= yield %>
   </main>
-  <footer class="footer">お問い合わせ</footer>
+  <br>
+  <footer>お問い合わせ</footer>
 </body>
 
 </html>
