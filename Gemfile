@@ -78,8 +78,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-gem 'bootstrap-sass', '~> 3.3.6'
-
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
