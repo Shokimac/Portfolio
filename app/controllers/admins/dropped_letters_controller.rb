@@ -1,5 +1,7 @@
 class Admins::DroppedLettersController < ApplicationController
   def index
+    @new_letter = DroppedLetter.new
+    @letters = DroppedLetter.all.page(params[:page]).reverse_order
   end
 
   def create

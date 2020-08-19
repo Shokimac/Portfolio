@@ -22,9 +22,8 @@ Rails.application.routes.draw do
              }
   namespace :admins do
     resources :users, only: %i[index show edit update] do
-      get '/withdrawal' => 'users#withdrawal'
-      patch '/withdrawal' => 'users#withdrawal_update'
-      put '/withdrawal' => 'users#withdrawal_update'
+      patch '/withdrawal' => 'users#withdrawal'
+      put '/withdrawal' => 'users#withdrawal'
     end
     resources :dropped_letters, only: %i[index create edit update destroy]
     resources :episodes, only: %i[show destroy]

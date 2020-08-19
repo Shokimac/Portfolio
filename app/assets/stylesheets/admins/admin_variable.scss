@@ -32,6 +32,46 @@
       border-bottom: none;
     }
   }
+
+  @mixin tableSet($width) {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 0;
+    width: $width;
+    table-layout: fixed;
+    color: #000;
+}
+
+@mixin thSet {
+    padding: 15px 0;
+    border-right: 1px solid #bbb;
+    text-align: center;
+
+    &:last-child {
+        border: none;
+    }
+}
+
+@mixin trSet {
+    background-color: #fff;
+    padding: 30px;
+    border-bottom: 1px solid #bbb;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+
+@mixin tdSet {
+    padding: 0.2em 10px 0.2em 1em;
+    border-right: 1px solid #bbb;
+    text-align: center;
+
+    &:last-child {
+        border: none;
+    }
+}
   
   * {
     margin: 0;

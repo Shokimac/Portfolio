@@ -1,27 +1,26 @@
 <div class="userIndex">
     <h1 class="userIndex__section">利用者一覧</h1>
 
-    <div class="userTable">
-        <table>
-            <tr>
+        <table class="userIndex__table">
+            <tr class="userIndex__line">
                 <th></th>
-                <th>ユーザー名</th>
-                <th>メールアドレス</th>
-                <th>投稿エピソード件数</th>
-                <th>投稿格言数</th>
+                <th class="userIndex__label">ユーザー名</th>
+                <th class="userIndex__label">メールアドレス</th>
+                <th class="userIndex__label">投稿エピソード件数</th>
+                <th class="userIndex__label">投稿格言数</th>
             </tr>
             <% @users.each do |user| %>
-            <tr>
-                <td><%= attachment_image_tag(user, :image, size: "100x100", fallback: "no_image.png", class:"userTable__image") %>
+            <tr class="userIndex__line">
+                <td class="userIndex__body"><%= attachment_image_tag(user, :image, size: "100x100", fallback: "no_image.png", class:"userTable__image") %>
                 </td>
-                <td><%= link_to user.name, user_path(user), class:"userTable__name" %></td>
-                <td><%= user.email %></td>
-                <td><%= user.episodes.count %> 件</td>
-                <td><%= user.proverbs.count %> 件</td>
+                <td class="userIndex__body"><%= link_to user.name, user_path(user) %></td>
+                <td class="userIndex__body"><%= user.email %></td>
+                <td class="userIndex__body"><%= user.episodes.count %> 件</td>
+                <td class="userIndex__body"><%= user.proverbs.count %> 件</td>
             </tr>
             <% end %>
         </table>
-    </div>
+
     <%= paginate @users %>
 
 </div>
