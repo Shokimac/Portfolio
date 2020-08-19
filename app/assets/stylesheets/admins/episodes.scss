@@ -1,3 +1,51 @@
 // Place all the styles related to the admins/episodes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./admin_variable.scss";
+
+.episode {
+    @include background();
+
+    &__section {
+        @include parts-position(15%, 50%);
+    }
+
+    &__userName {
+        @include parts-position(25%, 30%);
+    }
+
+    &__userImage {
+        @include parts-position(40%, 30%);
+    }
+
+    &__label {
+        @include parts-position(25%, 55%);
+    }
+
+    &__label--body {
+        @include parts-position(30%, 55%);
+    }
+
+    &__title {
+        @include parts-position(25%, 65%);
+    }
+
+    &__body {
+        @include parts-position(30%, 65%);
+    }
+
+    &__favorite {
+        @include parts-position(60%, 55%);
+    }
+
+    &__bookmark {
+        @include parts-position(60%, 65%);
+    }
+
+    &__deleteButton {
+        @include create-button(#d61515, #e77b16, #1a1322);
+        @include parts-position(70%, 50%);
+    }
+
+}

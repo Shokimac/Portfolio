@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       put '/withdrawal' => 'users#withdrawal_update'
     end
     resources :dropped_letters, only: %i[index create edit update destroy]
-    resources :episodes, only: %i[show]
+    resources :episodes, only: %i[show destroy]
     resources :proverbs, only: %i[show]
     get '/top' => 'tops#top'
     get '/search' => 'searches#search'
