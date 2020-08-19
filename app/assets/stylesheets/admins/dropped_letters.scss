@@ -32,3 +32,20 @@
         @include tdSet();
     }
 }
+
+.editLetter {
+    @include background();
+    
+    &__section {
+        @include parts-position(20%, 50%);
+    }
+
+    &__form {
+        @include parts-position(40%, 50%);
+    }
+
+    &__button {
+        @include parts-position(50%, 50%);
+        @include create-button(#19e634, #40c97d, #313631);
+    }
+}
