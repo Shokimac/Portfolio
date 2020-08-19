@@ -1,2 +1,10 @@
-<h1>Admins::DroppedLetters#edit</h1>
-<p>Find me in app/views/admins/dropped_letters/edit.html.erb</p>
+<div class="editLetter">
+
+<h1 class="editLetter__section">落とし文編集</h1>
+
+<%= form_with model:@letter, url:admins_dropped_letter_path(@letter) do |f| %>
+<%= f.text_area :body, class:"editLetter__form" %>
+<%= f.submit "更新", class:"editLetter__button" %>
+<% end %>
+
+</div>

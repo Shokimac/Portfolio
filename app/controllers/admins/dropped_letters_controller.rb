@@ -11,14 +11,19 @@ class Admins::DroppedLettersController < ApplicationController
   end
 
   def edit
+    @letter = DroppedLetter.find(params[:id])
   end
 
   def update
-
+    @letter = DroppedLetter.find(params[:id])
+    @letter.update(letter_params)
+    redirect_to admins_dropped_letters_path
   end
 
   def destroy
-
+    @letter = DroppedLetter.find(params[:id])
+    @letter.destroy
+    redirect_to admins_dropped_letters_path
   end
 
   private
