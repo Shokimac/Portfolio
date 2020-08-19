@@ -14,7 +14,7 @@
                 </td>
             </tr>
             <tr>
-                <td><%= link_to episode.title, episode_path(episode) , class:"episodeBlock__title" %></td>
+                <td><%= link_to episode.title, admins_episode_path(episode) , class:"episodeBlock__title" %></td>
             </tr>
         </table>
 
@@ -35,7 +35,7 @@
                 </td>
             </tr>
             <tr>
-                <td><%= link_to "#{proverb.name} の格言", proverb_path(proverb) , class:"proverbBlock__title" %></td>
+                <td><%= link_to "#{proverb.name} の格言", admins_proverb_path(proverb) , class:"proverbBlock__title" %></td>
             </tr>
         </table>
         <% end %>
