@@ -56,6 +56,29 @@
   box-sizing: border-box;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  background-color: pink;
+  &__logo {
+    display: flex;
+    font-size: 40px;
+  }
+
+  &__nav {
+    margin-left: auto;
+  }
+
+  &__nav li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  &__search {
+    margin: 0 10px;
+  }
+}
+
 .signup {
   @include background();
 
@@ -109,4 +132,16 @@
 
 footer {
   background-color: red;
+}
+
+.adminLogin {
+  @include background();
+
+  &__title {
+    @include parts-position(10%, 50%);
+  }
+
+  &__button {
+    @include create-button(#2c75d4, #409db4, #627295)
+  }
 }

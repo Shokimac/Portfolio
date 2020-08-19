@@ -4,23 +4,14 @@
   <h1 class="adminLogin__title">管理者ログイン</h1>
 
   <div class="input">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, "メールアドレス", class:"input__label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input__form" %>
 
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password, "パスワード" , class:"input__label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"input__form" %>
 
-    <% if devise_mapping.rememberable? %>
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me %>
-    <% end %>
-
-    <%= f.submit "Log in", class:"adminLogin_button" %>
+    <%= f.submit "ログイン", class:"adminLogin__button" %>
 
   </div>
-
-  <%= render "admins/shared/links" %>
-
   <% end %>
-
 </div>
