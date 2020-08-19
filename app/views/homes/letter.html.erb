@@ -1,1 +1,8 @@
-天狗の落とし文
+<div class="letter">
+    <h1 class="letter__title">本日の天狗の落とし文</h1>
+
+    <p class="letter__body"><%= @letter.body %></p>
+
+    <%= link_to "みんなのエピソードへ", episodes_path, class:"letter__login" %>
+    <%= link_to "みんなの格言へ", proverbs_path, class:"letter__signup" %>
+</div>

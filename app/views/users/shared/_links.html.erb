@@ -1,5 +1,5 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "Log in", new_session_path(resource_name), class:"signup__button--blue" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -19,7 +19,8 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
+<p class="signup__loginNavi--google">Googleアカウントをお持ちの方はこちら</p>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to "Googleログイン", omniauth_authorize_path(resource_name, provider), class:"signup__button--google" %><br />
   <% end %>
 <% end %>
