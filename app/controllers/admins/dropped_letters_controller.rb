@@ -5,7 +5,9 @@ class Admins::DroppedLettersController < ApplicationController
   end
 
   def create
-
+    @letter = DroppedLetter.new(letter_params)
+    @letter.save
+    redirect_to admins_dropped_letters_path
   end
 
   def edit
@@ -17,6 +19,12 @@ class Admins::DroppedLettersController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def letter_params
+    params.require(:dropped_letter).permit(:body)
   end
   
 end

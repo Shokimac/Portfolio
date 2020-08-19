@@ -4,22 +4,22 @@
     <div class="createLetter">
         <p class="createLetter__label">新規投稿</p>
         <%= form_with model:@new_letter, url:admins_dropped_letters_path  do |f| %>
-        <%= f.text_field :body, class:"createLetter__form" %>
+        <%= f.text_area :body, class:"createLetter__form" %><br>
         <%= f.submit "投稿", class:"createLetter__button" %>
         <% end %>
     </div>
 
-    <div class="indexLetter">
-        <table>
-            <% @letters.each do |letter| %>
-            <tr>
-                <td><%= letter.body %></td>
-                <td><%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"indexLetter__button" %></td>
-                <td><%= link_to "削除", admins_dropped_letter_path(letter), method: :delete, class:"indexLetter__button--destroy" %>
-                </td>
-            </tr>
-            <% end %>
-        </table>
-    </div>
+    <table class="letterTable">
+        <% @letters.each do |letter| %>
+        <tr class="letterTable__line">
+            <td class="letterTable__body"><%= letter.body %></td>
+            <td class="letterTable__body">
+                <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"indexLetter__button" %></td>
+            <td class="letterTable__body">
+                <%= link_to "削除", admins_dropped_letter_path(letter), method: :delete, class:"indexLetter__button--destroy" %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
 
 </div>
