@@ -21,7 +21,7 @@ Rails.application.routes.draw do
                omniauth_callbacks: 'users/omniauth_callbacks'
              }
   namespace :admins do
-    resources :users, only: %i[show edit update] do
+    resources :users, only: %i[index show edit update] do
       get '/withdrawal' => 'users#withdrawal'
       patch '/withdrawal' => 'users#withdrawal_update'
       put '/withdrawal' => 'users#withdrawal_update'

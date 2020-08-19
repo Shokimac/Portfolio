@@ -1,3 +1,53 @@
 // Place all the styles related to the admins/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./admin_variable.scss";
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    table-layout: fixed;
+    color: #000;
+}
+
+table th {
+    padding: 15px 0;
+    border-right: 1px solid #bbb;
+    text-align: center;
+}
+
+table tr {
+    background-color: #fff;
+    padding: 30px;
+    border-bottom: 1px solid #bbb;
+}
+
+table tr:last-child {
+    border-bottom: none;
+}
+
+table td {
+    padding: 0.2em 10px 0.2em 1em;
+    border-right: 1px solid #bbb;
+    text-align: center;
+}
+
+table th:last-child , table td:last-child {
+    border: none;
+}
+
+.userIndex {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
+    }
+}
+
+.userTable {
+    @include parts-position(35%, 50%);
+    width: 100%;
+}
