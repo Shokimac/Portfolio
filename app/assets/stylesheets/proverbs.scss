@@ -23,6 +23,8 @@
         @include parts-position(50%, 30%);
     }
 
+    &__favorite
+
     &__label--otherComment {
         @include parts-position(40%, 70%);
     }
