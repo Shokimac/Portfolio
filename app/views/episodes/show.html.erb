@@ -16,8 +16,8 @@
                         <p>内容： <%= @episode.body %> </p>
                 </div>
 
-                <div id="favorites_button">
-                <%= render partial: 'favorites/favorite', locals: { episode: @episode} %>
+                <div id="episode_favorites_button">
+                <%= render partial: 'episode_favorites/favorite', locals: { episode: @episode} %>
                 </div>
                 
         </div>
