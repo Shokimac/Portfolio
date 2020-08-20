@@ -13,16 +13,14 @@ class ProverbsController < ApplicationController
   def index
     @proverbs = Proverb.all.page(params[:page]).reverse_order
     @user = User.find(current_user.id)
-    favorite_count = Proverb.joins(:proverb_favorites).group(:proverb_id).count
-    favorited_ids = Hash[favorite_count.sort_by{ |_, v| -v }].keys
-    @all_rank = Proverb.where(id: favorited_ids).limit(5)
+    @all_rank = Proverb.all.sort {|a,b| b.proverb_favorites.count <=> a.proverb_favorites.count}
   end
 
   def show
     @proverb = Proverb.find(params[:id])
     @user = User.find(@proverb.user_id)
     @comment = PostComment.new
-    @post_comments = PostComment.where(proverb_id: @proverb.id)
+    @comments = PostComment.where(proverb_id: @proverb.id)
   end
 
   def edit
