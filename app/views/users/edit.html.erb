@@ -27,7 +27,7 @@
                 <%= @user.email %>
             </div>
 
-                <%= link_to "パスワード変更", edit_user_registration_path, class:"itemBox__button" %>
+            <%= link_to "パスワード変更", edit_user_registration_path, class:"itemBox__button" %>
 
         </div>
         <div class="itemBox">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-            <%= f.submit "更新", class: "rightSide__button" %>
+        <%= f.submit "更新", class: "rightSide__button" %>
 
         <div class="rightSide__button--red">
             <%= link_to "退会する", user_withdrawal_path(@user.id) %>

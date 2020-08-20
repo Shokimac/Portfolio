@@ -6,14 +6,12 @@ class FavoritesController < ApplicationController
             favorite = current_user.proverb_favorites.new
             favorite.proverb_id = @proverb.id
             favorite.save
-            redirect_to proverb_path(@proverb)
             
         when "1"
             @episode = Episode.find(params[:episode_id])
             favorite = current_user.episode_favorites.new
             favorite.episode_id = @episode.id
             favorite.save
-            redirect_to episode_path(@episode)
         end
     end
 
