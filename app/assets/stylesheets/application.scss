@@ -59,10 +59,13 @@
 .header {
   display: flex;
   align-items: center;
-  background-color: pink;
+  background-color: #45B6ED;
   &__logo {
     display: flex;
-    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    background-image: url(image-path("logo.png"));
+    background-size: cover;
   }
 
   &__nav {
@@ -134,3 +137,14 @@ footer {
   background-color: red;
 }
 
+.adminLogin {
+  @include background();
+
+  &__title {
+    @include parts-position(10%, 50%);
+  }
+
+  &__button {
+    @include create-button(#2c75d4, #409db4, #627295)
+  }
+}

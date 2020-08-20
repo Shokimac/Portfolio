@@ -1,2 +1,39 @@
-<h1>Admins::Proverbs#show</h1>
-<p>Find me in app/views/admins/proverbs/show.html.erb</p>
+<div class="proverb">
+    <h1 class="proverb__section"> <%= @proverb.name %> の格言</h1>
+
+    <h2 class="proverb__body"><%= @proverb.body %></h2>
+
+    <p class="proverb__label">
+        この言葉を投稿した <%= link_to @proverb.user.name, user_path(@proverb.user_id) %> さんのコメント
+    </p>
+
+    <div class="proverb__personalComment">
+        <%= @proverb.introduction %>
+    </div>
+
+    <p class="proverb__label--otherComment">みんなのコメント</p>
+
+    <div class="otherComment">
+        <% @post_comments.each do |post_comment| %>
+        <table>
+            <tr>
+                <th rowspan="3">
+                    <%= attachment_image_tag(post_comment.user, :image, size: "100x100", fallback: "no_image.png", class:"otherComment__image") %>
+                </th>
+                <td><%= link_to post_comment.user.name, user_path(post_comment.user) ,class:"otherComment__name" %>
+                    <%= post_comment.created_at.strftime("%Y-%m-%d") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="otherComment__body"><%= post_comment.comment %></p>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+
+    <%= link_to "削除する", admins_proverb_path(@proverb), method: :delete, class:"proverb__deleteButton" %>
+
+
+</div>

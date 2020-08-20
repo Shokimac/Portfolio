@@ -1,3 +1,46 @@
 // Place all the styles related to the admins/proverbs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./admin_variable.scss";
+
+.proverb {
+    @include background();
+
+    &__section {
+        @include parts-position(20%, 50%);
+    }
+
+    &__body {
+        @include parts-position(30%, 50%);
+    }
+
+    &__label {
+        @include parts-position(40%, 30%);
+    }
+
+    &__personalComment {
+        @include parts-position(50%, 30%);
+    }
+
+    &__label--otherComment {
+        @include parts-position(40%, 70%);
+    }
+
+    &__deleteButton {
+        @include create-button(#d61515, #e77b16, #1a1322);
+        @include parts-position(70%, 50%);
+    }
+}
+
+.otherComment {
+    @include parts-position(50%, 70%);
+
+    &__name {
+        margin: 0 20px;
+    }
+
+    &__body {
+        text-align: center;
+    }
+}

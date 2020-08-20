@@ -1,2 +1,46 @@
-<h1>Admins::Tops#top</h1>
-<p>Find me in app/views/admins/tops/top.html.erb</p>
+<div class="adminTop">
+
+    <h1 class="adminTop__title--episode">エピソード一覧</h1>
+
+    <div class="episodeBlock">
+        <% @episodes.each do |episode| %>
+        <table>
+            <tr>
+                <th rowspan="3">
+                    <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBlock__image") %>
+                </th>
+                <td><%= link_to episode.user.name, user_path(episode.user) ,class:"episodeBlock__name" %>
+                <%= episode.updated_at.strftime("%Y-%m-%d") %>
+                </td>
+            </tr>
+            <tr>
+                <td><%= link_to episode.title, admins_episode_path(episode) , class:"episodeBlock__title" %></td>
+            </tr>
+        </table>
+
+        <% end %>
+    </div>
+
+    <h1 class="adminTop__title--proverb">格言一覧</h1>
+
+    <div class="proverbBlock">
+        <% @proverbs.each do |proverb| %>
+        <table>
+            <tr>
+                <th rowspan="3">
+                    <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBlock__image") %>
+                </th>
+                <td><%= link_to proverb.user.name, user_path(proverb.user) ,class:"proverbBlock__name" %>
+                <%= proverb.updated_at.strftime("%Y-%m-%d") %>
+                </td>
+            </tr>
+            <tr>
+                <td><%= link_to "#{proverb.name} の格言", admins_proverb_path(proverb) , class:"proverbBlock__title" %></td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+
+    <%= paginate @episodes %>
+    <%= paginate @proverbs %>
+</div>

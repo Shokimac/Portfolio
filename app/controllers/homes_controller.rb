@@ -8,6 +8,6 @@ class HomesController < ApplicationController
     end
 
     def letter
-        
+        @letter = DroppedLetter.find(2)
     end
 end

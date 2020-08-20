@@ -5,8 +5,8 @@
     </div>
     <div class="leftSide">
         <div class="leftSide__image">
-            <%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png") %><br>
-            <%= f.attachment_field :image %>
+            <%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png", id:"img1") %><br>
+            <%= f.attachment_field :image, id:"myfile" %>
         </div>
     </div>
 
