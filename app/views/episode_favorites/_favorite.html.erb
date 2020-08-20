@@ -1,13 +1,13 @@
 
     <% if episode.favorited_by?(current_user) %>
     <li>
-        <%= link_to episode_episode_favorites_path(episode, favorite_sort: 1), method: :delete, remote: true do %>
+        <%= link_to episode_episode_favorites_path(episode), method: :delete, remote: true do %>
         <i class="fas fa-heart"></i>
         <% end %>
     </li>
     <% else %>
     <li>
-        <%= link_to episode_episode_favorites_path(episode, favorite_sort: 1), method: :post, remote: true do %>
+        <%= link_to episode_episode_favorites_path(episode), method: :post, remote: true do %>
         <i class="far fa-heart"></i>
         <% end %>
     </li>

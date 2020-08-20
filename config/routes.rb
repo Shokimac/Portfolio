@@ -40,11 +40,11 @@ Rails.application.routes.draw do
   end
   resources :episodes do
     resource :episode_favorites, only: %i[create destroy]
-    resource :bookmarks, only: %i[create destroy]
+    resource :episode_bookmarks, only: %i[create destroy]
   end
   resources :proverbs do
     resource :proverb_favorites, only: %i[create destroy]
-    resource :bookmarks, only: %i[create destroy]
+    resource :proverb_bookmarks, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
   end
   get '/search' => 'searches#search'
