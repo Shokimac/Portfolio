@@ -11,16 +11,17 @@
         <%= @proverb.introduction %>
     </div>
 
-    <p class="showProverb__label--otherComment">みんなのコメント</p>
 
-    <div class="proverb__favoriteButton">
+    <div class="showProverb__favoriteButton">
         <%= render partial: 'proverb_favorites/favorite', locals: {proverb: @proverb} %>
     </div>
 
-    <div class="proverb__bookmarksButton">
+    <div class="showProverb__bookmarkButton">
         <%= render partial: 'proverb_bookmarks/bookmark', locals: { proverb: @proverb} %>
     </div>
 
+    <p class="showProverb__label--otherComment">みんなのコメント</p>
+    
     <div class="otherComment">
         <% @post_comments.each do |post_comment| %>
         <table>

@@ -23,16 +23,23 @@
         @include parts-position(50%, 30%);
     }
 
-    &__favorite
-
     &__label--otherComment {
         @include parts-position(40%, 70%);
+    }
+    
+    &__favoriteButton {
+        @include parts-position(60%, 30%);
+    }
+
+    &__bookmarkButton {
+        @include parts-position(70%, 30%);
     }
 
     &__deleteButton {
         @include create-button(#d61515, #e77b16, #1a1322);
-        @include parts-position(70%, 50%);
+        @include parts-position(80%, 50%);
     }
+
 }
 
 .otherComment {
