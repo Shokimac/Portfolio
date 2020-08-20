@@ -1,12 +1,12 @@
 <% if proverb.bookmarked_by?(current_user) %>
 <li>
-    <%= link_to proverb_proverb_bookmarks_path(@proverb), method: :delete, remote: true do %>
+    <%= link_to proverb_proverb_bookmarks_path(proverb), method: :delete, remote: true do %>
     <i class="fas fa-bookmark"></i>
     <% end %>
 </li>
 <% else %>
 <li>
-    <%= link_to proverb_proverb_bookmarks_path(@proverb), method: :post, remote: true do %>
+    <%= link_to proverb_proverb_bookmarks_path(proverb), method: :post, remote: true do %>
     <i class="far fa-bookmark"></i>
     <% end %>
 </li>
