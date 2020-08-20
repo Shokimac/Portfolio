@@ -18,7 +18,6 @@ class BookmarksController < ApplicationController
         bookmark = current_user.episode_bookmarks.new
         bookmark.episode_id = @episode.id
         bookmark.save
-        redirect_to episode_path(@episode)
     end
 end
 
@@ -33,7 +32,6 @@ def destroy
         @episode = Episode.find(params[:episode_id])
         bookmark = EpisodeBookmark.find_by(episode_id: @episode.id, user_id: current_user.id)
         bookmark.destroy
-        redirect_to episode_path(@episode)
     end
 end
 end
