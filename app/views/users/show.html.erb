@@ -12,7 +12,7 @@
         <%= @user.introduction %>
     </div>
 
-    <%= link_to "プロフィール編集", edit_user_path(current_user), class:"profile__edit" %>
+    <%= link_to "プロフィール編集", edit_user_path(current_user), class:"profile__button" %>
 
-    <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"profile__bookmarks" %>
+    <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"profile__button--bookmark" %>
 </div>

@@ -22,8 +22,14 @@
 
   <p class="sign__loginNavi">会員の方はこちらから</p>
 
-  <%= render "users/shared/links" %>
+  <%= link_to "Log in", new_session_path(resource_name), class:"sign__button--blue" %><br />
 
+  <p class="sign__loginNavi--google">Googleアカウントをお持ちの方はこちら</p>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+  <%= link_to omniauth_authorize_path(resource_name, provider), class:"sign__button--google" do %>
+  <%= image_tag 'google.png', size:"200x50" , class:"sign__google" %>
+  <% end %>
+  <% end %>
   <% end %>
 
 </div>

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "./user_variable";
+
 .profile {
     text-align: center;
 
@@ -9,8 +11,6 @@
         margin: 15px;
         font-size: xx-large;
     }
-
-    &__image {}
 
     &__introductionTitle {
         margin: 10px;
@@ -20,6 +20,14 @@
     &__introduction {
         margin: 10px;
         font-size: 25px;
+    }
+
+    &__button {
+        @include create-button(#388892, #277232, #038493);
+    }
+
+    &__button--bookmark {
+        @include create-button(#388892, #28a745, #97afc9);
     }
 }
 

@@ -1,3 +1,37 @@
 // Place all the styles related to the bookmarks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./user_variable";
+
+.bookmark {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
+    }
+}
+
+.episodeBookmarks {
+    @include parts-position(50%, 30%);
+
+    &__name {
+        margin: 0 10px;
+    }
+
+    &__body {
+        margin: 0 10px;
+    }
+}
+
+.proverbBookmarks {
+    @include parts-position(50%, 60%);
+    
+    &__name {
+        margin: 0 10px;
+    }
+
+    &__body {
+        margin: 0 10px;
+    }
+}
