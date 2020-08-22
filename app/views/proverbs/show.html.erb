@@ -23,19 +23,19 @@
     <p class="showProverb__label--otherComment">みんなのコメント</p>
     
     <div class="otherComment">
-        <% @post_comments.each do |post_comment| %>
+        <% @comments.each do |comment| %>
         <table>
             <tr>
                 <th rowspan="3">
-                    <%= attachment_image_tag(post_comment.user, :image, size: "100x100", fallback: "no_image.png", class:"otherComment__image") %>
+                    <%= attachment_image_tag(comment.user, :image, size: "100x100", fallback: "no_image.png", class:"otherComment__image") %>
                 </th>
-                <td><%= link_to post_comment.user.name, user_path(post_comment.user) ,class:"otherComment__name" %>
-                    <%= post_comment.created_at.strftime("%Y-%m-%d") %>
+                <td><%= link_to comment.user.name, user_path(comment.user) ,class:"otherComment__name" %>
+                    <%= comment.created_at.strftime("%Y-%m-%d") %>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p class="otherComment__body"><%= post_comment.comment %></p>
+                    <p class="otherComment__body"><%= comment.comment %></p>
                 </td>
             </tr>
         </table>

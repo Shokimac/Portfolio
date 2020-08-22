@@ -4,6 +4,14 @@
 
 @import "./user_variable.scss";
 
+.newProverb {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
+    }
+}
+
 .showProverb {
     @include background();
 
@@ -98,5 +106,13 @@
 
     &__button--bookmark {
         @include create-button(#e77b16,#d61515,#1a1322)
+    }
+}
+
+.editProverb {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
     }
 }

@@ -1,18 +1,22 @@
-<h1>格言編集</h1>
-<div class="row">
+<div class="editProverb">
 
-<%= form_with model:@proverb do |f| %>
-<%= f.label :body, "格言" %>
-<%= f.text_field :body%>
+    <h1 class="editProverb__section">格言編集</h1>
 
-<%= f.label :name, "誰の格言か" %>
-<%= f.text_field :name %>
+    <div class="input">
+    
+    <%= form_with model:@proverb do |f| %>
+    <%= f.label :body, "格言", class:"input__label" %>
+    <%= f.text_field :body, class:"input__form" %>
 
-<%= f.label :introduction, "格言に対してのコメント" %>
-<%= f.text_area :introduction %>
+    <%= f.label :name, "誰の格言か", class:"input__label" %>
+    <%= f.text_field :name, class:"input__form" %>
 
-<%= f.submit "更新する" %>
+    <%= f.label :introduction, "格言に対してのコメント", class:"input__label" %>
+    <%= f.text_area :introduction, class:"input__form" %>
 
-<% end %>
+    <%= f.submit "更新する", class:"input__button" %>
+
+    <% end %>
+    </div>
 
 </div>
