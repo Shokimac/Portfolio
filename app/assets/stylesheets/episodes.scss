@@ -4,20 +4,95 @@
 
 @import "./user_variable";
 
-.episode {
+.indexEpisode {
     @include background();
-    &__title {
+    &__section {
+        @include parts-position(10%, 50%);
+    }
+}
+
+.favorite {
+    @include parts-position(50%, 20%);
+
+    &__section {
+        font-size: 24px;
+    }
+
+    &__episode {
+        margin-right: 30px;
+    }
+
+    &__row {
+        margin: 14px;
     }
 }
 
 .timeline {
-}
-
-.favorite {
-}
-
-.timeline {
+    @include parts-position(60%, 50%);
 }
 
 .userProfile {
+    @include parts-position(50%, 85%);
+
+    &__image {
+        margin: 10px;
+    }
+
+    &__name {
+        margin: 10px;
+    }
+
+    &__button {
+        @include create-button(#1619e7,#27dacb,#222124)
+    }
+
+    &__button--edit {
+        @include create-button(#1be608,#76ce3b,#1a1322)
+    }
+
+    &__button--bookmark {
+        @include create-button(#e77b16,#d61515,#1a1322)
+    }
+}
+
+.newEpisode {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
+    }
+}
+
+.showEpisode {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
+    }
+
+}
+
+.leftSide {
+    @include parts-position(40%, 15%);
+}
+
+.rightSide {
+    @include parts-position(40%, 65%);
+    width: fit-content;
+
+    &__button {
+        @include create-button(#3cd42e, #41c09a, #44474b);
+    }
+
+    &__button--delete {
+        @include create-button(#348373, #846252, #871112)
+    }
+}
+
+.editEpisode {
+    @include background();
+
+    &__section {
+        @include parts-position(10%, 50%);
+    }
 }

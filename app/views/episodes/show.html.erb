@@ -1,38 +1,25 @@
-<div class="row">
+<div class="showEpisode">
 
-        <div>
-                <h1>エピソード詳細</h1>
+        <h1 class="showEpisode__section">エピソード詳細</h1>
+
+        <div class="leftSide">
+                <p class="leftSide__section">ユーザー名： <%= @user.name %> </p>
+                <%= attachment_image_tag(@user, :image, size: "300x250", fallback: "no_image.png", class:"leftSide__image") %>
         </div>
 
-        <div class="col-xs-4">
-                <p>ユーザー名： <%= @user.name %> </p>
-                <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png") %><br>
-        </div>
+        <div class="rightSide">
+                <p class="rightSide__subject">タイトル： <%= @episode.title %> </p>
+                <p class="rightSide__body">内容： <%= @episode.body %></p>
 
-        <div class="col-xs-8">
-
-                <div>
-                        <p>タイトル： <%= @episode.title %> </p>
-                        <p>内容： <%= @episode.body %> </p>
+                <div id="episode__favoritesButton" class="rightSide__favorite">
+                        <%= render partial: 'episode_favorites/favorite', locals: { episode: @episode} %>
+                </div>
+                <div class="episode__bookmarksButton">
+                        <%= render partial: 'episode_bookmarks/bookmark', locals: { episode: @episode} %>
                 </div>
 
-                <div id="episode__favoritesButton">
-                <%= render partial: 'episode_favorites/favorite', locals: { episode: @episode} %>
-                </div>
-                
-        </div>
+                <%= link_to "編集する", edit_episode_path(@episode), class:"rightSide__button" %>
+                <%= link_to "削除する", @episode_path, method: :delete, class:"rightSide__button--delete" %>
 
-        <div class="episode__bookmarksButton">
-                <%= render partial: 'episode_bookmarks/bookmark', locals: { episode: @episode} %>
         </div>
-
-        <div>
-                <%= link_to "編集する", episode_path(@episode) %>
-        </div>
-
-        <div>
-                <%= link_to "削除する", @episode_path, method: :delete %>
-        </div>
-
-</div>
 </div>
