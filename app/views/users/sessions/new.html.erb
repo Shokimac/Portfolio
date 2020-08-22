@@ -1,33 +1,35 @@
-  <div class="center-block"
-    style="width: 256px; text-align: center; background-color: #EEFFFF; border: 1px solid gray;">
+<div class="sign">
 
-    <h2>ログイン</h2>
+  <h2 class="sign__title">ログイン</h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+  <h3 class="sign__body">
+    いとをかしに登録している方は、下記からログインしてください。<br>
+    まだ登録していない方は <%= link_to "こちらから登録", new_registration_path(resource_name) %> してください。
+  </h3>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+  <div class="input">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.label :email, class:"input__label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input__form" %>
+
+
+    <%= f.label :password, class:"input__label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"input__form" %>
+
 
     <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+    <%= f.check_box :remember_me, class:"input__label" %>
+    <%= f.label :remember_me, class:"input__form" %>
     <% end %>
 
-    <div class="actions">
-      <%= f.submit "ログイン" %>
-    </div>
+    <%= f.submit "ログイン", class:"input__button" %>
     <% end %>
-
-    <%= render "users/shared/links" %>
   </div>
 
-  <%=  link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:google_oauth2) %>
-  
+  <p class="sign__loginNavi">Googleアカウントをお持ちの方はこちらから</p>
+
+  <%=  link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:google_oauth2), class:"sign__google" %>
+
+
+</div>

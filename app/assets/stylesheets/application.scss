@@ -82,7 +82,7 @@
   }
 }
 
-.signup {
+.sign {
   @include background();
 
   &__title {
@@ -90,8 +90,9 @@
     border-bottom: solid 2px black;
   }
 
-  &__button {
-    @include create-button(#fd9535, #d27d00, #627295);
+  &__body {
+    @include parts-position(20%, 50%);
+    text-align: center;
   }
 
   &__loginNavi {
@@ -115,6 +116,10 @@
   &__button--google {
     @include parts-position(90%, 50%);
   }
+
+  &__google {
+    @include parts-position(75%, 50%);
+  }
 }
 
 .input {
@@ -130,6 +135,10 @@
   &__form {
     width: 100%;
     margin: 15px;
+  }
+
+  &__button {
+    @include create-button(#fd9535, #d27d00, #627295);
   }
 }
 

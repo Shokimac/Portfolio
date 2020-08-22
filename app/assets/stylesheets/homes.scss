@@ -45,7 +45,8 @@
     &__title {
         @include center-position(30%, 50%);
         text-align: center;
-        color: #b9fa2a;
+        color: #111;
+        font-family: sans-serif;
     }
 
     &__login {
