@@ -47,7 +47,11 @@ Rails.application.routes.draw do
     resource :proverb_bookmarks, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
   end
-  get '/search' => 'searches#search'
+  
+  resources :searches, only: :index
+  collection do
+    get 'search'
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

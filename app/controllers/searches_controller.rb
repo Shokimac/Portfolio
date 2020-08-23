@@ -1,12 +1,8 @@
 class SearchesController < ApplicationController
   def search
-    @range = params[:range]
-    @word = params[:word]
-
-    if @range == '1'
-      @episodes = Episode.search(@word)
-    else
-      @proverbs = Proverb.search(@word)
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 end
