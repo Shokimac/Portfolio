@@ -37,6 +37,18 @@ class EpisodesController < ApplicationController
     redirect_to episodes_path
   end
 
+  def search
+  end
+
+  def result
+    @word = params[:title]
+    @results = Episode.search(@word)
+    respond_to do |format|
+      format.html
+      format.json { render json: @results }
+    end
+  end
+
   private
 
   def episode_params

@@ -6,7 +6,7 @@ class Proverb < ApplicationRecord
     has_many :proverb_bookmarks, dependent: :destroy
 
     def self.search(word)
-        @proverbs = Proverb.where('body Like ?', "%#{word}%")
+        @proverbs = Proverb.where('name Like ?', "%#{word}%")
       end
 
     def favorited_by?(user)
