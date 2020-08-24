@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'inquiries/new'
+  get 'inquiry/inquiry'
   namespace :admins do
     get 'tops/top'
   end
@@ -53,7 +55,12 @@ Rails.application.routes.draw do
     resource :proverb_bookmarks, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
   end
+
   get '/search' => 'searches#search', defaults: { format: :json }
+
+  resource :inquiries, only: %i[new create]
+
+  get '/search' => 'searches#search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
