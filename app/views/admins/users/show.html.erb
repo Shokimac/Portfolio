@@ -1,2 +1,12 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+<div class="profile">
+<h1 class="profile__section"><%= @user.name %> さんのプロフィール</h1>
+
+<%= attachment_image_tag(@user, :image, size: "300x300", fallback: "no_image.png", class:"profile__image") %>
+
+<p class="profile__name">ユーザー名：<%= @user.name %></p>
+
+<p class="profile__label">自己紹介文</p>
+
+<p class="profile__introduction"><%= @user.introduction %></p>
+
+</div>

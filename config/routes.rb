@@ -23,13 +23,12 @@ Rails.application.routes.draw do
                omniauth_callbacks: 'users/omniauth_callbacks'
              }
   namespace :admins do
-    resources :users, only: %i[show edit update] do
-      get '/withdrawal' => 'users#withdrawal'
-      patch '/withdrawal' => 'users#withdrawal_update'
-      put '/withdrawal' => 'users#withdrawal_update'
+    resources :users, only: %i[index show edit update] do
+      patch '/withdrawal' => 'users#withdrawal'
+      put '/withdrawal' => 'users#withdrawal'
     end
     resources :dropped_letters, only: %i[index create edit update destroy]
-    resources :episodes, only: %i[show]
+    resources :episodes, only: %i[show destroy]
     resources :proverbs, only: %i[show]
     get '/top' => 'tops#top'
     get '/search' => 'searches#search'

@@ -3,7 +3,7 @@ class CreateEpisodes < ActiveRecord::Migration[5.2]
     create_table :episodes do |t|
       t.integer :user_id, default: 0, null: false
       t.string :title, null: false, default: ""
-      t.text :body, null: false, default: ""
+      t.text :body, null: false
 
       t.timestamps
     end

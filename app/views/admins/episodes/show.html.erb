@@ -1,2 +1,21 @@
-<h1>Admins::Episodes#show</h1>
-<p>Find me in app/views/admins/episodes/show.html.erb</p>
+<div class="episode">
+
+    <h1 class="episode__section">エピソード詳細</h1>
+
+
+    <p class="episode__userName">ユーザー名： <%= @user.name %> </p>
+    <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png", class:"episode__userImage") %>
+
+    <p class="episode__label">タイトル：</p>
+    <p class="episode__label--body">内容：</p>
+
+    <p class="episode__title"><%= @episode.title %></p>
+    <p class="episode__body"><%= @episode.body %></p>
+
+    <p class="episode__favorite">いいね件数： <%= @episode.episode_favorites.count %> </p>
+    <p class="episode__bookmark">お気に入り件数： <%= @episode.episode_bookmarks.count %> </p>
+
+
+    <%= link_to "削除する", admins_episode_path(@episode), method: :delete, class:"episode__deleteButton" %>
+
+</div>

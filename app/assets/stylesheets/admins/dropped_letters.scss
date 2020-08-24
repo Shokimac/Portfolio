@@ -1,3 +1,51 @@
 // Place all the styles related to the admins/dropped_letters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./admin_variable.scss";
+
+.letter {
+    @include background();
+
+    &__section {
+        @include parts-position(20%, 50%);
+    }
+}
+
+.createLetter {
+    @include parts-position(35%, 15%);
+}
+
+.letterTable {
+    @include tableSet(70%);
+    @include parts-position(35%, 65%);
+
+    &__line {
+        @include trSet();
+    }
+
+    &__label {
+        @include thSet();
+    }
+
+    &__body {
+        @include tdSet();
+    }
+}
+
+.editLetter {
+    @include background();
+    
+    &__section {
+        @include parts-position(20%, 50%);
+    }
+
+    &__form {
+        @include parts-position(40%, 50%);
+    }
+
+    &__button {
+        @include parts-position(50%, 50%);
+        @include create-button(#19e634, #40c97d, #313631);
+    }
+}

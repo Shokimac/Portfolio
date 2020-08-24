@@ -1,2 +1,32 @@
-<h1>Episodes#index</h1>
-<p>Find me in app/views/episodes/index.html.erb</p>
+<div class="episode">
+    <h1 class="episode__title">みんなのエピソード</h1>
+
+    <div class="favorite">
+        <p class="favorite__title"><%= @user.name %> さんのエピソードに<br>ついた いいね件数</p>
+        <% @user_episodes.each do |episode| %>
+        <%= link_to episode.title, episode_path(episode), class:"favorite__episode" %>
+        <%= episode.episode_favorites.count %>
+        <% end %>
+    </div>
+
+    <div class="timeline">
+        <% @episodes.each do |episode| %>
+        <div class="episodeBlock">
+            <%= attachment_image_tag(episode.user, :image, size: "200x150", fallback: "no_image.png", class:"episodeBlock__image") %>
+            <%= link_to episode.user.name, user_path(episode.user) ,class:"episodeBlock__name" %>
+            <%= link_to episode.title, episode_path(episode) , class:"episodeBlock__title" %>
+            <%= episode.updated_at.strftime("%Y-%m-%d") %>
+        </div>
+        <% end %>
+    </div>
+
+    <div class="userProfile">
+        <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png", class:"userProfile__image") %>
+        <p class="userProfile__name">ニックネーム：<%= @user.name %></p>
+        <%= link_to "エピソード投稿", new_episode_path, class:"userProfile__button" %>
+        <%= link_to "プロフィール編集", edit_user_path(current_user), class:"userProfile__button--green" %>
+        <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"userProfile__button--orange" %>
+    </div>
+
+    <%= paginate @episodes %>
+</div>

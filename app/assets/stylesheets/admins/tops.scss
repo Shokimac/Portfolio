@@ -1,3 +1,42 @@
 // Place all the styles related to the admins/tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "./admin_variable.scss";
+
+
+.adminTop {
+    @include background();
+
+    &__title--episode {
+        @include parts-position(10%, 30%);
+    }
+
+    &__title--proverb {
+        @include parts-position(10%, 60%);
+    }
+}
+
+.episodeBlock {
+    @include parts-position(40%, 30%);
+
+    &__name {
+        margin: 0 20px;
+    }
+
+    &__title {
+        margin: 0 20px;
+    }
+}
+
+.proverbBlock {
+    @include parts-position(35%, 60%);
+
+    &__name {
+        margin: 0 20px;
+    }
+
+    &__title {
+        margin: 0 20px;
+    }
+}
