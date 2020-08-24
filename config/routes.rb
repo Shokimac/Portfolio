@@ -38,6 +38,10 @@ Rails.application.routes.draw do
     put '/withdrawal' => 'users#withdrawal_update'
     resources :bookmarks, only: %i[index]
   end
+
+  get '/episodes/search' => 'episodes#search'
+  get '/episodes/result' => 'episodes#result', defaults: { format: :json }
+
   resources :episodes do
     resource :episode_favorites, only: %i[create destroy]
     resource :episode_bookmarks, only: %i[create destroy]
@@ -47,11 +51,7 @@ Rails.application.routes.draw do
     resource :proverb_bookmarks, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
   end
-  
-  resources :searches, only: :index
-  collection do
-    get 'search'
-  end
+  get '/search' => 'searches#search', defaults: { format: :json }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

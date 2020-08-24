@@ -1,0 +1,8 @@
+<div class="search">
+<%= text_field_tag :title, :'', id:'searching-form', placeholder:'検索', autocomplete:'on', class:"js-text_field" %>
+
+<ul class="js-results">
+<%= render partial: 'result', collection: @results %>
+</ul>
+
+</div>
