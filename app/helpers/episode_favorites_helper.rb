@@ -1,0 +1,2 @@
+module EpisodeFavoritesHelper
+end

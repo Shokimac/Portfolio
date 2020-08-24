@@ -41,12 +41,12 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i[index]
   end
   resources :episodes do
-    resource :favorites, only: %i[create destroy]
-    resource :bookmarks, only: %i[create destroy]
+    resource :episode_favorites, only: %i[create destroy]
+    resource :episode_bookmarks, only: %i[create destroy]
   end
   resources :proverbs do
-    resource :favorites, only: %i[create destroy]
-    resource :bookmarks, only: %i[create destroy]
+    resource :proverb_favorites, only: %i[create destroy]
+    resource :proverb_bookmarks, only: %i[create destroy]
     resources :post_comments, only: %i[create destroy]
   end
 

@@ -1,8 +1,8 @@
-<div class="signup">
+<div class="sign">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <h1 class="signup__title">新規会員登録</h1>
+  <h1 class="sign__title">新規会員登録</h1>
 
   <div class="input">
     <%= f.label :name, "ニックネーム", class:"input__label" %>
@@ -17,13 +17,19 @@
     <%= f.label :password_confirmation, "パスワード確認入力", class:"input__label" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input__form" %>
 
-    <%= f.submit "Sign up", class:"signup__button" %>
+    <%= f.submit "Sign up", class:"input__button" %>
   </div>
 
-  <p class="signup__loginNavi">会員の方はこちらから</p>
+  <p class="sign__loginNavi">会員の方はこちらから</p>
 
-  <%= render "users/shared/links" %>
+  <%= link_to "Log in", new_session_path(resource_name), class:"sign__button--blue" %><br />
 
+  <p class="sign__loginNavi--google">Googleアカウントをお持ちの方はこちら</p>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+  <%= link_to omniauth_authorize_path(resource_name, provider), class:"sign__button--google" do %>
+  <%= image_tag 'google.png', size:"200x50" , class:"sign__google" %>
+  <% end %>
+  <% end %>
   <% end %>
 
 </div>

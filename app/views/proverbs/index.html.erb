@@ -1,2 +1,51 @@
-<h1>Proverbs#index</h1>
-<p>Find me in app/views/proverbs/index.html.erb</p>
+<div class="indexProverb">
+
+    <h1 class="indexProverb__section">みんなの格言</h1>
+
+    <div class="rank">
+        <h3 class="rank__section">いいねランキング</h3>
+        <% @all_rank.each.with_index(1) do |rank, i| %>
+        <% if i == 1 %>
+        <div class="rank__row">
+            King： <%= rank.name %> の格言<br>
+            <%= link_to rank.user.name, user_path(rank.user) %> いいね件数： <%= rank.proverb_favorites.count %> 件
+        </div>
+        <% else %>
+        <div class="rank__row">
+            第<%= i %>位： <%= rank.name %> の格言<br>
+            <%= link_to rank.user.name, user_path(rank.user) %> いいね件数： <%= rank.proverb_favorites.count %> 件
+        </div>
+        <% end %>
+        <% end %>
+    </div>
+
+    <div class="timeline">
+        <% @proverbs.each do |proverb| %>
+        <table>
+            <tr>
+                <th rowspan="3">
+                    <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"timeline__image") %>
+                </th>
+                <td>
+                    <%= link_to proverb.user.name, user_path(proverb), class:"timeline__name" %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= link_to "#{proverb.name} の格言", proverb_path(proverb), class:"timeline__body" %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <%= paginate @proverbs %>
+    </div>
+
+    <div class="userProfile">
+        <%= attachment_image_tag(@user, :image, size: "250x250", fallback: "no_image.png", class:"userProfile__image") %>
+        <p class="userProfile__name">ニックネーム： <%= @user.name %> </p>
+        <%= link_to "格言投稿", new_proverb_path, class:"userProfile__button" %>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class:"userProfile__button--edit" %>
+        <%= link_to "お気に入り一覧", user_bookmarks_path(@user), class:"userProfile__button--bookmark" %>
+    </div>
+
+</div>
