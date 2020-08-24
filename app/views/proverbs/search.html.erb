@@ -1,0 +1,8 @@
+<div class="proverbSearch">
+<%= text_field_tag :name, :'', placeholder:'検索', autocomplete:'on', class:"proverbSearch__form" %>
+
+<ul class="proverbResult">
+<%= render partial: 'result', collection: @results %>
+</ul>
+
+</div>

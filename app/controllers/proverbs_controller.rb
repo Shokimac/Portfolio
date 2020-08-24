@@ -39,6 +39,18 @@ class ProverbsController < ApplicationController
     redirect_to proverbs_path
   end
 
+  def search
+  end
+
+  def result
+    @word = params[:name]
+    @results = Proverb.search(@word)
+    respond_to do |format|
+      format.html
+      format.json { render json: @results }
+    end
+  end
+
   private
 
   def proverb_params

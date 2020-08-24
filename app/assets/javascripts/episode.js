@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-    $('.js-text_field').on('keyup', function () {
+    $('.episodeSearch__form').on('keyup', function () {
         var title = $.trim($(this).val());
 
         $.ajax({
@@ -12,11 +12,11 @@ $(document).on('turbolinks:load', function () {
             })
 
             .done(function (data) {
-                $('.js-results li').remove();
+                $('.episodeResult li').remove();
 
                 $(data).each(function (i, result) {
-                    $('.js-results').append(
-                        `<li class="result"><a href="/episodes/${result.id}">${result.title}</a></li>`
+                    $('.episodeResult').append(
+                        `<li class="episodeResult__list"><a href="/episodes/${result.id}">${result.title}</a></li>`
                     );
                 });
             })

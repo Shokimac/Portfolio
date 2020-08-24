@@ -44,6 +44,7 @@ class EpisodesController < ApplicationController
     @word = params[:title]
     @results = Episode.search(@word)
     respond_to do |format|
+      format.html
       format.json { render json: @results }
     end
   end
