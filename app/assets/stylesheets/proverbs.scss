@@ -5,114 +5,113 @@
 @import "./user_variable.scss";
 
 .newProverb {
-    @include background();
+
 
     &__section {
-        @include parts-position(10%, 50%);
-    }
+
+        }
 }
 
 .showProverb {
-    @include background();
+
 
     &__section {
-        @include parts-position(20%, 50%);
+
     }
 
     &__body {
-        @include parts-position(30%, 50%);
+
     }
 
     &__label {
-        @include parts-position(40%, 30%);
+
     }
 
     &__personalComment {
-        @include parts-position(50%, 30%);
+
     }
 
     &__label--otherComment {
-        @include parts-position(40%, 70%);
+
     }
     
     &__favoriteButton {
-        @include parts-position(60%, 30%);
+
     }
 
     &__bookmarkButton {
-        @include parts-position(70%, 30%);
+
     }
 
     &__deleteButton {
-        @include create-button(#d61515, #e77b16, #1a1322);
-        @include parts-position(80%, 50%);
+
     }
 
 }
 .otherComment {
-    @include parts-position(50%, 70%);
+
 
     &__name {
-        margin: 0 20px;
+
     }
 
     &__body {
-        text-align: center;
+
     }
 } 
 
 .indexProverb {
-    @include background();
+
 
     &__section {
-        @include parts-position(10%, 50%);
+
     }
 }
 
 .rank {
-    @include parts-position(50%, 20%);
+
 
     &__section {
-        font-size: 24px;
+
     }
 
     &__row {
-        margin: 14px;
+
     }
 }
 
 .timeline {
-    @include parts-position(60%, 50%);
+
 }
 
 .userProfile {
-    @include parts-position(50%, 85%);
+
 
     &__image {
-        margin: 10px;
+
     }
 
     &__name {
-        margin: 10px;
+
     }
 
     &__button {
-        @include create-button(#1619e7,#27dacb,#222124)
+
     }
 
     &__button--edit {
-        @include create-button(#1be608,#76ce3b,#1a1322)
+
     }
 
     &__button--bookmark {
-        @include create-button(#e77b16,#d61515,#1a1322)
+
     }
 }
 
 .editProverb {
-    @include background();
+
 
     &__section {
-        @include parts-position(10%, 50%);
+
     }
 }

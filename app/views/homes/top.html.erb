@@ -1,13 +1,9 @@
 <div class="topSection">
     <div class="top">
         <h1 class="top__title">
-            Welcome to いとをかし
+            「いとをかし」へ ようこそ
         </h1>
         <p class="top__subtitle">いとをかしは、就寝前の今日１日を振り返る時に訪問していただくサービスです。</p>
-        <div class="buttonGroup">
-            <%= link_to "ログインはこちら", new_user_session_path, class:"buttonGroup__login" %>
-            <%= link_to "新規登録はこちら", new_user_registration_path, class:"buttonGroup__signup" %>
-        </div>
     </div>
 </div>
 <div class="detailSection">
@@ -43,6 +39,9 @@
             <h2>是非、あなたのエピソードを教えてください。</h2>
             <h3>Let's join us! We are waiting for you!</h3>
         </div>
-        <div class="bottom__button">ログインする</div>
+        <div class="buttonGroup">
+            <%= link_to "ログインはこちら", new_user_session_path, class:"buttonGroup__login" %>
+            <%= link_to "新規登録はこちら", new_user_registration_path, class:"buttonGroup__signup" %>
+        </div>
     </div>
 </div>

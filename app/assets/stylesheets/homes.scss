@@ -2,57 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@mixin top {
+@import "./user_variable";
+
+.topSection {
     padding-top: 250px;
     padding-bottom: 200px;
     color: orangered;
     background-color: rgba(255, 255, 255, 0.3);
     background-blend-mode: lighten;
     text-align: center;
-}
-
-@mixin background {
-    width: 1170px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 0 auto;
-}
-
-@mixin center-position($top, $left) {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: $top;
-    left: $left;
-}
-
-@mixin button {
-    display: inline-block;
-    margin: 10px 5px;
-    max-width: 200px;
-    text-align: left;
-    border: 2px solid #9ec34b;
-    font-size: 16px;
-    color: #9ec34b;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 24px;
-    border-radius: 4px;
-    transition: .4s;
-
-    &:hover {
-        background-color: #9ec34b;
-        border-color: #cbe585;
-        color: #FFF;
-    }
-}
-
-.topSection {
-    @include top();
 
 }
 
 .top {
-    @include background;
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
 
     &__title {
         opacity: 0.7;
@@ -63,7 +29,8 @@
 
     &__subtitle {
         opacity: 0.7;
-        margin-bottom: 15px;
+        margin: 15px;
+        padding-top: 15px;
     }
 }
 
@@ -72,18 +39,19 @@
     margin-bottom: 20px;
 
     &__login {
-        @include button;
+        @include button-fade;
     }
 
     &__signup {
-        @include button;
+        @include button-fade;
     }
 }
 
 .detailSection {
     background-color: #f7f7f7;
     text-align: center;
-    height: 670px;
+    padding-bottom: 100px;
+    height: 700px;
 }
 
 .detail {
@@ -100,6 +68,7 @@
 .sideLeft {
     float: left;
     width: 50%;
+    padding-top: 60px;
 }
 
 .sideRight {
@@ -117,103 +86,31 @@
 }
 
 .bottom {
-    @include background();
+    @include container();
 
     &__text {
         padding-top: 60px;
         padding-bottom: 30px;
         color: #5f5d60;
     }
-
-    &__button {
-        background-color: #5dca88;
-        padding: 15px 40px;
-        cursor: pointer;
-        box-shadow: 0 7px #1a7940;
-        width: fit-content;
-        color: white;
-        display: inline-block;
-        opacity: 0.8;
-        border-radius: 4px;
-
-        &:active {
-            box-shadow: none;
-            position: relative;
-            top: 7px;
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-.about {
-    @include background();
-
-    &__title {
-        @include center-position(10%, 15%);
-        text-align: center;
-        font-size: 45px;
-    }
-
-    &__body {
-        @include center-position(50%, 25%)
-    }
-
-    &__image {
-        @include center-position(50%, 75%);
-        width: 50%;
-        height: 100vh;
-        background-image: url(kumachan.jpg);
-    }
-
-    &__login {
-        @include center-position(90%, 15%);
-        @include button;
-    }
-
-    &__signup {
-        @include center-position(90%, 30%);
-        @include button;
-    }
-}
-
-span {
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 35px;
 }
 
 .letter {
-    @include background();
 
     &__title {
-        @include center-position(20%, 50%);
         text-align: center;
         font-size: 45px;
     }
 
     &__body {
-        @include center-position(45%, 50%);
         font-size: 40px;
         text-align: center;
     }
 
     &__login {
-        @include center-position(65%, 40%);
-        @include button;
     }
 
     &__signup {
-        @include center-position(65%, 60%);
-        @include button;
     }
 
 }

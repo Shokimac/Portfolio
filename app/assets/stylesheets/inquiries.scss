@@ -5,9 +5,7 @@
 @import "./user_variable";
 
 .inquiry {
-    @include background();
 
     &__section {
-        @include parts-position(20%, 50%);
     }
 }

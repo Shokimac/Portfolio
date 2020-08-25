@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     get 'tops/top'
   end
   root 'homes#top'
-  get '/about' => 'homes#about'
   get '/dropped_letter' => 'homes#letter'
   get '/contact' => 'contacts#contact'
 
