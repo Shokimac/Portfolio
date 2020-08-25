@@ -14,9 +14,9 @@ class ProverbsController < ApplicationController
   end
 
   def index
-    @proverbs = Proverb.all.page(params[:page]).reverse_order
+    @proverbs = Proverb.all.includes(:user).page(params[:page]).reverse_order
     @user = User.find(current_user.id)
-    @all_rank = Proverb.all.sort {|a,b| b.proverb_favorites.count <=> a.proverb_favorites.count}
+    @all_rank = Proverb.all.includes(:user).sort {|a,b| b.proverb_favorites.count <=> a.proverb_favorites.count}
   end
 
   def show

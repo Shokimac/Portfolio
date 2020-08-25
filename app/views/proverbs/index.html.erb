@@ -4,7 +4,7 @@
 
     <div class="rank">
         <h3 class="rank__section">いいねランキング</h3>
-        <% @all_rank.each.with_index(1) do |rank, i| %>
+        <% @all_rank.first(5).each.with_index(1) do |rank, i| %>
         <% if i == 1 %>
         <div class="rank__row">
             King： <%= rank.name %> の格言<br>

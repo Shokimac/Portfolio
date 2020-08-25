@@ -15,8 +15,8 @@ class EpisodesController < ApplicationController
   end
 
   def index
-    @episodes = Episode.page(params[:page]).reverse_order
-    @user_episodes = Episode.where(user_id: current_user.id).page(params[:page]).reverse_order
+    @episodes = Episode.eager_load(:user).page(params[:page]).reverse_order
+    @user_episodes = Episode.preload(:user).where(user_id: current_user.id).page(params[:page]).reverse_order
     @user = User.find(current_user.id)
   end
 

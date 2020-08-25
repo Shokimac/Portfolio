@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def index
-    @episodes = EpisodeBookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
-    @proverbs = ProverbBookmark.where(user_id: current_user.id).page(params[:page]).reverse_order
+    @episodes = EpisodeBookmark.includes(:user).where(user_id: current_user.id).page(params[:page]).reverse_order
+    @proverbs = ProverbBookmark.includes(:user).where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 end
