@@ -14,19 +14,19 @@
  *= require_self
  */
 
- @import "./user_variable";
+@import "./user_variable";
 
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family:"Hiragino Kaku Gothic ProN"
+  font-family: "Hiragino Kaku Gothic ProN"
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -36,7 +36,7 @@ header {
 
 .headerArea {
   display: flex;
-  align-items: center;  
+  align-items: center;
   @include container();
 
   &__logo {
@@ -62,68 +62,94 @@ header {
   }
 }
 
-.sign {
+.signup {
+  @include container();
 
-  &__title {
+  &__section {
+    @include section();
   }
 
-  &__body {
+  &__nav {
+    font-size: 20px;
+    margin-top: 10px;
   }
 
-  &__loginNavi {
+  &__button {
+    @include button-fade(#2288e7, #3ca5e2);
   }
 
-  &__button--blue {
+  &__button--login {
+    @include button-fade(#1cd31c, #57d380);
+    margin-top: 10px;
   }
 
   &__loginNavi--google {
+    font-size: 20px;
+    margin-top: 10px;
   }
 
   &__button--google {
-
-  }
-
-  &__google {
-
-
+    margin-top: 20px;
   }
 }
 
 .input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
 
   &__label {
+    font-size: 18px;
     font-weight: bold;
   }
 
   &__form {
-    width: 100%;
-    margin: 15px;
+    font: 15px/24px sans-serif;
+    box-sizing: border-box;
+    width: 60%;
+    padding: 0.3em;
+    margin: 1em 0;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    border: 2px solid #1b2538;
+    border-radius: 4px;
+  }
+}
+
+.signin {
+  @include container();
+
+  &__section {
+    @include section();
+  }
+
+  &__nav {
+    font-weight: bold;
+    margin-bottom: 20px;
   }
 
   &__button {
+    @include button-fade(#2288e7, #3ca5e2);
+    margin: 30px;
+  }
+
+  &__nav--google {
+    font-weight: bold;
+    margin: 20px 0;
   }
 }
 
 footer {
-  padding-top: 30px;
+  @include container();
 }
 
-.footerNavi {
-  &__inquiry {
-    float: right;
-  }
+.inquiry {
+  float: right;
 }
 
 
 
 .adminLogin {
 
-  &__title {
-  }
+  &__title {}
 
-  &__button {
-  }
+  &__button {}
 }

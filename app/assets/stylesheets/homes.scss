@@ -39,11 +39,11 @@
     margin-bottom: 20px;
 
     &__login {
-        @include button-fade;
+        @include button-fade(#9ec34b, #cbe585);
     }
 
     &__signup {
-        @include button-fade;
+        @include button-fade(#9ec34b, #cbe585);
     }
 }
 

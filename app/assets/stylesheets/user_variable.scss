@@ -4,16 +4,23 @@
     padding-right:15px;
     padding-left: 15px;
     margin: 0 auto;
+    text-align: center;
 }
 
-@mixin button-fade {
+@mixin section {
+    margin: 60px auto;
+    border-bottom: 2px solid #78bae6;
+    font-size: 20px;
+}
+
+@mixin button-fade($mainColor, $borderColor) {
     display: inline-block;
     margin: 10px 5px;
     max-width: 200px;
     text-align: left;
-    border: 2px solid #9ec34b;
+    border: 2px solid $mainColor;
     font-size: 16px;
-    color: #9ec34b;
+    color: $mainColor;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 24px;
@@ -21,8 +28,8 @@
     transition: .4s;
 
     &:hover {
-        background-color: #9ec34b;
-        border-color: #cbe585;
+        background-color: $mainColor;
+        border-color: $borderColor;
         color: #FFF;
     }
 }

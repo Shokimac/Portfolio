@@ -1,33 +1,43 @@
-<div class="sign">
+<div class="signup">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <h1 class="sign__title">新規会員登録</h1>
-
-  <div class="input">
-    <%= f.label :name, "ニックネーム", class:"input__label" %>
-    <%= f.text_field :name, autofocus: true, class:"input__form" %>
-
-    <%= f.label :email, "メールアドレス", class:"input__label" %>
-    <%= f.email_field :email, class:"input__form" %>
-
-    <%= f.label :password, "パスワード (#{@minimum_password_length}桁以上)", class:"input__label"%>
-    <%= f.password_field :password, autocomplete: "new-password", class:"input__form" %>
-
-    <%= f.label :password_confirmation, "パスワード確認入力", class:"input__label" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input__form" %>
-
-    <%= f.submit "Sign up", class:"input__button" %>
+  <div class="signup__section">
+    <h1>新規会員登録</h1>
   </div>
 
-  <p class="sign__loginNavi">会員の方はこちらから</p>
+  <div class="input">
+    <%= f.label :name, "ニックネーム", class:"input__label" %><br>
+    <%= f.text_field :name, autofocus: true, class:"input__form" %>
+  </div>
 
-  <%= link_to "Log in", new_session_path(resource_name), class:"sign__button--blue" %><br />
+  <div class="input">
+    <%= f.label :email, "メールアドレス", class:"input__label" %><br>
+    <%= f.email_field :email, class:"input__form" %>
+  </div>
 
-  <p class="sign__loginNavi--google">Googleアカウントをお持ちの方はこちら</p>
+  <div class="input">
+    <%= f.label :password, "パスワード (#{@minimum_password_length}桁以上)", class:"input__label"%><br>
+    <%= f.password_field :password, autocomplete: "new-password", class:"input__form" %>
+  </div>
+
+  <div class="input">
+    <%= f.label :password_confirmation, "パスワード確認入力", class:"input__label" %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input__form" %>
+  </div>
+
+  <%= f.submit "登録", class:"signup__button" %>
+
+  <div class="signup__nav">
+    <p>会員の方はこちらから</p>
+  </div>
+
+  <%= link_to "ログイン", new_session_path(resource_name), class:"signup__button--login" %><br />
+
+  <p class="signup__loginNavi--google">Googleアカウントをお持ちの方はこちら</p>
   <%- resource_class.omniauth_providers.each do |provider| %>
-  <%= link_to omniauth_authorize_path(resource_name, provider), class:"sign__button--google" do %>
-  <%= image_tag 'google.png', size:"200x50" , class:"sign__google" %>
+  <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+  <%= image_tag 'google.png', size:"200x50" , class:"signup__button--google" %>
   <% end %>
   <% end %>
   <% end %>
