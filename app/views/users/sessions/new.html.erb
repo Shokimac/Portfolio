@@ -29,9 +29,8 @@
 
   <p class="sign__loginNavi">Googleアカウントをお持ちの方はこちらから</p>
 
-  <%=  link_to user_google_oauth2_omniauth_authorize_path(:google_oauth2) do %>
+  <%=  link_to user_google_oauth2_omniauth_authorize_path do %>
   <%= image_tag 'google.png', size:"200x50" , class:"sign__google" %>
   <% end %>
-
 
 </div>
