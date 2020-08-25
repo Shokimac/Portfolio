@@ -16,30 +16,7 @@
     <div class="header__logo"></div>
     <div class="header__nav">
       <ul>
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to " マイページ", user_path(current_user) %>
-        </li>
-        <li>
-          <%= link_to " エピソード", episodes_path %>
-        </li>
-        <li>
-          <%= link_to " 格言", proverbs_path %>
-        </li>
-        <li>
-          <%= link_to(" ログアウト", destroy_user_session_path, { method: :delete ,class: "glyphicon glyphicon-log-out"}) %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to " いとをかしとは", about_path %>
-        </li>
-        <li>
-          <%= link_to " ログイン", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to " 新規登録", new_user_registration_path %>
-        </li>
-        <% end %>
+        <%= render 'layouts/header' %>
       </ul>
     </div>
     <div class="header__search">

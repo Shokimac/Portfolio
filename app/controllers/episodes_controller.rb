@@ -6,8 +6,12 @@ class EpisodesController < ApplicationController
   def create
     @episode = Episode.new(episode_params)
     @episode.user_id = current_user.id
-    @episode.save
-    redirect_to episode_path(@episode)
+    if @episode.save
+      redirect_to episode_path(@episode), notice: "エピソードを投稿しました"
+    else
+      @episode.errors.full_messages
+      render :new
+    end
   end
 
   def index
@@ -37,8 +41,7 @@ class EpisodesController < ApplicationController
     redirect_to episodes_path
   end
 
-  def search
-  end
+  def search; end
 
   def result
     @word = params[:title]
@@ -54,5 +57,4 @@ class EpisodesController < ApplicationController
   def episode_params
     params.require(:episode).permit(:title, :body)
   end
-
 end

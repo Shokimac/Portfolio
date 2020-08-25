@@ -5,9 +5,14 @@ class Admins::DroppedLettersController < ApplicationController
   end
 
   def create
-    @letter = DroppedLetter.new(letter_params)
-    @letter.save
-    redirect_to admins_dropped_letters_path
+    @new_letter = DroppedLetter.new(letter_params)
+    if @new_letter.save
+    redirect_to admins_dropped_letters_path, notice:"投稿に成功しました。"
+    else
+      @new_letter.errors.full_messages
+      @letters = DroppedLetter.all.page(params[:page]).reverse_order
+      render :index
+    end
   end
 
   def edit

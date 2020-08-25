@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+<li>
+    <%= link_to " マイページ", user_path(current_user) %>
+</li>
+<li>
+    <%= link_to " エピソード", episodes_path %>
+</li>
+<li>
+    <%= link_to " 格言", proverbs_path %>
+</li>
+<li>
+    <%= link_to " ログアウト", destroy_user_session_path, method: :delete %>
+</li>
+<% elsif admin_signed_in? %>
+<li>
+    <%= link_to " TOP", admins_tops_top_path %>
+</li>
+<li>
+    <%= link_to " 利用者一覧", admins_users_path %>
+</li>
+<li>
+    <%= link_to " 天狗の落とし文", admins_dropped_letters_path %>
+</li>
+<li>
+    <%= link_to " ログアウト", destroy_admin_session_path,  method: :delete %>
+</li>
+<% else %>
+<li>
+    <%= link_to " いとをかしとは", about_path %>
+</li>
+<li>
+    <%= link_to " ログイン", new_user_session_path %>
+</li>
+<li>
+    <%= link_to " 新規登録", new_user_registration_path %>
+</li>
+<% end %>

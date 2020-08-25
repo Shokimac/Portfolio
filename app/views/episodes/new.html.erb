@@ -1,17 +1,25 @@
 <div class="newEpisode">
 
-    <h1 class="newEpisode__section">格言投稿</h1>
+    <h1 class="newEpisode__section">エピソード投稿</h1>
+
+    <% if @episode.errors.any? %>
+		<div>
+			<h3><%= @episode.errors.count %>つのエラーが発生しました。</h3>
+			<ul>
+				<% @episode.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
     <div class="input">
-        <%= form_with model:@episode do |f| %>
-        <%= f.label :body, "格言", class:"input__label" %>
-        <%= f.text_field :body, placeholder:"格言を入力してください", class:"input__form" %>
+        <%= form_with model:@episode, local: true do |f| %>
+        <%= f.label :title, "タイトル", class:"input__label" %>
+        <%= f.text_field :title, placeholder:"タイトルを入力してください", class:"input__form" %>
 
-        <%= f.label :name, "誰の格言か", class:"input__label" %>
-        <%= f.text_field :name, placeholder:"格言主を入力してください", class:"input__form" %>
-
-        <%= f.label :introduction, "格言に対してのコメント", class:"input__label" %>
-        <%= f.text_area :introduction, placeholder:"この格言に対するあなたの印象を入力してください", class:"input__form" %>
+        <%= f.label :body, "内容", class:"input__label" %>
+        <%= f.text_field :body, placeholder:"エピソードの内容を入力してください", class:"input__form" %>
 
         <%= f.submit "投稿する", class:"input__button" %>
 
