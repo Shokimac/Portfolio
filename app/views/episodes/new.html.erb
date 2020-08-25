@@ -2,19 +2,11 @@
 
     <h1 class="newEpisode__section">エピソード投稿</h1>
 
-    <% if @episode.errors.any? %>
-		<div>
-			<h3><%= @episode.errors.count %>つのエラーが発生しました。</h3>
-			<ul>
-				<% @episode.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
     <div class="input">
         <%= form_with model:@episode, local: true do |f| %>
+        
+        <%= render 'layouts/error_message', model: f.object %>
+
         <%= f.label :title, "タイトル", class:"input__label" %>
         <%= f.text_field :title, placeholder:"タイトルを入力してください", class:"input__form" %>
 

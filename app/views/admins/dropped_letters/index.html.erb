@@ -2,20 +2,13 @@
     <h1 class="letter__section">落とし文一覧</h1>
 
     <div class="createLetter">
-    <% if @new_letter.errors.any? %>
-		<div>
-			<h3><%= @new_letter.errors.count %>つのエラーが発生しました</h3>
-			<ul>
-				<% @new_letter.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
         <p class="createLetter__label">新規投稿</p>
         <%= form_with model:@new_letter, url:admins_dropped_letters_path, local: true  do |f| %>
+        <%= render 'layouts/error_message', model: f.object %>
+
         <%= f.text_area :body, class:"createLetter__form" %><br>
         <%= f.submit "投稿", class:"createLetter__button" %>
+
         <% end %>
     </div>
 

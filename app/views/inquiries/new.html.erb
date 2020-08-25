@@ -2,6 +2,8 @@
 
 <%= form_with model:@inquiry, url:inquiries_path, method: :post, local: true do |f| %>
 
+<%= render 'layouts/error_message', model: f.object %>
+
 <%= f.label :name, "お名前" %>
 <%= f.text_field :name %>
 
