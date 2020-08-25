@@ -6,8 +6,11 @@ class ProverbsController < ApplicationController
   def create
     @proverb = Proverb.new(proverb_params)
     @proverb.user_id = current_user.id
-    @proverb.save
+    if @proverb.save
     redirect_to proverbs_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -29,8 +32,11 @@ class ProverbsController < ApplicationController
 
   def update
     @proverb = Proverb.find(params[:id])
-    @proverb.update(proverb_params)
+    if @proverb.update(proverb_params)
     redirect_to proverb_path(@proverb)
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -5,6 +5,10 @@ class Proverb < ApplicationRecord
     has_many :proverb_favorites, dependent: :destroy
     has_many :proverb_bookmarks, dependent: :destroy
 
+    validates :name, presence: true
+    validates :body, presence: true
+    validates :introduction, presence: true
+
     def self.search(word)
         @proverbs = Proverb.where('name Like ?', "%#{word}%")
       end

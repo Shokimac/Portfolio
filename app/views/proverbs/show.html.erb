@@ -41,8 +41,9 @@
         </table>
         <% end %>
     </div>
-
-    <%= link_to "削除する", admins_proverb_path(@proverb), method: :delete, class:"proverb__deleteButton" %>
-
+    <% if current_user == @proverb.user || admin_signed_in? %>
+    <%= link_to "編集する", edit_proverb_path(@proverb), class:"proverb__button" %>
+    <%= link_to "削除する", proverb_path(@proverb), method: :delete, class:"proverb__button--delete" %>
+    <% end %>
 
 </div>

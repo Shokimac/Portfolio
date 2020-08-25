@@ -3,7 +3,9 @@
     <h1 class="newProverb__section">格言投稿</h1>
 
     <div class="input">
-        <%= form_with model:@proverb do |f| %>
+        <%= form_with model:@proverb, local: true do |f| %>
+        <%= render 'layouts/error_message', model: f.object %>
+
         <%= f.label :body, "格言", class:"input__label" %>
         <%= f.text_field :body, placeholder:"格言を入力してください", class:"input__form" %>
 
