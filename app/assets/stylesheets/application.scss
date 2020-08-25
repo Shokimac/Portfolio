@@ -14,10 +14,13 @@
  *= require_self
  */
 
+ 
+
 @mixin background {
-  width: 100%;
-  height: 100vh;
-  position: relative;
+  width:1170px;
+  padding-right:15px;
+  padding-left: 15px;
+  margin: 0 auto;
 }
 
 @mixin parts-position($top, $left) {
@@ -56,21 +59,28 @@
   box-sizing: border-box;
 }
 
-main {
-  margin-right: 15%;
-  margin-left: 15%;
+body {
+  font-family:"Hiragino Kaku Gothic ProN"
 }
 
-.header {
-  display: flex;
-  align-items: center;
+a{
+  text-decoration: none;
+}
+
+header {
   background-color: #45B6ED;
+}
+
+.headerArea {
+  @include background();
+  display: flex;
+  align-items: center;  
 
   &__logo {
     display: flex;
     width: 100px;
     height: 100px;
-    background-image: url(image-path("logo.png"));
+    background-image: image-url("logo.png");
     background-size: cover;
     margin-left: 5%;
   }
@@ -150,12 +160,17 @@ main {
   }
 }
 
+footer {
+  padding-top: 30px;
+}
+
 .footerNavi {
-  height: fit-content;
+  @include background();
   &__inquiry {
     float: right;
   }
 }
+
 
 
 .adminLogin {
