@@ -1,6 +1,8 @@
 <div class="indexEpisode">
     <h1 class="indexEpisode__section">みんなのエピソード</h1>
 
+    <%= link_to "エピソード検索", episodes_search_path %>
+
     <div class="favorite">
         <h3 class="favorite__seciton"><%= @user.name %> さんのエピソードに<br>ついた いいね件数</h3>
         <% @user_episodes.each do |episode| %>
@@ -9,8 +11,6 @@
             <%= link_to episode.title, episode_path(episode) %> 
             <%= episode.episode_favorites.count %> 件
         </div>
-
-
         <% end %>
     </div>
 

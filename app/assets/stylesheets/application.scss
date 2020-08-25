@@ -56,10 +56,16 @@
   box-sizing: border-box;
 }
 
+main {
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
 .header {
   display: flex;
   align-items: center;
   background-color: #45B6ED;
+
   &__logo {
     display: flex;
     width: 100px;
@@ -144,9 +150,13 @@
   }
 }
 
-.inquiry {
-  float: right;
+.footerNavi {
+  height: fit-content;
+  &__inquiry {
+    float: right;
+  }
 }
+
 
 .adminLogin {
   @include background();
