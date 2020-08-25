@@ -1,15 +1,21 @@
 <div class="inquiry">
 
+<div class="inquiry__section">
+<h1>お問い合わせ</h1>
+</div>
+
+<div class="input">
 <%= form_with model:@inquiry, url:inquiries_path, method: :post, local: true do |f| %>
 
 <%= render 'layouts/error_message', model: f.object %>
 
-<%= f.label :name, "お名前" %>
-<%= f.text_field :name %>
+<%= f.label :name, "お名前", class:"input__label" %>
+<%= f.text_field :name, class:"input__form" %>
 
-<%= f.label :message, "お問い合わせ内容" %>
-<%= f.text_area :message %>
+<%= f.label :message, "お問い合わせ内容", class:"input__label" %>
+<%= f.text_area :message, class:"input__form" %>
 
-<%= f.submit "送信" %>
+<%= f.submit "送信", class:"input__button" %>
 
 <% end %>
+</div>
