@@ -1,4 +1,7 @@
 class EpisodesController < ApplicationController
+
+  before_action :ensure_correct_user, only: [:edit, :update]
+
   def new
     @episode = Episode.new
   end
@@ -59,5 +62,13 @@ class EpisodesController < ApplicationController
 
   def episode_params
     params.require(:episode).permit(:title, :body)
+  end
+
+  def ensure_correct_user
+    episode = Episode.find(params[:id])
+    user = User.find(episode.user_id)
+    unless user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 end

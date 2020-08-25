@@ -1,4 +1,7 @@
 class ProverbsController < ApplicationController
+
+  before_action :ensure_correct_user, only: [:edit, :update]
+
   def new
     @proverb = Proverb.new
   end
@@ -61,5 +64,13 @@ class ProverbsController < ApplicationController
 
   def proverb_params
     params.require(:proverb).permit(:body, :name, :introduction)
+  end
+
+  def ensure_correct_user
+    proverb = Proverb.find(params[:id])
+    user = User.find(proverb.user_id)
+    unless user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 end
