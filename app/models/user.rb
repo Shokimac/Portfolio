@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :proverb_bookmarks, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
+  validates :name, presence: true
+  validates :introduction, presence: true
+
   protected
   # 以下を追加
     def self.from_omniauth(access_token)

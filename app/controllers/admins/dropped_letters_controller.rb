@@ -1,4 +1,7 @@
 class Admins::DroppedLettersController < ApplicationController
+  
+  before_action :authenticate_admin!
+
   def index
     @new_letter = DroppedLetter.new
     @letters = DroppedLetter.all.page(params[:page]).reverse_order

@@ -1,8 +1,9 @@
 <div class="profile">
-    <%= form_with model: @user, url: user_path(@user.id) do |f| %>
+    <%= form_with model: @user, url: user_path(@user.id), local: true do |f| %>
     <div class="profile__title">
         プロフィール編集
     </div>
+
     <div class="leftSide">
         <div class="leftSide__image">
             <%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png", id:"img1") %><br>
@@ -11,6 +12,7 @@
     </div>
 
     <div class="rightSide">
+    <%= render 'layouts/error_message', model: f.object %>
         <div class="itemBox">
             <div class="itemBox__subject">
                 <%= f.label :name, "ユーザー名" %>

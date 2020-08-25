@@ -5,6 +5,7 @@
         <h3 class="favorite__seciton"><%= @user.name %> さんのエピソードに<br>ついた いいね件数</h3>
         <% @user_episodes.each do |episode| %>
         <div class="favorite__row">
+        <%= episode.created_at.strftime("%Y-%m-%d %H:%M")  %> 更新
             <%= link_to episode.title, episode_path(episode) %> 
             <%= episode.episode_favorites.count %> 件
         </div>
