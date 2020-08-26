@@ -1,13 +1,13 @@
 <div class="episodeSearch">
 
-<div class="episodeSearch__section">
-<h1>エピソード検索</h1>
-</div>
+    <div class="episodeSearch__section">
+        <h1>エピソード検索</h1>
+    </div>
 
-<%= text_field_tag :title, :'', placeholder:'検索', autocomplete:'on', class:"episodeSearch__form" %>
+    <%= text_field_tag :title, :'', placeholder:'検索', autocomplete:'on', class:"episodeSearch__form" %>
 
-<ul class="episodeResult">
-<%= render partial: 'result', collection: @results %>
-</ul>
+    <ul class="episodeResult">
+        <%= render partial: 'result', collection: @results %>
+    </ul>
 
 </div>

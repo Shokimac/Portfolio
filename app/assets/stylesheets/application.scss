@@ -14,13 +14,14 @@
  *= require_self
  */
 
-@import "./user_variable";
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+@import "./user_variable";
+
 
 body {
   font-family: "Hiragino Kaku Gothic ProN"
@@ -64,6 +65,13 @@ li {
     margin-right: 5%;
     margin-left: 2%;
   }
+}
+
+.mainArea {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .signup {
@@ -121,6 +129,52 @@ li {
   &__nav--google {
     font-weight: bold;
     margin: 20px 0;
+  }
+}
+
+.timeline {
+
+  &__name {
+      margin: 0 0.5em;
+  }
+
+  &__body {
+      margin: 0 0.5em;
+  }
+
+  &__page {
+      margin-top: 1em;
+  }
+
+}
+
+.userProfile {
+  margin: 0 30px;
+
+  &__image {
+  }
+
+  &__name {
+      margin: 0.5em 0;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #000000;
+  }
+
+  &__button {
+      @include button-fade(#2288e7, #3ca5e2);
+  }
+
+  &__button--search {
+      @include button-fade(#8f2eeb, #cd93ee);
+  }
+
+  &__button--edit {
+      @include button-fade(#9ec34b, #cbe585);
+  }
+
+  &__button--bookmark {
+      @include button-fade(#d8691f, #e7b26c);
   }
 }
 

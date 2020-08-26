@@ -1,16 +1,11 @@
 <div class="showProverb">
-    <h1 class="showProverb__section"> <%= @proverb.name %> の格言</h1>
-
-    <h2 class="showProverb__body"><%= @proverb.body %></h2>
-
-    <p class="showProverb__label">
-        この言葉を投稿した <%= link_to @proverb.user.name, user_path(@proverb.user_id) %> さんのコメント
-    </p>
-
-    <div class="showProverb__personalComment">
-        <%= @proverb.introduction %>
+    <div class="showProverb__section">
+        <h1> <%= @proverb.name %> の格言</h1>
     </div>
 
+    <div class="showProverb__body">
+        <h2><%= @proverb.body %></h2>
+    </div>
 
     <div class="showProverb__favoriteButton">
         <%= render partial: 'proverb_favorites/favorite', locals: {proverb: @proverb} %>
@@ -20,30 +15,46 @@
         <%= render partial: 'proverb_bookmarks/bookmark', locals: { proverb: @proverb} %>
     </div>
 
-    <p class="showProverb__label--otherComment">みんなのコメント</p>
-    
-    <div class="otherComment">
-        <% @comments.each do |comment| %>
-        <table>
-            <tr>
-                <th rowspan="3">
-                    <%= attachment_image_tag(comment.user, :image, size: "100x100", fallback: "no_image.png", class:"otherComment__image") %>
-                </th>
-                <td><%= link_to comment.user.name, user_path(comment.user) ,class:"otherComment__name" %>
-                    <%= comment.created_at.strftime("%Y-%m-%d") %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p class="otherComment__body"><%= comment.comment %></p>
-                </td>
-            </tr>
-        </table>
-        <% end %>
-    </div>
-    <% if current_user == @proverb.user || admin_signed_in? %>
-    <%= link_to "編集する", edit_proverb_path(@proverb), class:"proverb__button" %>
-    <%= link_to "削除する", proverb_path(@proverb), method: :delete, class:"proverb__button--delete" %>
-    <% end %>
 
+    <div class="mainArea">
+
+        <div class="personalComment">
+            <div class="personalComment__label">
+                <p>この言葉を投稿した <%= link_to @proverb.user.name, user_path(@proverb.user_id) %> さんのコメント</p>
+            </div>
+
+            <div class="personalComment__comment">
+                <%= @proverb.introduction %>
+            </div>
+        </div>
+
+        <div class="userComment">
+            <p class="userComment__label">みんなのコメント</p>
+
+            <div class="Comment">
+                <% @comments.each do |comment| %>
+                <table>
+                    <tr>
+                        <th rowspan="3">
+                            <%= attachment_image_tag(comment.user, :image, size: "100x100", fallback: "no_image.png", class:"otherComment__image") %>
+                        </th>
+                        <td><%= link_to comment.user.name, user_path(comment.user) ,class:"otherComment__name" %>
+                            <%= comment.created_at.strftime("%Y-%m-%d") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="otherComment__body"><%= comment.comment %></p>
+                        </td>
+                    </tr>
+                </table>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <% if current_user == @proverb.user || admin_signed_in? %>
+    <%= link_to "編集する", edit_proverb_path(@proverb), class:"showProverb__button" %>
+    <%= link_to "削除する", proverb_path(@proverb), method: :delete, class:"showProverb__button--delete" %>
+    <% end %>
 </div>

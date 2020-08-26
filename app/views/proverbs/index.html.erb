@@ -1,19 +1,27 @@
 <div class="indexProverb">
+    <div class="indexProverb__section">
+        <h1>みんなの格言</h1>
+    </div>
+</div>
 
-    <h1 class="indexProverb__section">みんなの格言</h1>
+<div class="mainArea">
 
     <div class="rank">
-        <h3 class="rank__section">いいねランキング</h3>
+        <div class="rank__section">
+            <h3>いいねランキング</h3>
+        </div>
         <% @all_rank.first(5).each.with_index(1) do |rank, i| %>
         <% if i == 1 %>
         <div class="rank__row">
-            King： <%= rank.name %> の格言<br>
-            <%= link_to rank.user.name, user_path(rank.user) %> いいね件数： <%= rank.proverb_favorites.count %> 件
+            King<br>
+            <%= link_to "#{rank.name} の格言", proverb_path(rank) %> / <%= link_to rank.user.name, user_path(rank.user) %><br>
+            いいね件数： <%= rank.proverb_favorites.count %> 件
         </div>
         <% else %>
         <div class="rank__row">
-            第<%= i %>位： <%= rank.name %> の格言<br>
-            <%= link_to rank.user.name, user_path(rank.user) %> いいね件数： <%= rank.proverb_favorites.count %> 件
+            第<%= i %>位<br>
+            <%= link_to "#{rank.name} の格言", proverb_path(rank) %> / <%= link_to rank.user.name, user_path(rank.user) %><br>
+            いいね件数： <%= rank.proverb_favorites.count %> 件
         </div>
         <% end %>
         <% end %>
@@ -37,15 +45,17 @@
             </tr>
             <% end %>
         </table>
+        <div class="timeline__page">
         <%= paginate @proverbs %>
+        </div>
     </div>
 
     <div class="userProfile">
         <%= attachment_image_tag(@user, :image, size: "250x250", fallback: "no_image.png", class:"userProfile__image") %>
         <p class="userProfile__name">ニックネーム： <%= @user.name %> </p>
-        <%= link_to "格言投稿", new_proverb_path, class:"userProfile__button" %>
-        <%= link_to "プロフィール編集", edit_user_path(@user), class:"userProfile__button--edit" %>
-        <%= link_to "お気に入り一覧", user_bookmarks_path(@user), class:"userProfile__button--bookmark" %>
+        <%= link_to "格言投稿", new_proverb_path, class:"userProfile__button" %><br>
+        <%= link_to "格言検索", proverbs_search_path, class:"userProfile__button--search" %><br>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class:"userProfile__button--edit" %><br>
+        <%= link_to "お気に入り一覧", user_bookmarks_path(@user), class:"userProfile__button--bookmark" %><br>
     </div>
-
 </div>

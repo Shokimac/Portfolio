@@ -1,14 +1,11 @@
+いいね
 <% if proverb.favorited_by?(current_user) %>
-<li>
     <%= link_to proverb_proverb_favorites_path(proverb), method: :delete, remote: true do %>
     <i class="fas fa-heart"></i>
     <% end %>
-</li>
 <% else %>
-<li>
     <%= link_to proverb_proverb_favorites_path(proverb), method: :post, remote: true do %>
     <i class="far fa-heart"></i>
     <% end %>
-</li>
 <% end %>
-<p>いいね件数： <%= proverb.proverb_favorites.count %> </p>
+<%= proverb.proverb_favorites.count %>

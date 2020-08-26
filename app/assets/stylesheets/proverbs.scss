@@ -4,114 +4,139 @@
 
 @import "./user_variable.scss";
 
-.newProverb {
-
-
-    &__section {
-
-        }
-}
-
-.showProverb {
-
-
-    &__section {
-
-    }
-
-    &__body {
-
-    }
-
-    &__label {
-
-    }
-
-    &__personalComment {
-
-    }
-
-    &__label--otherComment {
-
-    }
-    
-    &__favoriteButton {
-
-    }
-
-    &__bookmarkButton {
-
-    }
-
-    &__deleteButton {
-
-    }
-
-}
-.otherComment {
-
-
-    &__name {
-
-    }
-
-    &__body {
-
-    }
-} 
-
 .indexProverb {
+    width: 1170px;
+    margin: 0 auto;
+    text-align: center;
 
-
-    &__section {
-
+        &__section {
+            @include section();
     }
 }
 
 .rank {
-
+    margin: 0 10px;
+    text-align: center;
+    font-size: 15px;
 
     &__section {
-
+        margin-bottom: 1em;
     }
 
     &__row {
-
+        line-height: 2em;
     }
 }
 
-.timeline {
+.newProverb {
+    @include container();
 
-}
-
-.userProfile {
-
-
-    &__image {
-
-    }
-
-    &__name {
-
+    &__section {
+        @include section();
     }
 
     &__button {
-
+        @include button-fade(#2288e7, #3ca5e2);
+        margin-top: 2em;
     }
 
-    &__button--edit {
+}
 
+.showProverb {
+    @include container();
+
+    &__section {
+        @include section();
     }
 
-    &__button--bookmark {
+    &__body {
+        text-align: center;
+        margin: 2em 0;
+        font-size: 1.7em;
+    }
 
+    &__favoriteButton {
+        margin: 0.5em 0;
+        font-weight: bold;
+    }
+
+    &__bookmarkButton {
+        margin-top: 0.5em;
+        margin-bottom: 1.5em;
+        font-weight: bold;
+    }
+
+    &__button {
+        @include button-fade(#9ec34b, #cbe585);
+    }
+
+    &__button--delete {
+        @include button-fade(#e74949, #ee9f7a);
+    }
+}
+
+.personalComment {
+    margin: 0 auto;
+
+    &__label {
+        margin-bottom: 2em;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    &__comment {
+        height: 200px;
+    }
+}
+
+.userComment {
+    margin: 0 auto;
+
+    &__label {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 2em;
     }
 }
 
 .editProverb {
-
+    @include container();
 
     &__section {
+        @include section();
+    }
 
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+        margin-top: 2em;
+    }
+}
+
+.proverbSearch {
+    @include container();
+
+    &__section {
+        @include section();
+    }
+
+    &__form {
+        font: 15px/24px sans-serif;
+        box-sizing: border-box;
+        width: 60%;
+        padding: 0.3em;
+        margin: 1em 0;
+        transition: 0.3s;
+        letter-spacing: 1px;
+        border: 2px solid #1b2538;
+        border-radius: 4px;
+    }
+}
+
+.proverbResult {
+    margin: 1em;
+
+    &__list {
+        margin: 1.5em 0;
+        font-size: 1.5em;
     }
 }

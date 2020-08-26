@@ -1,14 +1,11 @@
+お気に入り
 <% if proverb.bookmarked_by?(current_user) %>
-<li>
     <%= link_to proverb_proverb_bookmarks_path(proverb), method: :delete, remote: true do %>
     <i class="fas fa-bookmark"></i>
     <% end %>
-</li>
 <% else %>
-<li>
     <%= link_to proverb_proverb_bookmarks_path(proverb), method: :post, remote: true do %>
     <i class="far fa-bookmark"></i>
     <% end %>
-</li>
 <% end %>
-<p>お気に入り件数： <%= proverb.proverb_bookmarks.count %> </p>
+<%= proverb.proverb_bookmarks.count %>

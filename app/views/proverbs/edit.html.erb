@@ -1,24 +1,28 @@
 <div class="editProverb">
 
-    <h1 class="editProverb__section">格言編集</h1>
+    <div class="editProverb__section">
+        <h1>格言編集</h1>
+    </div>
 
-    <div class="input">
-    
+
     <%= form_with model:@proverb, local: true do |f| %>
     <%= render 'layouts/error_message', model: f.object %>
-    
-    <%= f.label :body, "格言", class:"input__label" %>
-    <%= f.text_field :body, class:"input__form" %>
 
-    <%= f.label :name, "誰の格言か", class:"input__label" %>
-    <%= f.text_field :name, class:"input__form" %>
-
-    <%= f.label :introduction, "格言に対してのコメント", class:"input__label" %>
-    <%= f.text_area :introduction, class:"input__form" %>
-
-    <%= f.submit "更新する", class:"input__button" %>
-
-    <% end %>
+    <div class="input">
+        <%= f.label :body, "格言", class:"input__label" %><br>
+        <%= f.text_field :body, class:"input__form" %>
     </div>
+    <div class="input">
+        <%= f.label :name, "誰の格言か", class:"input__label" %><br>
+        <%= f.text_field :name, class:"input__form" %>
+    </div>
+
+    <div class="input">
+        <%= f.label :introduction, "格言に対してのコメント", class:"input__label" %><br>
+        <%= f.text_area :introduction, class:"input__form--area" %>
+    </div>
+
+    <%= f.submit "更新する", class:"editProverb__button" %>
+    <% end %>
 
 </div>
