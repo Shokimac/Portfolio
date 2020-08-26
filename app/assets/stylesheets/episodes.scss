@@ -147,9 +147,43 @@
 }
 
 .editEpisode {
-
+    @include container();
 
     &__section {
+        @include section();
+    }
 
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+        margin-top: 2em;
+    }
+}
+
+.episodeSearch {
+    @include container();
+
+    &__section {
+        @include section();
+    }
+
+    &__form {
+        font: 15px/24px sans-serif;
+        box-sizing: border-box;
+        width: 60%;
+        padding: 0.3em;
+        margin: 1em 0;
+        transition: 0.3s;
+        letter-spacing: 1px;
+        border: 2px solid #1b2538;
+        border-radius: 4px;
+    }
+}
+
+.episodeResult {
+    margin: 1em;
+
+    &__list {
+        margin: 1.5em 0;
+        font-size: 1.5em;
     }
 }

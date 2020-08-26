@@ -34,7 +34,7 @@
                         </div>
 
                         <%= link_to "編集する", edit_episode_path(@episode), class:"rightSide__button" %>
-                        <%= link_to "削除する", @episode_path, method: :delete, class:"rightSide__button--delete" %>
+                        <%= link_to "削除する", @episode_path, method: :delete, data: {confirm: "削除しますか??"}, class:"rightSide__button--delete" %>
                 </div>
         </div>
 </div>
