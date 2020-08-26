@@ -4,52 +4,125 @@
 
 @import "./user_variable";
 
-.profile {
-    text-align: center;
+.showUser {
+    @include container();
+    margin: 0 auto;
 
-    &__title {
-        margin: 15px;
-        font-size: xx-large;
-    }
-
-    &__introductionTitle {
-        margin: 10px;
-        font-size: 30px;
-    }
-
-    &__introduction {
-        margin: 10px;
-        font-size: 25px;
-    }
-
-    &__button {
-
-    }
-
-    &__button--bookmark {
-
+    &__section {
+        @include section();
     }
 }
 
-.itemBox {
-    display: flex;
-    margin: 30px auto;
+.profile {
+    margin: 0 30px;
+    text-align: center;
+    font-size: 16px;
 
-    &__subject {
-        margin-right: 50px;
+    &__image {
+        margin-top: 3em;
     }
 
-    &__subject--rightMarginSmall {
-        margin-right: 25px;
+    &__section {
+        font-weight: bold;
+        margin: 1.5em;
     }
 
-    &__form {
-        margin: 0 20px;
+    &__introduction {
+        height: fit-content;
     }
 
     &__button {
-        color: #fff;
-        background-color: #28a745;
-        border-color: #28a745;
+        @include button-fade(#9ec34b, #cbe585);
+    }
+
+    &__button--bookmark {
+        @include button-fade(#d8691f, #e7b26c);
+    }
+}
+
+.userEpisode {
+    text-align: center;
+    
+    &__section {
+        margin-bottom: 1.5em;
+    }
+
+    &__time {
+        font-size: 1em;
+        margin: 1.5em;
+    }
+
+    &__title {
+        font-size: 1.1em;
+        margin-bottom: 1.5em;
+    }
+}
+
+.userProverb {
+    text-align: center;
+    
+    &__section {
+        margin-bottom: 1.5em;
+    }
+
+    &__time {
+        font-size: 1em;
+        margin: 1.5em;
+    }
+
+    &__title {
+        font-size: 1.1em;
+        margin-bottom: 1.5em;
+    }
+}
+
+.editProfile {
+    @include container();
+
+    &__section {
+        @include section();
+    }
+
+    &__image {
+        margin: 1.5em;
+    }
+
+    &__label {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__email {
+        font-size: 1.3em;
+        margin: 1.2em 0;
+    }
+
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+    }
+
+    &__button--edit {
+        @include button-fade(#9ec34b, #cbe585);
+    }
+
+    &__button--delete {
+        @include button-fade(#e74949, #ee9f7a);
+    }
+}
+
+.withdrawal {
+    @include container();
+
+    &__nav {
+        margin: 60px auto;
+        font-size: 20px;
+    }
+
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+    }
+
+    &__button--delete {
+        @include button-fade(#e74949, #ee9f7a);
     }
 }

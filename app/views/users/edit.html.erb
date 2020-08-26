@@ -1,51 +1,33 @@
-<div class="profile">
+<div class="editProfile">
+    <div class="editProfile__section">
+        <h1>プロフィール編集</h1>
+    </div>
+
     <%= form_with model: @user, url: user_path(@user.id), local: true do |f| %>
-    <div class="profile__title">
-        プロフィール編集
-    </div>
-
-    <div class="leftSide">
-        <div class="leftSide__image">
-            <%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png", id:"img1") %><br>
-            <%= f.attachment_field :image, id:"myfile" %>
-        </div>
-    </div>
-
-    <div class="rightSide">
     <%= render 'layouts/error_message', model: f.object %>
-        <div class="itemBox">
-            <div class="itemBox__subject">
-                <%= f.label :name, "ユーザー名" %>
-            </div>
-            <div class="itemBox__form">
-                <%= f.text_field :name %><br>
-            </div>
-        </div>
-        <div class="itemBox">
-            <div class="itemBox__subject--rightMarginSmall">
-                <%= f.label :email, "メールアドレス" %>
-            </div>
-            <div class="itemBox__form">
-                <%= @user.email %>
-            </div>
 
-            <%= link_to "パスワード変更", edit_user_registration_path, class:"itemBox__button" %>
-
-        </div>
-        <div class="itemBox">
-            <div class="itemBox__subject">
-                <%= f.label :introduction, "自己紹介文" %>
-            </div>
-            <div class="itemBox__form">
-                <%= f.text_area :introduction %>
-            </div>
-        </div>
-
-        <%= f.submit "更新", class: "rightSide__button" %>
-
-        <div class="rightSide__button--red">
-            <%= link_to "退会する", user_withdrawal_path(@user.id) %>
-        </div>
+    <div class="editProfile__image">
+        <%= attachment_image_tag(@user, :image, size: "400x300", fallback: "no_image.png", id:"img1") %><br>
+        <%= f.attachment_field :image, id:"myfile" %>
     </div>
+
+    <div class="input">
+        <%= f.label :name, "ユーザー名", class:"input__label" %><br>
+        <%= f.text_field :name, class:"input__form"  %><br>
+    </div>
+
+    <%= f.label :email, "メールアドレス", class:"editProfile__label" %><br>
+    <div class="editProfile__email">
+        <%= @user.email %>
+    </div>
+
+    <div class="input">
+        <%= f.label :introduction, "自己紹介文", class:"input__label" %><br>
+        <%= f.text_area :introduction, class:"input__form--area" %>
+    </div>
+
+    <%= f.submit "更新", class: "editProfile__button" %><br>
+    <%= link_to "パスワード変更", edit_user_registration_path, class:"editProfile__button--edit" %><br>
+    <%= link_to "退会する", user_withdrawal_path(@user.id), class:"editProfile__button--delete" %>
     <% end %>
 </div>

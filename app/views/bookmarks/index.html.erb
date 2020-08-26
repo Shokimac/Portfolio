@@ -10,26 +10,26 @@
                 <h2>みんなのエピソード</h2>
             </div>
 
-            <% @episodes.each do |episode| %>
+            <% @episodeBookmarks.each do |bookmark| %>
             <table>
                 <tr>
                     <th rowspan="3">
-                        <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBookmarks__image") %>
+                        <%= attachment_image_tag(bookmark.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBookmarks__image") %>
                     </th>
                     <td>
-                        <%= link_to episode.user.name, user_path(episode.user) ,class:"episodeBookmarks__name" %>
-                        <%= episode.updated_at.strftime("%Y-%m-%d") %>
+                        <%= link_to bookmark.user.name, user_path(bookmark.user) ,class:"episodeBookmarks__name" %>
+                        <%= bookmark.updated_at.strftime("%Y-%m-%d %H:%M") %>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <%= link_to episode.episode.title, episode_path(episode.episode) , class:"episodeBookmarks__body" %>
+                        <%= link_to bookmark.episode.title, episode_path(bookmark.episode) , class:"episodeBookmarks__body" %>
                     </td>
                 </tr>
             </table>
             <% end %>
             <div class="episodeBookmarks__page">
-                <%= paginate @episodes %>
+                <%= paginate @episodeBookmarks %>
             </div>
         </div>
 
@@ -38,26 +38,26 @@
 
         <div class="proverbBookmarks">
             <h2 class="proverbBookmarks__section">みんなの格言</h2>
-            <% @proverbs.each do |proverb| %>
+            <% @proverbBookmarks.each do |bookmark| %>
             <table>
                 <tr>
                     <th rowspan="3">
-                        <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBookmarks__image") %>
+                        <%= attachment_image_tag(bookmark.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBookmarks__image") %>
                     </th>
                     <td>
-                        <%= link_to proverb.user.name, user_path(proverb.user) ,class:"proverbBookmarks__name" %>
-                        <%= proverb.updated_at.strftime("%Y-%m-%d") %>
+                        <%= link_to bookmark.user.name, user_path(bookmark.user) ,class:"proverbBookmarks__name" %>
+                        <%= bookmark.updated_at.strftime("%Y-%m-%d %H:%M") %>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <%= link_to "#{proverb.proverb.name} の言葉", proverb_path(proverb.proverb) , class:"proverbBookmarks__body" %>
+                        <%= link_to "#{bookmark.proverb.name} の言葉", proverb_path(bookmark.proverb) , class:"proverbBookmarks__body" %>
                     </td>
                 </tr>
             </table>
             <% end %>
             <div class="proverbBookmarks__page">
-            <%= paginate @proverbs %>
+            <%= paginate @proverbBookmarks %>
             </div>
         </div>
     </div>

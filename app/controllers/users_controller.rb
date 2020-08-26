@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @episodes = Episode.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
+    @proverbs = Proverb.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
   end
 
   def edit
@@ -24,9 +26,10 @@ class UsersController < ApplicationController
   end
 
   def withdrawal_update
-        @user = current_user
-        @user.delete_flg = true
-        @user.save
+    @user = current_user
+    @user.delete_flg = true
+    @user.save
+    binding.pry
         redirect_to destroy_user_session_path
   end
 

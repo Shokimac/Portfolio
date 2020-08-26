@@ -7,36 +7,31 @@
 
 
 .userIndex {
-    @include background();
+
 
     &__section {
-        @include parts-position(10%, 50%);
+
     }
 
     &__table {
-        @include tableSet(80%);
-        @include parts-position(35%, 50%);
+
     }
 
     &__line {
-        @include trSet();
+
     }
 
     &__label {
-        @include thSet();
+
     }
 
     &__body {
-        @include tdSet();
+
     }
 }
 
-.profile {
-    @include background();
-}
-
 .letter {
-    @include background();
+
 
     &__section {}
 
