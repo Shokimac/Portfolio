@@ -5,29 +5,48 @@
 @import "./user_variable";
 
 .bookmark {
-
+    @include container();
     &__section {
+        @include section();
     }
 }
 
 .episodeBookmarks {
+    margin: 0 auto;
 
-    &__name {
-        margin: 0 10px;
+    &__section {
+        margin-bottom: 2em;
     }
 
+    &__name {
+        margin-left: 0.5em;
+    }
+  
     &__body {
-        margin: 0 10px;
+        margin: 0 0.5em;
+    }
+  
+    &__page {
+        margin-top: 1em;
     }
 }
 
 .proverbBookmarks {
-    
-    &__name {
-        margin: 0 10px;
+    margin: 0 auto;
+
+    &__section {
+        margin-bottom: 2em;
     }
 
+    &__name {
+        margin-left: 2em;
+    }
+  
     &__body {
-        margin: 0 10px;
+        margin: 0 0.5em;
+    }
+  
+    &__page {
+        margin-top: 1em;
     }
 }
