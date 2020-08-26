@@ -1,16 +1,23 @@
 <div class="indexEpisode">
-    <h1 class="indexEpisode__section">みんなのエピソード</h1>
-
-    <%= link_to "エピソード検索", episodes_search_path %>
-
+    <div class="indexEpisode__section">
+        <h1>みんなのエピソード</h1>
+    </div>
+</div>
+<div class="mainArea">
     <div class="favorite">
-        <h3 class="favorite__seciton"><%= @user.name %> さんのエピソードに<br>ついた いいね件数</h3>
-        <% @user_episodes.each do |episode| %>
-        <div class="favorite__row">
-        <%= episode.created_at.strftime("%Y-%m-%d %H:%M")  %> 更新
-            <%= link_to episode.title, episode_path(episode) %> 
-            <%= episode.episode_favorites.count %> 件
+        <div class="favorite__section">
+            <h3><%= @user.name %> さんの<br>エピソードについた いいね件数</h3>
         </div>
+        <% @user_episodes.each do |episode| %>
+        <div class="favorite__time">
+            <%= episode.created_at.strftime("%Y-%m-%d %H:%M")  %>
+        </div>
+        <span class="favorite__title">
+            <%= link_to episode.title, episode_path(episode) %>
+        </span>
+        <span class="favorite__count">
+            <%= episode.episode_favorites.count %> 件
+        </span>
         <% end %>
     </div>
 
@@ -19,7 +26,7 @@
         <table>
             <tr>
                 <th rowspan="3">
-                    <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png", class:"timeline__image") %>
+                    <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png") %>
                 </th>
                 <td>
                     <%= link_to episode.user.name, user_path(episode.user) ,class:"timeline__name" %>
@@ -33,14 +40,19 @@
             </tr>
         </table>
         <% end %>
+        <div class="timeline__page">
         <%= paginate @episodes %>
+        </div>
     </div>
 
     <div class="userProfile">
         <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png", class:"userProfile__image") %>
-        <p class="userProfile__name">ニックネーム：<%= @user.name %></p>
-        <%= link_to "エピソード投稿", new_episode_path, class:"userProfile__button" %>
-        <%= link_to "プロフィール編集", edit_user_path(current_user), class:"userProfile__button--edit" %>
+        <div class="userProfile__name">
+            <p>ニックネーム：<%= @user.name %></p>
+        </div>
+        <%= link_to "エピソード投稿", new_episode_path, class:"userProfile__button" %><br>
+        <%= link_to "エピソード検索", episodes_search_path, class:"userProfile__button--search" %><br>
+        <%= link_to "プロフィール編集", edit_user_path(current_user), class:"userProfile__button--edit" %><br>
         <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"userProfile__button--bookmark" %>
     </div>
 </div>
