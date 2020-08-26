@@ -89,11 +89,20 @@
 }
 
 .newEpisode {
-
+    @include container();
 
     &__section {
-
+        @include section();
     }
+
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+        margin-top: 2em;
+    }
+}
+
+.input {
+    @include input();
 }
 
 .showEpisode {
