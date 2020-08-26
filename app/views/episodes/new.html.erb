@@ -12,7 +12,7 @@
     </div>
     <div class="input">
         <%= f.label :body, "内容", class:"input__label" %><br>
-        <%= f.text_field :body, placeholder:"エピソードの内容を入力してください", class:"input__form" %>
+        <%= f.text_area :body, placeholder:"エピソードの内容を入力してください", class:"input__form--area" %>
     </div>
 
     <%= f.submit "投稿する", class:"newEpisode__button" %>

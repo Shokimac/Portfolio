@@ -106,28 +106,43 @@
 }
 
 .showEpisode {
-
+    @include container();
 
     &__section {
-
+        @include section();
     }
-
 }
 
 .leftSide {
 
+    &__name {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
 }
 
 .rightSide {
 
-    width: fit-content;
+    &__label {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin: 1em 0;
+    }
 
-    &__button {
+    &__title {
 
     }
 
-    &__button--delete {
+    &__body {
+        height: 300px;
+    }
 
+
+    &__button {
+        @include button-fade(#9ec34b, #cbe585);
+    }
+    &__button--delete {
+        @include button-fade(#e74949, #ee9f7a);
     }
 }
 

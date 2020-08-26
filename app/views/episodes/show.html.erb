@@ -1,25 +1,40 @@
 <div class="showEpisode">
 
-        <h1 class="showEpisode__section">エピソード詳細</h1>
-
-        <div class="leftSide">
-                <p class="leftSide__section">ユーザー名： <%= @user.name %> </p>
-                <%= attachment_image_tag(@user, :image, size: "300x250", fallback: "no_image.png", class:"leftSide__image") %>
+        <div class="showEpisode__section">
+                <h1>エピソード詳細</h1>
         </div>
 
-        <div class="rightSide">
-                <p class="rightSide__subject">タイトル： <%= @episode.title %> </p>
-                <p class="rightSide__body">内容： <%= @episode.body %></p>
+        <div class="mainArea">
+                <div class="leftSide">
+                        <div class="leftSide__name">
+                                <p>ユーザー名： <%= @user.name %> </p>
+                        </div>
+                        <%= attachment_image_tag(@user, :image, size: "300x250", fallback: "no_image.png", class:"leftSide__image") %>
 
-                <div id="episode__favoritesButton" class="rightSide__favorite">
-                        <%= render partial: 'episode_favorites/favorite', locals: { episode: @episode} %>
+                        <div id="episode__favoritesButton" class="leftSide__favorite">
+                                <%= render partial: 'episode_favorites/favorite', locals: { episode: @episode} %>
+                        </div>
+                        <div class="leftSide__bookmark">
+                                <%= render partial: 'episode_bookmarks/bookmark', locals: { episode: @episode} %>
+                        </div>
                 </div>
-                <div class="episode__bookmarksButton">
-                        <%= render partial: 'episode_bookmarks/bookmark', locals: { episode: @episode} %>
+
+                <div class="rightSide">
+                        <div class="rightSide__label">
+                                <p>タイトル</p>
+                        </div>
+                        <div class="rightSide__title">
+                                <p><%= @episode.title %></p>
+                        </div>
+                        <div class="rightSide__label">
+                                <p>内容</p>
+                        </div>
+                        <div class="rightSide__body">
+                                <p><%= @episode.body %></p>
+                        </div>
+
+                        <%= link_to "編集する", edit_episode_path(@episode), class:"rightSide__button" %>
+                        <%= link_to "削除する", @episode_path, method: :delete, class:"rightSide__button--delete" %>
                 </div>
-
-                <%= link_to "編集する", edit_episode_path(@episode), class:"rightSide__button" %>
-                <%= link_to "削除する", @episode_path, method: :delete, class:"rightSide__button--delete" %>
-
         </div>
 </div>
