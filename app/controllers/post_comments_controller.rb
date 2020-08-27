@@ -1,4 +1,7 @@
 class PostCommentsController < ApplicationController
+
+    before_action :authenticate_user!
+
     def create
         @proverb = Proverb.find(params[:proverb_id])
         comment = current_user.post_comments.new(comment_params)

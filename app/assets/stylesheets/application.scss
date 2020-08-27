@@ -82,7 +82,8 @@ li {
   }
 
   &__nav {
-    font-size: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
     margin-top: 10px;
   }
 
@@ -96,7 +97,8 @@ li {
   }
 
   &__loginNavi--google {
-    font-size: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
     margin-top: 10px;
   }
 
@@ -129,6 +131,7 @@ li {
   &__nav--google {
     font-weight: bold;
     margin: 20px 0;
+    font-size: 1.3em;
   }
 }
 

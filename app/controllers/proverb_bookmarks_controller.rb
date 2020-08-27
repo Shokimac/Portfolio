@@ -1,4 +1,7 @@
 class ProverbBookmarksController < ApplicationController
+
+    before_action :authenticate_user!
+
     def create
         @proverb = Proverb.find(params[:proverb_id])
         bookmark = current_user.proverb_bookmarks.new

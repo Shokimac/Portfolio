@@ -1,6 +1,8 @@
 class Admins::UsersController < ApplicationController
 
   before_action :authenticate_admin!
+
+  layout 'admin'
   
   def index
     @users = User.all.page(params[:page]).reverse_order

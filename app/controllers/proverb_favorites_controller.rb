@@ -1,4 +1,7 @@
 class ProverbFavoritesController < ApplicationController
+
+  before_action :authenticate_user!
+  
   def create
     @proverb = Proverb.find(params[:proverb_id])
     favorite = current_user.proverb_favorites.new

@@ -2,6 +2,8 @@ class Admins::EpisodesController < ApplicationController
 
   before_action :authenticate_admin!
 
+  layout 'admin'
+
   def show
     @episode = Episode.find(params[:id])
     @user = User.find(@episode.user_id)

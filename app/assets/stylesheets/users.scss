@@ -28,7 +28,9 @@
     }
 
     &__introduction {
-        height: fit-content;
+        margin: 0 auto;
+        width: 300px;
+        height: 100px;
     }
 
     &__button {

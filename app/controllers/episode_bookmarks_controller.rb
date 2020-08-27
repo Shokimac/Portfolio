@@ -1,4 +1,7 @@
 class EpisodeBookmarksController < ApplicationController
+
+    before_action :authenticate_user!
+    
     def create
         @episode = Episode.find(params[:episode_id])
         bookmark = current_user.episode_bookmarks.new
