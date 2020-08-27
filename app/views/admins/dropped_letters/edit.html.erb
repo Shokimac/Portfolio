@@ -7,6 +7,10 @@
         <%= f.label :body, "落とし文", class:"input__label" %><br>
         <%= f.text_area :body, class:"input__form" %>
     </div>
+    <div class="input">
+    <%= f.label :delete_flg, "表示ステータス", class:"input__label" %><br>
+    <label><%= f.radio_button :delete_flg, false %>表示</label>　<label><%= f.radio_button :delete_flg, true %>非表示</label>
+    </div>
     <%= f.submit "更新", class:"editLetter__button" %>
     <% end %>
 </div>

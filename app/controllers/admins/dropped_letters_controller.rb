@@ -2,6 +2,8 @@ class Admins::DroppedLettersController < ApplicationController
   
   before_action :authenticate_admin!
 
+  layout 'admin'
+
   def index
     @new_letter = DroppedLetter.new
     @letters = DroppedLetter.all.page(params[:page]).reverse_order
@@ -30,14 +32,16 @@ class Admins::DroppedLettersController < ApplicationController
 
   def destroy
     @letter = DroppedLetter.find(params[:id])
-    @letter.destroy
+    @letter.delete_flg = true
+    @letter.save
+    binding.pry
     redirect_to admins_dropped_letters_path
   end
 
   private
 
   def letter_params
-    params.require(:dropped_letter).permit(:body)
+    params.require(:dropped_letter).permit(:body, :delete_flg)
   end
   
 end

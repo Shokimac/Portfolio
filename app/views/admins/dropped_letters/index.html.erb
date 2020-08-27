@@ -16,6 +16,11 @@
             <table class="letterTable">
                 <% @letters.each do |letter| %>
                 <tr class="letterTable__line">
+                <td class="letterTable__body">
+                <% if letter.delete_flg == true %>
+                非表示
+                <% end %>
+                </td>
                     <td class="letterTable__body"><%= letter.body %></td>
                     <td class="letterTable__body">
                         <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"letterTable__button" %></td>
