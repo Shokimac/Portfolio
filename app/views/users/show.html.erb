@@ -2,58 +2,58 @@
     <div class="showUser__section">
         <h1><%= @user.name %> さんのプロフィール</h1>
     </div>
-</div>
 
-<div class="mainArea">
-    <div class="profile">
-        <div class="profile__image">
-            <%= attachment_image_tag(@user, :image, size: "150x150", fallback: "no_image.png") %><br>
-        </div>
-        <div class="profile__section">
-            自己紹介
-        </div>
-        <div class="profile__introduction">
-            <%= @user.introduction %>
-        </div>
-        <% if @user == current_user %>
-        <%= link_to "プロフィール編集", edit_user_path(current_user), class:"profile__button" %><br>
-        <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"profile__button--bookmark" %>
-        <% end %>
-    </div>
-
-    <div class="userEpisode">
-        <div class="userEpisode__section">
-            <h2> <%= @user.name %> さんが投稿したエピソード</h2>
+    <div class="mainArea">
+        <div class="userProfile">
+            <div class="userProfile__image">
+                <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png") %><br>
+            </div>
+            <div class="userProfile__section">
+                自己紹介
+            </div>
+            <div class="userProfile__introduction">
+                <%= @user.introduction %>
+            </div>
+            <% if @user == current_user %>
+            <%= link_to "プロフィール編集", edit_user_path(current_user), class:"userProfile__button" %><br>
+            <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"userProfile__button--bookmark" %>
+            <% end %>
         </div>
 
-        <% @episodes.each do |episode| %>
-        <div class="userEpisode__time">
-            <%= episode.updated_at.strftime("%Y-%m-%d %H:%M") %>
-        </div>
-        <div class="userEpisode__title">
-            <%= link_to episode.title, episode_path(episode) %>
-        </div>
-        <% end %>
-        <div class="userEpisode__page">
-            <%= paginate @episodes %>
-        </div>
-    </div>
+        <div class="userEpisode">
+            <div class="userEpisode__section">
+                <h3> <%= @user.name %> さんが<br>投稿したエピソード</h3>
+            </div>
 
-    <div class="userProverb">
-        <div class="userProverb__section">
-            <h2> <%= @user.name %> さんが投稿した格言</h2>
+            <% @episodes.each do |episode| %>
+            <div class="userEpisode__time">
+                <%= episode.updated_at.strftime("%Y-%m-%d %H:%M") %>
+            </div>
+            <div class="userEpisode__title">
+                <%= link_to episode.title, episode_path(episode) %>
+            </div>
+            <% end %>
+            <div class="userEpisode__page">
+                <%= paginate @episodes %>
+            </div>
         </div>
-        
-        <% @proverbs.each do |proverb| %>
-        <div class="userProverb__time">
-            <%= proverb.updated_at.strftime("%Y-%m-%d %H:%M") %>
-        </div>
-        <div class="userProverb__title">
-            <%= link_to "#{proverb.name} の言葉", proverb_path(proverb) %>
-        </div>
-        <% end %>
-        <div class="userProverb__page">
-            <%= paginate @proverbs %>
+
+        <div class="userProverb">
+            <div class="userProverb__section">
+                <h3> <%= @user.name %> さんが<br>投稿した格言</h3>
+            </div>
+
+            <% @proverbs.each do |proverb| %>
+            <div class="userProverb__time">
+                <%= proverb.updated_at.strftime("%Y-%m-%d %H:%M") %>
+            </div>
+            <div class="userProverb__title">
+                <%= link_to "#{proverb.name} の言葉", proverb_path(proverb) %>
+            </div>
+            <% end %>
+            <div class="userProverb__page">
+                <%= paginate @proverbs %>
+            </div>
         </div>
     </div>
 </div>

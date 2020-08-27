@@ -13,10 +13,7 @@
     }
 }
 
-.profile {
-    margin: 0 30px;
-    text-align: center;
-    font-size: 16px;
+.userProfile {
 
     &__image {
         margin-top: 3em;
@@ -43,6 +40,7 @@
 }
 
 .userEpisode {
+    margin: 0 30px;
     text-align: center;
     
     &__section {
@@ -61,6 +59,7 @@
 }
 
 .userProverb {
+    margin-right: 30px;
     text-align: center;
     
     &__section {
