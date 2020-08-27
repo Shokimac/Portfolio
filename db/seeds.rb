@@ -8,8 +8,3 @@
 
 Admin.create!(email:'admin@sample.com',password:'itoito')
 User.create!(name:'テストユーザー１',email:'ito@sample.com',password:'itoito')
-User.create!(name:'テストユーザー２',email:'ito2@sample.com',password:'itoito')
-User.create!(name:'テストユーザー３',email:'ito3@sample.com',password:'itoito')
-User.create!(name:'テストユーザー４',email:'ito4@sample.com',password:'itoito')
-User.create!(name:'テストユーザー５',email:'ito5sample.com',password:'itoito')
-User.create!(name:'テストユーザー６',email:'ito6@sample.com',password:'itoito')
