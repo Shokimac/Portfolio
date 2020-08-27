@@ -26,7 +26,7 @@ class ProverbsController < ApplicationController
     @proverb = Proverb.find(params[:id])
     @user = User.find(@proverb.user_id)
     @comment = PostComment.new
-    @comments = PostComment.where(proverb_id: @proverb.id)
+    @comments = PostComment.where(proverb_id: @proverb.id).includes(:user).page(params[:page]).reverse_order
   end
 
   def edit
