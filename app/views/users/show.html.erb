@@ -15,8 +15,10 @@
         <div class="profile__introduction">
             <%= @user.introduction %>
         </div>
+        <% if @user == current_user %>
         <%= link_to "プロフィール編集", edit_user_path(current_user), class:"profile__button" %><br>
         <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"profile__button--bookmark" %>
+        <% end %>
     </div>
 
     <div class="userEpisode">
