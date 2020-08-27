@@ -7,10 +7,9 @@ class HomesController < ApplicationController
     end
 
     def letter
-        max_record = DroppedLetter.all.count
-        while @letter.nil? == true do
-        random_id = rand(1..max_record)
-        @letter = DroppedLetter.find(random_id)
+        @letter = DroppedLetter.find_by(delete_flg: true)
+        while @letter.delete_flg == true do
+        @letter = DroppedLetter.where('id>=?', rand(DroppedLetter.first.id..DroppedLetter.last.id)).first
         end
     end
 end

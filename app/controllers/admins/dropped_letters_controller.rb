@@ -30,14 +30,6 @@ class Admins::DroppedLettersController < ApplicationController
     redirect_to admins_dropped_letters_path
   end
 
-  def destroy
-    @letter = DroppedLetter.find(params[:id])
-    @letter.delete_flg = true
-    @letter.save
-    binding.pry
-    redirect_to admins_dropped_letters_path
-  end
-
   private
 
   def letter_params

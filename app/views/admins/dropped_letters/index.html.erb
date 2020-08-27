@@ -24,9 +24,6 @@
                     <td class="letterTable__body"><%= letter.body %></td>
                     <td class="letterTable__body">
                         <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"letterTable__button" %></td>
-                    <td class="letterTable__body">
-                        <%= link_to "削除", admins_dropped_letter_path(letter), method: :delete, class:"letterTable__button--delete" %>
-                    </td>
                 </tr>
                 <% end %>
             </table>
