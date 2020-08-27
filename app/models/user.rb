@@ -19,7 +19,10 @@ class User < ApplicationRecord
   has_many :proverb_bookmarks, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
-
+  def active_for_authentication?
+    super && (self.delete_flg === false)
+  end
+  
   protected
   # 以下を追加
     def self.from_omniauth(access_token)
@@ -35,4 +38,5 @@ class User < ApplicationRecord
       end
       user
     end
+
 end

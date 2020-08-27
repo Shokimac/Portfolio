@@ -27,10 +27,9 @@ class UsersController < ApplicationController
 
   def withdrawal_update
     @user = current_user
-    @user.delete_flg = true
-    @user.save
-    binding.pry
-        redirect_to destroy_user_session_path
+    @user.update(delete_flg: true)
+    reset_session
+    redirect_to root_path
   end
 
   private
