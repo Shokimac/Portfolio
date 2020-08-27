@@ -6,3 +6,4 @@ class InquiryMailer < ApplicationMailer
             subject: 'お問い合わせがありました'
         )
     end
+end
