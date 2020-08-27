@@ -39,6 +39,18 @@ li {
   list-style: none;
 }
 
+.errorMessage {
+  color: #dd1212;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flashMessage {
+  text-align: center;
+  font-weight: bold;
+}
+
 .headerArea {
   display: flex;
   align-items: center;
