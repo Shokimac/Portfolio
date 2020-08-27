@@ -7,32 +7,45 @@
 
 .adminTop {
 
-
-    &__title--episode {
-
-    }
-
-    &__title--proverb {
-
-    }
+    @include container();
 }
 
 .episodeBlock {
+    margin: 0 auto;
 
-
-    &__name {
-
+    &__section {
+        margin: 2em 0;
     }
 
+    &__name {
+        margin-left: 0.5em;
+    }
+  
     &__title {
+        margin: 0 0.5em;
+    }
+  
+    &__page {
+        margin-top: 1em;
     }
 }
 
 .proverbBlock {
+    margin: 0 auto;
+
+    &__section {
+        margin: 2em 0;
+    }
 
     &__name {
+        margin-left: 0.5em;
     }
 
     &__title {
+        margin: 0 0.5em;
+    }
+  
+    &__page {
+        margin-top: 1em;
     }
 }

@@ -1,10 +1,12 @@
 <div class="editLetter">
-
-<h1 class="editLetter__section">落とし文編集</h1>
-
-<%= form_with model:@letter, url:admins_dropped_letter_path(@letter) do |f| %>
-<%= f.text_area :body, class:"editLetter__form" %>
-<%= f.submit "更新", class:"editLetter__button" %>
-<% end %>
-
+    <div class="editLetter__section">
+        <h1>落とし文編集</h1>
+    </div>
+    <%= form_with model:@letter, url:admins_dropped_letter_path(@letter) do |f| %>
+    <div class="input">
+        <%= f.label :body, "落とし文", class:"input__label" %><br>
+        <%= f.text_area :body, class:"input__form" %>
+    </div>
+    <%= f.submit "更新", class:"editLetter__button" %>
+    <% end %>
 </div>

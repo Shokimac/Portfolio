@@ -5,40 +5,88 @@
 @import "./admin_variable.scss";
 
 .letter {
+    @include container();
+
+    &__section {
+        @include section();
+    }
 }
 
 .createLetter {
-
-}
-
-.letterTable {
-
-
-    &__line {
-
-    }
+    margin-left: 5%;
 
     &__label {
-
-    }
-
-    &__body {
-
-    }
-}
-
-.editLetter {
-
-    
-    &__section {
-
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-bottom: 0.7em;
     }
 
     &__form {
-
+        font: 15px/24px sans-serif;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.3em;
+        margin: 1em 0;
+        transition: 0.3s;
+        letter-spacing: 1px;
+        border: 2px solid #1b2538;
+        border-radius: 4px;
     }
 
     &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+    }
+}
 
+.indexLetter {
+    margin: 0 auto;
+
+    &__page {
+        margin-top: 2em;
+    }
+}
+
+.letterTable {
+    margin: 0 auto;
+
+    &__table {
+        @include tableSet(100%);
+    }
+
+    &__line {
+        @include trSet();
+    }
+
+    &__label {
+        @include thSet();
+    }
+
+    &__body {
+        @include tdSet();
+        font-size: 1.3em;
+    }
+
+    &__button {
+        @include button-fade(#9ec34b, #cbe585);
+    }
+
+    &__button--delete {
+        @include button-fade(#e74949, #ee9f7a);
+    }
+}
+
+.page {
+    margin-right: auto;
+}
+
+.editLetter {
+    @include container();
+
+    &__section {
+        @include section();
+    }
+
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
     }
 }

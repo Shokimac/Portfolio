@@ -1,17 +1,20 @@
-<div class="adminLogin">
+<div class="signin">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <h1 class="adminLogin__title">管理者ログイン</h1>
+  <div class="signin__section">
+    <h1>管理者ログイン</h1>
+  </div>
 
   <div class="input">
     <%= f.label :email, "メールアドレス", class:"input__label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input__form" %>
-
+  </div>
+  <div class="input">
     <%= f.label :password, "パスワード" , class:"input__label" %><br />
     <%= f.password_field :password, autocomplete: "current-password", class:"input__form" %>
-
-    <%= f.submit "ログイン", class:"adminLogin__button" %>
-
   </div>
+
+  <%= f.submit "ログイン", class:"signin__button" %>
+
   <% end %>
 </div>

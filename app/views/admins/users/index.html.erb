@@ -1,25 +1,28 @@
 <div class="userIndex">
-    <h1 class="userIndex__section">利用者一覧</h1>
+    <div class="userIndex__section">
+        <h1>利用者一覧</h1>
+    </div>
 
-        <table class="userIndex__table">
-            <tr class="userIndex__line">
-                <th></th>
-                <th class="userIndex__label">ユーザー名</th>
-                <th class="userIndex__label">メールアドレス</th>
-                <th class="userIndex__label">投稿エピソード件数</th>
-                <th class="userIndex__label">投稿格言数</th>
-            </tr>
-            <% @users.each do |user| %>
-            <tr class="userIndex__line">
-                <td class="userIndex__body"><%= attachment_image_tag(user, :image, size: "100x100", fallback: "no_image.png", class:"userTable__image") %>
-                </td>
-                <td class="userIndex__body"><%= link_to user.name, user_path(user) %></td>
-                <td class="userIndex__body"><%= user.email %></td>
-                <td class="userIndex__body"><%= user.episodes.count %> 件</td>
-                <td class="userIndex__body"><%= user.proverbs.count %> 件</td>
-            </tr>
-            <% end %>
-        </table>
+    <table class="userIndex__table">
+        <tr class="userIndex__line">
+            <th class="userIndex__label"></th>
+            <th class="userIndex__label">ユーザー名</th>
+            <th class="userIndex__label">メールアドレス</th>
+            <th class="userIndex__label">投稿エピソード件数</th>
+            <th class="userIndex__label">投稿格言数</th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr class="userIndex__line">
+            <td class="userIndex__body">
+                <%= attachment_image_tag(user, :image, size: "100x100", fallback: "no_image.png", class:"userTable__image") %>
+            </td>
+            <td class="userIndex__body"><%= link_to user.name, user_path(user) %></td>
+            <td class="userIndex__body"><%= user.email %></td>
+            <td class="userIndex__body"><%= user.episodes.count %> 件</td>
+            <td class="userIndex__body"><%= user.proverbs.count %> 件</td>
+        </tr>
+        <% end %>
+    </table>
 
     <%= paginate @users %>
 

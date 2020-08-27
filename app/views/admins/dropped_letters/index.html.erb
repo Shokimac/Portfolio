@@ -1,28 +1,33 @@
 <div class="letter">
-    <h1 class="letter__section">落とし文一覧</h1>
-
-    <div class="createLetter">
-        <p class="createLetter__label">新規投稿</p>
-        <%= form_with model:@new_letter, url:admins_dropped_letters_path, local: true  do |f| %>
-        <%= render 'layouts/error_message', model: f.object %>
-
-        <%= f.text_area :body, class:"createLetter__form" %><br>
-        <%= f.submit "投稿", class:"createLetter__button" %>
-
-        <% end %>
+    <div class="letter__section">
+        <h1>落とし文一覧</h1>
     </div>
+    <div class="mainArea">
+        <div class="createLetter">
+            <p class="createLetter__label">新規投稿</p>
+            <%= form_with model:@new_letter, url:admins_dropped_letters_path, local: true  do |f| %>
+            <%= render 'layouts/error_message', model: f.object %>
+            <%= f.text_area :body, class:"createLetter__form" %><br>
+            <%= f.submit "投稿", class:"createLetter__button" %>
+            <% end %>
+        </div>
 
-    <table class="letterTable">
-        <% @letters.each do |letter| %>
-        <tr class="letterTable__line">
-            <td class="letterTable__body"><%= letter.body %></td>
-            <td class="letterTable__body">
-                <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"indexLetter__button" %></td>
-            <td class="letterTable__body">
-                <%= link_to "削除", admins_dropped_letter_path(letter), method: :delete, class:"indexLetter__button--destroy" %>
-            </td>
-        </tr>
-        <% end %>
-    </table>
-
+        <div class="indexLetter">
+            <table class="letterTable">
+                <% @letters.each do |letter| %>
+                <tr class="letterTable__line">
+                    <td class="letterTable__body"><%= letter.body %></td>
+                    <td class="letterTable__body">
+                        <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"letterTable__button" %></td>
+                    <td class="letterTable__body">
+                        <%= link_to "削除", admins_dropped_letter_path(letter), method: :delete, class:"letterTable__button--delete" %>
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+            <div class="indexLetter__page">
+            <%= paginate @letters %>
+            </div>
+        </div>
+    </div>
 </div>

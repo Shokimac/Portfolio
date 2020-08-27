@@ -1,46 +1,45 @@
 <div class="adminTop">
+    <div class="mainArea">
+        <div class="episodeBlock">
+            <h1 class="episodeBlock__section">エピソード一覧</h1>
+            <% @episodes.each do |episode| %>
+            <table>
+                <tr>
+                    <th rowspan="3">
+                        <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBlock__image") %>
+                    </th>
+                    <td><%= link_to episode.user.name, user_path(episode.user) ,class:"episodeBlock__name" %>
+                        <%= episode.updated_at.strftime("%Y-%m-%d") %>
+                    </td>
+                </tr>
+                <tr>
+                    <td><%= link_to episode.title, admins_episode_path(episode) , class:"episodeBlock__title" %></td>
+                </tr>
+            </table>
 
-    <h1 class="adminTop__title--episode">エピソード一覧</h1>
+            <% end %>
+            <%= paginate @episodes %>
+        </div>
 
-    <div class="episodeBlock">
-        <% @episodes.each do |episode| %>
-        <table>
-            <tr>
-                <th rowspan="3">
-                    <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBlock__image") %>
-                </th>
-                <td><%= link_to episode.user.name, user_path(episode.user) ,class:"episodeBlock__name" %>
-                <%= episode.updated_at.strftime("%Y-%m-%d") %>
-                </td>
-            </tr>
-            <tr>
-                <td><%= link_to episode.title, admins_episode_path(episode) , class:"episodeBlock__title" %></td>
-            </tr>
-        </table>
-
-        <% end %>
+        <div class="proverbBlock">
+            <h1 class="proverbBlock__section">格言一覧</h1>
+            <% @proverbs.each do |proverb| %>
+            <table>
+                <tr>
+                    <th rowspan="3">
+                        <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBlock__image") %>
+                    </th>
+                    <td><%= link_to proverb.user.name, user_path(proverb.user) ,class:"proverbBlock__name" %>
+                        <%= proverb.updated_at.strftime("%Y-%m-%d") %>
+                    </td>
+                </tr>
+                <tr>
+                    <td><%= link_to "#{proverb.name} の格言", admins_proverb_path(proverb) , class:"proverbBlock__title" %>
+                    </td>
+                </tr>
+            </table>
+            <% end %>
+            <%= paginate @proverbs %>
+        </div>
     </div>
-
-    <h1 class="adminTop__title--proverb">格言一覧</h1>
-
-    <div class="proverbBlock">
-        <% @proverbs.each do |proverb| %>
-        <table>
-            <tr>
-                <th rowspan="3">
-                    <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBlock__image") %>
-                </th>
-                <td><%= link_to proverb.user.name, user_path(proverb.user) ,class:"proverbBlock__name" %>
-                <%= proverb.updated_at.strftime("%Y-%m-%d") %>
-                </td>
-            </tr>
-            <tr>
-                <td><%= link_to "#{proverb.name} の格言", admins_proverb_path(proverb) , class:"proverbBlock__title" %></td>
-            </tr>
-        </table>
-        <% end %>
-    </div>
-
-    <%= paginate @episodes %>
-    <%= paginate @proverbs %>
 </div>

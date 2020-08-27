@@ -1,3 +1,55 @@
+@mixin container {
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@mixin section {
+    margin: 60px auto;
+    border-bottom: 2px solid #78bae6;
+    font-size: 20px;
+}
+
+@mixin button-fade($mainColor, $borderColor) {
+    display: inline-block;
+    margin: 10px 5px;
+    max-width: 300px;
+    text-align: left;
+    border: 2px solid $mainColor;
+    font-size: 16px;
+    color: $mainColor;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 24px;
+    border-radius: 4px;
+    transition: .4s;
+
+    &:hover {
+        background-color: $mainColor;
+        border-color: $borderColor;
+        color: #FFF;
+    }
+}
+
+@mixin button-push($bgcolor, $shadow-color) {
+    background-color: $bgcolor;
+    padding: 15px 40px;
+    cursor: pointer;
+    box-shadow: 0 7px $shadow-color;
+    width: fit-content;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+
+    &:active {
+        box-shadow: none;
+        position: relative;
+        top: 7px;
+    }
+}
 
   @mixin tableSet($width) {
     border-collapse: collapse;
@@ -33,6 +85,7 @@
     padding: 0.2em 10px 0.2em 1em;
     border-right: 1px solid #bbb;
     text-align: center;
+    font-size: 0.9em;
 
     &:last-child {
         border: none;

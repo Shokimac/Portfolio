@@ -7,31 +7,35 @@
 
 
 .userIndex {
-
+    @include container();
 
     &__section {
-
+        @include section();
     }
 
     &__table {
-
+        @include tableSet(100%);
     }
 
     &__line {
-
+        @include trSet();
     }
 
     &__label {
-
+        @include thSet();
     }
 
     &__body {
-
+        @include tdSet();
     }
 }
 
-.letter {
+.profile {
+    @include container();
+}
 
+.letter {
+    @include container();
 
     &__section {}
 
