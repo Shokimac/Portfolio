@@ -29,7 +29,7 @@
                     <th rowspan="3">
                         <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBlock__image") %>
                     </th>
-                    <td><%= link_to proverb.user.name, user_path(proverb.user) ,class:"proverbBlock__name" %>
+                    <td><%= link_to proverb.user.name, admins_user_path(proverb.user) ,class:"proverbBlock__name" %>
                         <%= proverb.updated_at.strftime("%Y-%m-%d") %>
                     </td>
                 </tr>
