@@ -10,16 +10,22 @@
             <th class="userIndex__label">メールアドレス</th>
             <th class="userIndex__label">投稿エピソード件数</th>
             <th class="userIndex__label">投稿格言数</th>
+            <th class="userIndex__label">退会済フラグ</th>
         </tr>
         <% @users.each do |user| %>
         <tr class="userIndex__line">
             <td class="userIndex__body">
                 <%= attachment_image_tag(user, :image, size: "100x100", fallback: "no_image.png", class:"userTable__image") %>
             </td>
-            <td class="userIndex__body"><%= link_to user.name, user_path(user) %></td>
+            <td class="userIndex__body"><%= link_to user.name, admins_user_path(user) %></td>
             <td class="userIndex__body"><%= user.email %></td>
             <td class="userIndex__body"><%= user.episodes.count %> 件</td>
             <td class="userIndex__body"><%= user.proverbs.count %> 件</td>
+            <td class="userIndex__body--check">
+            <% if user.delete_flg == true %>
+            <i class="fas fa-check"></i>
+            <% end %>
+            </td>
         </tr>
         <% end %>
     </table>

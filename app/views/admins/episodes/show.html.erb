@@ -1,21 +1,31 @@
-<div class="episode">
+<div class="showEpisode">
 
-    <h1 class="episode__section">エピソード詳細</h1>
+    <div class="showEpisode__section">
+        <h1>エピソード詳細</h1>
+    </div>
 
+    <div class="mainArea">
+        <div class="leftSide">
+            <div class="leftSide__name">
+                <p>ユーザー名： <%= @user.name %> </p>
+            </div>
+            <%= attachment_image_tag(@user, :image, size: "300x250", fallback: "no_image.png", class:"leftSide__image") %>
+        </div>
 
-    <p class="episode__userName">ユーザー名： <%= @user.name %> </p>
-    <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png", class:"episode__userImage") %>
-
-    <p class="episode__label">タイトル：</p>
-    <p class="episode__label--body">内容：</p>
-
-    <p class="episode__title"><%= @episode.title %></p>
-    <p class="episode__body"><%= @episode.body %></p>
-
-    <p class="episode__favorite">いいね件数： <%= @episode.episode_favorites.count %> </p>
-    <p class="episode__bookmark">お気に入り件数： <%= @episode.episode_bookmarks.count %> </p>
-
-
-    <%= link_to "削除する", admins_episode_path(@episode), method: :delete, class:"episode__deleteButton" %>
-
+        <div class="rightSide">
+            <div class="rightSide__label">
+                <p>タイトル</p>
+            </div>
+            <div class="rightSide__title">
+                <p><%= @episode.title %></p>
+            </div>
+            <div class="rightSide__label">
+                <p>内容</p>
+            </div>
+            <div class="rightSide__body">
+                <p><%= @episode.body %></p>
+            </div>
+            <%= link_to "削除する", admins_episode_path(@episode), method: :delete, data: {confirm: "削除しますか??"}, class:"rightSide__button--delete" %>
+        </div>
+    </div>
 </div>

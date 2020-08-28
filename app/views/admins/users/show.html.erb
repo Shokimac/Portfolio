@@ -1,12 +1,55 @@
-<div class="profile">
-<h1 class="profile__section"><%= @user.name %> さんのプロフィール</h1>
+<div class="showUser">
+    <div class="showUser__section">
+        <h1><%= @user.name %> さんのプロフィール</h1>
+    </div>
 
-<%= attachment_image_tag(@user, :image, size: "300x300", fallback: "no_image.png", class:"profile__image") %>
+    <div class="mainArea">
+        <div class="userProfile">
+            <div class="userProfile__image">
+                <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png") %><br>
+            </div>
+            <div class="userProfile__section">
+                自己紹介
+            </div>
+            <div class="userProfile__introduction">
+                <%= @user.introduction %>
+            </div>
+        </div>
 
-<p class="profile__name">ユーザー名：<%= @user.name %></p>
+        <div class="userEpisode">
+            <div class="userEpisode__section">
+                <h3> <%= @user.name %> さんが<br>投稿したエピソード</h3>
+            </div>
 
-<p class="profile__label">自己紹介文</p>
+            <% @episodes.each do |episode| %>
+            <div class="userEpisode__time">
+                <%= episode.updated_at.strftime("%Y-%m-%d %H:%M") %>
+            </div>
+            <div class="userEpisode__title">
+                <%= link_to episode.title, admins_episode_path(episode) %>
+            </div>
+            <% end %>
+            <div class="userEpisode__page">
+                <%= paginate @episodes %>
+            </div>
+        </div>
 
-<p class="profile__introduction"><%= @user.introduction %></p>
+        <div class="userProverb">
+            <div class="userProverb__section">
+                <h3> <%= @user.name %> さんが<br>投稿した格言</h3>
+            </div>
 
+            <% @proverbs.each do |proverb| %>
+            <div class="userProverb__time">
+                <%= proverb.updated_at.strftime("%Y-%m-%d %H:%M") %>
+            </div>
+            <div class="userProverb__title">
+                <%= link_to "#{proverb.name} の言葉", admins_proverb_path(proverb) %>
+            </div>
+            <% end %>
+            <div class="userProverb__page">
+                <%= paginate @proverbs %>
+            </div>
+        </div>
+    </div>
 </div>

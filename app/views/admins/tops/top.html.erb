@@ -8,7 +8,7 @@
                     <th rowspan="3">
                         <%= attachment_image_tag(episode.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBlock__image") %>
                     </th>
-                    <td><%= link_to episode.user.name, user_path(episode.user) ,class:"episodeBlock__name" %>
+                    <td><%= link_to episode.user.name, admins_user_path(episode.user) ,class:"episodeBlock__name" %>
                         <%= episode.updated_at.strftime("%Y-%m-%d") %>
                     </td>
                 </tr>

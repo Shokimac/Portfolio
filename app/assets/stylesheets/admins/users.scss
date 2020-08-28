@@ -4,8 +4,6 @@
 
 @import "./admin_variable.scss";
 
-
-
 .userIndex {
     @include container();
 
@@ -28,19 +26,44 @@
     &__body {
         @include tdSet();
     }
+
+    &__body--check {
+        @include tdSet();
+        font-size: 2em;
+        color: #ee1c1c;
+    }
 }
 
 .profile {
     @include container();
+
+    &__section {
+        @include section();
+    }
+
+    &__name {
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    &__label {
+        margin-top: 1.1em;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    &__introduction {
+        margin: 0 auto;
+        width: 300px;
+        height: 100px;
+    }
+
+    &__button {
+        @include button-fade(#e74949, #ee9f7a);
+    }
 }
 
 .letter {
     @include container();
 
-    &__section {}
-
-
-}
-
-.indexLetter {
 }
