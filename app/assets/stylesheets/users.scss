@@ -30,11 +30,11 @@
         height: 100px;
     }
 
-    &__button {
+    &__editButton {
         @include button-fade(#9ec34b, #cbe585);
     }
 
-    &__button--bookmark {
+    &__bookmarkButton {
         @include button-fade(#d8691f, #e7b26c);
     }
 }
