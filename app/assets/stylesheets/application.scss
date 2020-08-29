@@ -32,12 +32,12 @@ a {
   text-decoration: none;
 }
 
-header {
-  background-color: #45B6ED;
-}
-
 li {
   list-style: none;
+}
+
+span {
+  font-weight: bold;
 }
 
 .errorMessage {
@@ -52,10 +52,11 @@ li {
 
   &__logo {
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 350px;
+    height: 50px;
     background-image: image-url("logo.png");
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     margin-left: 5%;
   }
 

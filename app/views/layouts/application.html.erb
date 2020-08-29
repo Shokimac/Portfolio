@@ -14,7 +14,9 @@
 <body>
   <header>
     <div class="headerArea">
+      <%= link_to root_path do %>
       <div class="headerArea__logo"></div>
+      <% end %>
       <div class="headerArea__nav">
         <ul>
           <% if user_signed_in? %>
@@ -44,9 +46,9 @@
   </header>
 
   <main>
-  <div class="flashMessage">
-    <p class="notice"><%= notice %></p>
-  </div>
+    <div class="flashMessage">
+      <p class="notice"><%= notice %></p>
+    </div>
     <%= yield %>
   </main>
   <br>

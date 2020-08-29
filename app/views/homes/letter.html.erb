@@ -1,11 +1,12 @@
 <div class="letter">
     <div class="letter__title">
-        <h1>本日の天狗の落とし文</h1>
+        <h1>天ちゃんの落とし文</h1>
     </div>
-<div class="letter__body">
-    <p><%= @letter.body %></p>
-</div>
-
-    <%= link_to "みんなのエピソードへ", episodes_path, class:"letter__episode" %>
-    <%= link_to "みんなの格言へ", proverbs_path, class:"letter__proverb" %>
+    <div class="letter__body">
+        <p><%= @letter.body %></p>
+    </div>
+    <div class="letter__icon"></div>
+    
+        <%= link_to "みんなのエピソードへ", episodes_path, class:"letter__episode" %>
+        <%= link_to "みんなの格言へ", proverbs_path, class:"letter__proverb" %>
 </div>

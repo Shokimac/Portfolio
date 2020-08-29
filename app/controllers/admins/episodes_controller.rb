@@ -14,3 +14,4 @@ class Admins::EpisodesController < ApplicationController
     @episode.destroy
     redirect_to admins_tops_top_path
   end
+end

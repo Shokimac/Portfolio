@@ -5,7 +5,7 @@ class Admins::TopsController < ApplicationController
   layout 'admin'
 
   def top
-    @episodes = Episode.all.include(:user).page(params[:page]).reverse_order
-    @proverbs = Proverb.all.include(:user).page(params[:page]).reverse_order
+    @episodes = Episode.includes(:user).page(params[:page]).reverse_order
+    @proverbs = Proverb.includes(:user).page(params[:page]).reverse_order
   end
 end
