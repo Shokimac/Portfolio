@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     resources :dropped_letters, only: %i[index create edit update]
     resources :episodes, only: %i[show destroy]
-    resources :proverbs, only: %i[show]
+    resources :proverbs, only: %i[show destroy]
     get '/top' => 'tops#top'
     get '/search' => 'searches#search'
   end

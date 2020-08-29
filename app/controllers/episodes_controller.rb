@@ -36,7 +36,7 @@ class EpisodesController < ApplicationController
   def update
     @episode = Episode.find(params[:id])
     if @episode.update(episode_params)
-    redirect_to episode_path(@episode)
+    redirect_to episode_path(@episode), notice: "エピソードを更新しました"
     else
       @episode.errors.full_messages
       render :edit
