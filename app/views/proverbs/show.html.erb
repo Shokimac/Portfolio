@@ -31,14 +31,14 @@
         <div class="userComment">
             <p class="userComment__label">みんなのコメント</p>
 
-            <div class="Comment">
+            <div class="comment">
                 <% @comments.each do |comment| %>
                 <table>
                     <tr>
                         <th rowspan="3">
-                            <%= attachment_image_tag(comment.user, :image, size: "100x100", fallback: "no_image.png", class:"otherComment__image") %>
+                            <%= attachment_image_tag(comment.user, :image, size: "100x100", fallback: "no_image.png") %>
                         </th>
-                        <td><%= link_to comment.user.name, user_path(comment.user) ,class:"otherComment__name" %>
+                        <td><%= link_to comment.user.name, user_path(comment.user) ,class:"comment__name" %>
                             <%= comment.created_at.strftime("%Y-%m-%d") %>
                         </td>
                     </tr>
@@ -46,18 +46,21 @@
                         <td>
                             <p class="otherComment__body"><%= comment.comment %></p>
                         </td>
+                        <td>
+                            <%= link_to "削除", proverb_post_comment_path(@proverb, comment), method: :delete, class:"comment__button" %>
+                        </td>
                     </tr>
                 </table>
                 <% end %>
-                <div class="commentCreate">
-                    <%= form_with model:@comment, url:proverb_post_comments_path(@proverb), local: true do |f| %>
-                    <%= f.label :comment, "コメント投稿", class:"commentCreate__label" %><br>
-                    <%= f.text_field :comment, class:"commentCreate__form" %><br>
-                    <%= f.submit "投稿", class:"commentCreate__button" %>
-                    <% end %>
-                </div>
-                <%= paginate @comments %>
             </div>
+            <div class="commentCreate">
+                <%= form_with model:@comment, url:proverb_post_comments_path(@proverb), local: true do |f| %>
+                <%= f.label :comment, "コメント投稿", class:"commentCreate__label" %><br>
+                <%= f.text_field :comment, class:"commentCreate__form" %><br>
+                <%= f.submit "投稿", class:"commentCreate__button" %>
+                <% end %>
+            </div>
+            <%= paginate @comments %>
         </div>
     </div>
 

@@ -9,8 +9,8 @@
     margin: 0 auto;
     text-align: center;
 
-        &__section {
-            @include section();
+    &__section {
+        @include section();
     }
 }
 
@@ -96,6 +96,18 @@
         font-size: 1.2em;
         font-weight: bold;
         margin-bottom: 2em;
+    }
+}
+
+.comment {
+    margin-bottom: 1.2em;
+
+    &__name {
+        margin: 0 0.5em;
+    }
+
+    &__button {
+        @include button-fade(#e74949, #ee9f7a);
     }
 }
 

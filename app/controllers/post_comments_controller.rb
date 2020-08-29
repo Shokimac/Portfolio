@@ -12,7 +12,6 @@ class PostCommentsController < ApplicationController
 
     def destroy
         comment = PostComment.find(params[:id])
-        binding.pry
         comment.destroy
         redirect_to proverb_path(params[:proverb_id])
     end
