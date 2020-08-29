@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
     redirect_to user_path(@user), notice:"プロフィールを更新しました。"
     else
+    @user.errors.full_messages
     render :edit
     end
   end

@@ -38,6 +38,7 @@ class EpisodesController < ApplicationController
     if @episode.update(episode_params)
     redirect_to episode_path(@episode)
     else
+      @episode.errors.full_messages
       render :edit
     end
   end
@@ -48,7 +49,8 @@ class EpisodesController < ApplicationController
     redirect_to episodes_path
   end
 
-  def search; end
+  def search
+  end
 
   def result
     @word = params[:title]

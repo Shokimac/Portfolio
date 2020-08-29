@@ -6,7 +6,6 @@ class Admins::ProverbsController < ApplicationController
 
   def show
     @proverb = Proverb.find(params[:id])
-    @comment = PostComment.new
     @comments = PostComment.where(proverb_id: @proverb.id).includes(:user).page(params[:page]).reverse_order
   end
 end

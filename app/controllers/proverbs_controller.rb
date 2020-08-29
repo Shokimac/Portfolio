@@ -12,6 +12,7 @@ class ProverbsController < ApplicationController
     if @proverb.save
     redirect_to proverbs_path
     else
+      @proverb.errors.full_messages
       render :new
     end
   end
@@ -26,7 +27,7 @@ class ProverbsController < ApplicationController
     @proverb = Proverb.find(params[:id])
     @user = User.find(@proverb.user_id)
     @comment = PostComment.new
-    @comments = PostComment.where(proverb_id: @proverb.id).includes(:user).page(params[:page]).reverse_order
+    @comments = PostComment.where(proverb_id: @proverb.id).includes(:user, :proverb).page(params[:page]).reverse_order
   end
 
   def edit
@@ -38,6 +39,7 @@ class ProverbsController < ApplicationController
     if @proverb.update(proverb_params)
     redirect_to proverb_path(@proverb)
     else
+      @proverb.errors.full_messages
       render :edit
     end
   end

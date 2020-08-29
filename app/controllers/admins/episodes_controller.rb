@@ -11,8 +11,6 @@ class Admins::EpisodesController < ApplicationController
 
   def destroy
     @episode = Episode.find(params[:id])
-    binding.pry
     @episode.destroy
     redirect_to admins_tops_top_path
   end
-end

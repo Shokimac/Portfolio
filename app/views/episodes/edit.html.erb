@@ -5,6 +5,7 @@
 
     <%= form_with model: @episode, local: true do |f| %>
     <%= render 'layouts/error_message', model: f.object %>
+    
     <div class="input">
         <%= f.label :title, "タイトル", class:"input__label" %><br>
         <%= f.text_field :title, class:"input__form" %>
