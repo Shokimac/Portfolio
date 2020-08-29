@@ -1,5 +1,5 @@
 <div class="errorMessage">
-<%= flash[:error] %>
+  <%= flash[:error] %>
 </div>
 
 <div class="signin">
@@ -22,8 +22,8 @@
   </div>
 
   <div class="input">
-  <%= f.label :password, class:"input__label" %><br />
-  <%= f.password_field :password, autocomplete: "current-password", class:"input__form" %>
+    <%= f.label :password, class:"input__label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"input__form" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -34,9 +34,9 @@
   <%= f.submit "ログイン", class:"signin__button" %>
   <% end %>
 
-<div class="signin__nav--google">
-  <p>Googleアカウントをお持ちの方はこちらから</p>
-</div>
+  <div class="signin__nav--google">
+    <p>Googleアカウントをお持ちの方はこちらから</p>
+  </div>
 
   <%=  link_to user_google_oauth2_omniauth_authorize_path do %>
   <%= image_tag 'google.png', size:"200x50" , class:"signin__google" %>

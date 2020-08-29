@@ -188,6 +188,19 @@ span {
   }
 }
 
+
+.editPassword {
+  @include container();
+
+  &__section {
+      @include section();
+  }
+
+  &__button {
+      @include button-fade(#2288e7, #3ca5e2);
+  }
+}
+
 footer {
   @include container();
   padding-top: 10px;

@@ -22,9 +22,9 @@
             <td class="userIndex__body"><%= user.episodes.count %> 件</td>
             <td class="userIndex__body"><%= user.proverbs.count %> 件</td>
             <td class="userIndex__body--check">
-            <% if user.delete_flg == true %>
-            <i class="fas fa-check"></i>
-            <% end %>
+                <% if user.delete_flg == true %>
+                <i class="fas fa-check"></i>
+                <% end %>
             </td>
         </tr>
         <% end %>

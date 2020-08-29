@@ -1,15 +1,14 @@
-
-    <% if episode.favorited_by?(current_user) %>
-    <li>
-        <%= link_to episode_episode_favorites_path(episode), method: :delete, remote: true do %>
-        <i class="fas fa-heart"></i>
-        <% end %>
-    </li>
-    <% else %>
-    <li>
-        <%= link_to episode_episode_favorites_path(episode), method: :post, remote: true do %>
-        <i class="far fa-heart"></i>
-        <% end %>
-    </li>
+<% if episode.favorited_by?(current_user) %>
+<li>
+    <%= link_to episode_episode_favorites_path(episode), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>
     <% end %>
-    <p>いいね件数： <%= episode.episode_favorites.count %> </p>
+</li>
+<% else %>
+<li>
+    <%= link_to episode_episode_favorites_path(episode), method: :post, remote: true do %>
+    <i class="far fa-heart"></i>
+    <% end %>
+</li>
+<% end %>
+<p>いいね件数： <%= episode.episode_favorites.count %> </p>

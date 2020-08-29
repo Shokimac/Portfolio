@@ -14,10 +14,7 @@
     <div class="showProverb__bookmarkButton">
         <%= render partial: 'proverb_bookmarks/bookmark', locals: { proverb: @proverb} %>
     </div>
-
-
     <div class="mainArea">
-
         <div class="personalComment">
             <div class="personalComment__label">
                 <p>この言葉を投稿した <%= link_to @proverb.user.name, user_path(@proverb.user_id) %> さんのコメント</p>
@@ -27,10 +24,8 @@
                 <%= @proverb.introduction %>
             </div>
         </div>
-
         <div class="userComment">
             <p class="userComment__label">みんなのコメント</p>
-
             <div class="comment">
                 <% @comments.each do |comment| %>
                 <table>
@@ -63,7 +58,6 @@
             <%= paginate @comments %>
         </div>
     </div>
-
     <% if current_user == @proverb.user || admin_signed_in? %>
     <%= link_to "編集する", edit_proverb_path(@proverb), class:"showProverb__button" %>
     <%= link_to "削除する", proverb_path(@proverb), method: :delete, class:"showProverb__button--delete" %>

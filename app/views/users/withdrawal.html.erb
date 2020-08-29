@@ -1,11 +1,11 @@
 <div class="withdrawal">
-<div class="withdrawal__nav">
-	<h1>本当に退会しますか？</h1>
-</div>
+	<div class="withdrawal__nav">
+		<h1>本当に退会しますか？</h1>
+	</div>
 
 	<%= link_to "退会しない",user_path(@user), class: "withdrawal__button" %>
 
 	<%= form_with url: user_withdrawal_path, method: :patch do |f| %>
-		<%= f.submit "退会する", class: "withdrawal__button--delete" %>
+	<%= f.submit "退会する", class: "withdrawal__button--delete" %>
 	<% end %>
 </div>

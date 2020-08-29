@@ -32,10 +32,6 @@
                 <%= paginate @episodeBookmarks %>
             </div>
         </div>
-
-
-
-
         <div class="proverbBookmarks">
             <h2 class="proverbBookmarks__section">みんなの格言</h2>
             <% @proverbBookmarks.each do |bookmark| %>
@@ -57,7 +53,7 @@
             </table>
             <% end %>
             <div class="proverbBookmarks__page">
-            <%= paginate @proverbBookmarks %>
+                <%= paginate @proverbBookmarks %>
             </div>
         </div>
     </div>

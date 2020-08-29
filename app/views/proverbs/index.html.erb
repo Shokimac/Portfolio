@@ -14,13 +14,15 @@
         <% if i == 1 %>
         <div class="rank__row">
             King<br>
-            <%= link_to "#{rank.name} の格言", proverb_path(rank) %> / <%= link_to rank.user.name, user_path(rank.user) %><br>
+            <%= link_to "#{rank.name} の格言", proverb_path(rank) %> /
+            <%= link_to rank.user.name, user_path(rank.user) %><br>
             いいね件数： <%= rank.proverb_favorites.count %> 件
         </div>
         <% else %>
         <div class="rank__row">
             第<%= i %>位<br>
-            <%= link_to "#{rank.name} の格言", proverb_path(rank) %> / <%= link_to rank.user.name, user_path(rank.user) %><br>
+            <%= link_to "#{rank.name} の格言", proverb_path(rank) %> /
+            <%= link_to rank.user.name, user_path(rank.user) %><br>
             いいね件数： <%= rank.proverb_favorites.count %> 件
         </div>
         <% end %>
@@ -46,7 +48,7 @@
             <% end %>
         </table>
         <div class="timeline__page">
-        <%= paginate @proverbs %>
+            <%= paginate @proverbs %>
         </div>
     </div>
 
