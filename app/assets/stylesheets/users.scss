@@ -11,6 +11,10 @@
     &__section {
         @include section();
     }
+
+    &__button {
+        @include button-fade(#e74949, #ee9f7a);
+    }
 }
 
 .userProfile {
