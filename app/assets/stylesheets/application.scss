@@ -41,7 +41,7 @@ span {
 }
 
 header {
-  position: fixed;
+  width: 100%;
 }
 
 .errorMessage {
@@ -51,8 +51,8 @@ header {
 
 .headerArea {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  @include container();
 
   &__logo {
     display: flex;
@@ -65,17 +65,12 @@ header {
   }
 
   &__nav {
-    margin-left: auto;
+    flex: right;
+    & li {
+      display: inline-block;
+    }
   }
 
-  &__nav li {
-    display: inline-block;
-  }
-
-  &__search {
-    margin-right: 5%;
-    margin-left: 2%;
-  }
 }
 
 .mainArea {
