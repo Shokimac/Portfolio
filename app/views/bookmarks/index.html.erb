@@ -14,10 +14,10 @@
             <table>
                 <tr>
                     <th rowspan="3">
-                        <%= attachment_image_tag(bookmark.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBookmarks__image") %>
+                        <%= attachment_image_tag(bookmark.episode.user, :image, size: "100x100", fallback: "no_image.png", class:"episodeBookmarks__image") %>
                     </th>
                     <td>
-                        <%= link_to bookmark.user.name, user_path(bookmark.user) ,class:"episodeBookmarks__name" %>
+                        <%= link_to bookmark.episode.user.name, user_path(bookmark.user) ,class:"episodeBookmarks__name" %>
                         <%= bookmark.updated_at.strftime("%Y-%m-%d %H:%M") %>
                     </td>
                 </tr>
@@ -38,10 +38,10 @@
             <table>
                 <tr>
                     <th rowspan="3">
-                        <%= attachment_image_tag(bookmark.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBookmarks__image") %>
+                        <%= attachment_image_tag(bookmark.proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"proverbBookmarks__image") %>
                     </th>
                     <td>
-                        <%= link_to bookmark.user.name, user_path(bookmark.user) ,class:"proverbBookmarks__name" %>
+                        <%= link_to bookmark.proverb.user.name, user_path(bookmark.user) ,class:"proverbBookmarks__name" %>
                         <%= bookmark.updated_at.strftime("%Y-%m-%d %H:%M") %>
                     </td>
                 </tr>
