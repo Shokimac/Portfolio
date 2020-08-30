@@ -19,6 +19,7 @@
             <%= episode.episode_favorites.count %> 件
         </span>
         <% end %>
+        <%= paginate @user_episodes %>
     </div>
 
     <div class="timeline">
