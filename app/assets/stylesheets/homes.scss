@@ -7,12 +7,12 @@
 .topSection {
     padding-top: 250px;
     padding-bottom: 200px;
-    color: rgba($color: #f75c02, $alpha: 1.0);
-    background-color: rgba(#5f5d60, 0.9);
-    background-blend-mode: lighten;
+    color: #ec2323;
     text-align: center;
     background-image: image-url("shrine.jpg");
+    background-color:rgba(255,255,255,0.4);
     background-size: cover;
+    background-blend-mode:lighten;
 }
 
 .top {
@@ -31,6 +31,7 @@
         margin: 15px;
         padding-top: 15px;
         font-weight: bold;
+        font-size: 1.5em;
     }
 }
 
@@ -67,7 +68,7 @@
 .sideLeft {
     float: left;
     width: 50%;
-    padding-top: 60px;
+    line-height: 2em;
 }
 
 .sideRight {
