@@ -37,7 +37,7 @@
                     <%= attachment_image_tag(proverb.user, :image, size: "100x100", fallback: "no_image.png", class:"timeline__image") %>
                 </th>
                 <td>
-                    <%= link_to proverb.user.name, user_path(proverb), class:"timeline__name" %>
+                    <%= link_to proverb.user.name, user_path(proverb.user), class:"timeline__name" %>
                 </td>
             </tr>
             <tr>
