@@ -13,6 +13,10 @@
     }
 
     &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+    }
+
+    &__button--delete {
         @include button-fade(#e74949, #ee9f7a);
     }
 }

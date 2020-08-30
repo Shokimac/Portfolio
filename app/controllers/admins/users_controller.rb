@@ -20,4 +20,11 @@ class Admins::UsersController < ApplicationController
     @user.save
     redirect_to admins_users_path
   end
+
+  def return
+    @user = User.find(params[:user_id])
+    @user.delete_flg = false
+    @user.save
+    redirect_to admins_users_path
+  end
 end

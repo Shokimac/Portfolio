@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show edit update] do
       patch '/withdrawal' => 'users#withdrawal'
       put '/withdrawal' => 'users#withdrawal'
+      patch '/return' => 'users#return'
+      put '/return' => 'users#return'
     end
     resources :dropped_letters, only: %i[index create edit update]
     resources :episodes, only: %i[show destroy]

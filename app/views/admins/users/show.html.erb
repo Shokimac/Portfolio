@@ -52,7 +52,13 @@
             </div>
         </div>
     </div>
-    <%= form_with url: admins_user_withdrawal_path(@user), method: :patch do |f| %>
-    <%= f.submit "退会する", class: "showUser__button" %>
+    <% if @user.delete_flg != false %>
+    <%= form_with url: admins_user_return_path(@user), method: :patch do |f| %>
+    <%= f.submit "退会解除", class: "showUser__button" %>
     <% end %>
+    <% else %>
+    <%= form_with url: admins_user_withdrawal_path(@user), method: :patch do |f| %>
+    <%= f.submit "退会する", class: "showUser__button--delete" %>
+    <% end %>
+    <% end %>    
 </div>
