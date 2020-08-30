@@ -42,7 +42,9 @@
                             <p class="otherComment__body"><%= comment.comment %></p>
                         </td>
                         <td>
+                        <% if current_user == @proverb.user %>
                             <%= link_to "削除", proverb_post_comment_path(@proverb, comment), method: :delete, class:"comment__button" %>
+                            <% end %>
                         </td>
                     </tr>
                 </table>
