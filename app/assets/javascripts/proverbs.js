@@ -12,6 +12,8 @@ $(document).on('turbolinks:load', function () {
             })
 
             .done(function (data) {
+                $('.proverbResult li').remove();
+
                 $(data).each(function (i, result) {
                     $('.proverbResult').append(
                         `<li class="proverbResult__list"><a href="/proverbs/${result.id}">${result.name}</a></li>`
