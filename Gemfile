@@ -70,6 +70,7 @@ gem 'jquery-rails'
 gem 'pry-byebug'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-s3"
 gem "refile-mini_magick"
 
 gem 'kaminari','~> 1.2.1'
