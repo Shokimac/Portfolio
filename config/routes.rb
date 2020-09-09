@@ -12,7 +12,7 @@ Rails.application.routes.draw do
              controllers: {
                sessions: 'admins/sessions',
                passwords: 'admins/passwords',
-               registrations: 'admins/registrations'
+               
              }
   devise_for :users,
              controllers: {
