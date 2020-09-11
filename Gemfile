@@ -81,7 +81,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-gem 'dotenv-rails'
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~>0.5.3'
 end
