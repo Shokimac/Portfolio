@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      sleep(3)
+      sleep(15)
     redirect_to user_path(@user), notice:"プロフィールを更新しました。"
     else
     @user.errors.full_messages
