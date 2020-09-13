@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
   end
 
   def update
