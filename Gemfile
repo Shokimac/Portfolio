@@ -73,6 +73,7 @@ gem 'jquery-rails'
 gem 'pry-byebug'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-s3"
 gem "refile-mini_magick"
 
 gem 'kaminari','~> 1.2.1'
@@ -83,7 +84,6 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-gem 'dotenv-rails'
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~>0.5.3'
 end

@@ -6,15 +6,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @episodes = Episode.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
     @proverbs = Proverb.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
+    sleep(3)
+    @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
   end
 
   def edit
     @user = User.find(params[:id])
+    @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      sleep(3)
     redirect_to user_path(@user), notice:"プロフィールを更新しました。"
     else
     @user.errors.full_messages
@@ -36,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :introduction, :image)
+    params.require(:user).permit(:name, :email, :introduction, :image, :image_id)
   end
 
   def ensure_correct_user
