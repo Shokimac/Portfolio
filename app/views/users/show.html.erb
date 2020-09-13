@@ -6,7 +6,7 @@
     <div class="mainArea">
         <div class="userProfile">
             <div class="userProfile__image">
-                <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png") %><br>
+                <%= image_tag @image_url %><br>
             </div>
             <div class="userProfile__section">
                 自己紹介
