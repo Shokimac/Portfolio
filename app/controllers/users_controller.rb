@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @episodes = Episode.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
     @proverbs = Proverb.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
-    @image_url = "https://itowokashi-resize.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
   end
 
   def edit
