@@ -6,7 +6,7 @@
     <div class="mainArea">
         <div class="userProfile">
             <div class="userProfile__image">
-                <%= image_tag @image_url, size:"400x300" %><br>
+                <%= image_tag @image_url, size:"200x150", fallback: "no_image.png" %><br>
             </div>
             <div class="userProfile__section">
                 自己紹介
