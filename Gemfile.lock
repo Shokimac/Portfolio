@@ -383,8 +383,8 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.3)
   refile!
   refile-mini_magick
-  rspec-rails
   refile-s3
+  rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
