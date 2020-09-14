@@ -6,12 +6,12 @@
 
 
 .adminTop {
-
     @include container();
 }
 
 .episodeBlock {
     margin: 0 auto;
+    text-align: left;
 
     &__section {
         margin: 2em 0;
