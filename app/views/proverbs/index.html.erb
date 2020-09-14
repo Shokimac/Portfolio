@@ -52,7 +52,7 @@
     </div>
 
     <div class="userProfile">
-        <%= image_tag @image_url, size:"400x300" %>
+        <%= image_tag @image_url, size:"200x150" %>
         <p class="userProfile__name">ニックネーム： <%= @user.name %> </p>
         <%= link_to "格言投稿", new_proverb_path, class:"userProfile__button" %><br>
         <%= link_to "格言検索", proverbs_search_path, class:"userProfile__button--search" %><br>
