@@ -199,7 +199,6 @@ header {
 footer {
   @include container();
   padding-top: 10px;
-  border-top: 2px solid rgba($color: #78bae6, $alpha: 0.5);
 }
 
 .inquiry {
