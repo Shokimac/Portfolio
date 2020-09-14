@@ -11,7 +11,7 @@ describe 'ユーザー認証のテスト' do
                 fill_in 'user[email]', with: Faker::Internet.email
                 fill_in 'user[password]', with: 'password'
                 fill_in 'user[password_confirmation]', with: 'password'
-                click_botton '登録'
+                click_button '登録'
 
                 expect(page).to have_content 'successfully'
             end
