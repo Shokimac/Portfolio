@@ -6,11 +6,7 @@
     <div class="mainArea">
         <div class="userProfile">
             <div class="userProfile__image">
-                <% if @image_url != nil %>
-                <%= image_tag @image_url, size:"200x150" %><br>
-                <% else %>
-                <%= image_tag "no_image.png" %>
-                <% end %>
+                <%= image_tag @image_url, size:"200x150", fallback: "/no_image.png" %><br>
             </div>
             <div class="userProfile__section">
                 自己紹介
