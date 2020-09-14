@@ -13,15 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ 
+ @import "./user_variable";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-@import "./user_variable";
-
 
 body {
   font-family: "Hiragino Kaku Gothic ProN";
@@ -159,9 +158,6 @@ header {
 
 .userProfile {
   margin: 0 30px;
-
-  &__image {
-  }
 
   &__name {
       margin: 0.5em 0;
