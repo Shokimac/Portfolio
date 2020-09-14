@@ -25,6 +25,7 @@
 
     &__body {
         @include tdSet();
+        text-align: left;
     }
 
     &__body--check {
