@@ -6,6 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Admin.create!(email:'admin@sample.com',password:'itoito')
-User.create!(name:'テストユーザー１',email:'ito@sample.com',password:'itoito')
-DroppedLetter.create!(body:"テスト")
+load(Rails.root.join('db', 'seeds', "#{Rails.env.downcase}.rb"))
