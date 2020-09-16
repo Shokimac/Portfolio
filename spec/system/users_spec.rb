@@ -111,7 +111,14 @@ describe "ユーザーのテスト" do
         end
     end
 
-    describe 'プロフィール編集ページのテスト' do
+    describe 'プロフィール編集のテスト' do
+        context '他人の編集画面' do
+            it 'アクセスできない' do
+                visit edit_user_path(user2)
+                expect(current_path).to eq('/users/' + user.id.to_s)  
+            end
+        end
+
         context '自分の編集画面' do
             it 'アクセスできる' do
                 visit edit_user_path(user)
@@ -169,16 +176,27 @@ describe "ユーザーのテスト" do
             end
         end
         
-        
+        context "表示の確認" do
+            before do
+                visit edit_user_path(user)
+            end
 
-        context '他人の編集画面' do
-            it 'アクセスできない' do
-                visit edit_user_path(user2)
-                expect(current_path).to eq('/users/' + user.id.to_s)  
+            it '画像投稿フォームが表示される' do
+                expect(page).to have_field 'user[image]'
+            end
+
+            it '入力フォームに自分の名前が表示される' do
+                expect(page).to have_field 'ユーザー名', with: user.name
+            end
+
+            it 'ユーザーのメールアドレスが表示される' do
+                expect(page).to have_content user.email
+            end
+
+            it '自己紹介フォームに自分の自己紹介文が表示される' do
+                expect(page).to have_field '自己紹介', with: user.introduction
             end
         end
-        
-        
     end
     
 end
