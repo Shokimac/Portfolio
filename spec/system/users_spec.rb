@@ -50,9 +50,24 @@ describe 'ユーザー認証のテスト' do
 
                 expect(current_path).to eq(new_user_session_path)
             end
+        end
+    end
+end
+
+describe "ユーザーのテスト" do
+    let(:user) { create(:user) }
+
+    before do
+        visit new_user_session_path
+        fill_in "user[email]", with: user.email
+        fill_in "user[password]", with: user.password
+        click_button 'ログイン'
+    end
+
+    describe "マイページのテスト" do
+        context "表示の確認" do
             
         end
-        
     end
     
 end
