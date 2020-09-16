@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_many :proverb_bookmarks, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
+  validates :name, presence: true
+
   def active_for_authentication?
     super && (self.delete_flg === false)
   end
