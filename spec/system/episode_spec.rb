@@ -106,6 +106,25 @@ describe "エピソード" do
             end
         end
 
+        context "編集テスト" do
+            before do
+                visit edit_episode_path(episode)
+            end
+
+            it '編集が成功する' do
+                fill_in "episode[title]",	with: episode.title 
+                fill_in "episode[body]",	with: episode.body
+                click_button '更新する'
+                expect(current_path).to eq episode_path(episode) 
+            end
+
+            it 'フォーム空白で編集が失敗する' do
+                fill_in "episode[title]",	with: ""
+                fill_in "episode[body]",	with: ""
+                click_button '更新する'
+                expect(page).to have_content("can't be blank") 
+            end
+        end
         
         
     end
