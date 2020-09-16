@@ -15,6 +15,7 @@ describe 'ユーザー認証のテスト' do
 
                 expect(page).to have_content 'successfully'
             end
+
             it '新規登録に失敗する' do
                 fill_in 'user[name]', with: ''
                 fill_in 'user[email]', with:''
@@ -26,4 +27,5 @@ describe 'ユーザー認証のテスト' do
             end
         end
     end
+    
 end
