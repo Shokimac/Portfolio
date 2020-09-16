@@ -76,6 +76,36 @@ describe "エピソード" do
             end
         end
 
+        context "編集画面の表示確認" do
+            before do
+                visit edit_episode_path(episode)
+            end
+
+            it '「エピソード編集」と表示されている' do
+                expect(page).to have_content('エピソード編集') 
+            end
+
+            it 'ラベルに「タイトル」と表示されている' do
+                expect(page).to have_content('タイトル') 
+            end
+
+            it 'フォームにタイトルが入っている' do
+                expect(page).to have_field 'episode[title]', with: episode.title 
+            end
+
+            it 'ラベルに「内容」と表示されている' do
+                expect(page).to have_content('内容')
+            end
+
+            it 'フォームに内容が入っている' do
+                expect(page).to have_field 'episode[body]', with: episode.body 
+            end
+
+            it '更新ボタンが表示されている' do
+                expect(page).to have_button '更新する' 
+            end
+        end
+
         
         
     end
