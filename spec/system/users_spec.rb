@@ -56,7 +56,7 @@ end
 
 describe "ユーザーのテスト" do
     let(:user) { create(:user) }
-
+    let(:user2) { create(:user) }
     before do
         visit new_user_session_path
         fill_in 'user[email]', with: user.email
@@ -64,8 +64,8 @@ describe "ユーザーのテスト" do
         click_button 'ログイン'
     end
 
-    describe 'マイページのテスト' do
-        context '表示の確認' do
+    describe 'プロフィールページのテスト' do
+        context '本人アクセス時の表示確認' do
             it 'プロフィール画像が表示される' do
                 visit user_path(user)
                 expect(page).to have_css('.userProfile__image')
@@ -78,17 +78,37 @@ describe "ユーザーのテスト" do
 
             it '本人ログイン時、プロフィール編集ボタンが表示される' do
                 visit user_path(user)
-                expect(page).to have_link 'プロフィール編集'
+                expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
             end
 
             it '本人ログイン時、お気に入りボタンが表示される' do
                 visit user_path(user)
                 expect(page).to have_link 'お気に入り一覧'
             end
+        end
 
-            
+        context '本人以外のユーザーアクセス時の表示確認' do
+            it 'プロフィール画像が表示される' do
+                visit user_path(user)
+                expect(page).to have_css('.userProfile__image')
+            end
 
+            it '自己紹介が表示される' do
+                visit user_path(user)
+                expect(page).to have_content(user.introduction)
+            end
+
+            it 'プロフィール編集ボタンが表示されない' do
+                visit user_path(user)
+                expect(page).to have_no_link 'プロフィール編集', href: edit_user_path(user2)
+            end
+
+            it 'お気に入りボタンが表示されない' do
+                visit user_path(user)
+                expect(page).to have_no_link 'お気に入り一覧', href: user_bookmarks_path(user2)
+            end
         end
     end
+    
     
 end
