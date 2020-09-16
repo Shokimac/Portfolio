@@ -125,7 +125,28 @@ describe "エピソード" do
                 expect(page).to have_content("can't be blank") 
             end
         end
+    end
+
+    describe "エピソード詳細" do
+        let!(:user2) { create(:user) }
+        let!(:episode) { create(:episode, user: user) }
+        let!(:episode2) { create(:episode, user: user2) }
+
+        context "編集＆削除ボタンの表示" do
+            it '自分の投稿へアクセス時、ボタンが表示される' do
+                visit episode_path(episode)
+                expect(page).to have_link '編集する' 
+                expect(page).to have_link '削除する' 
+            end
+
+            it '他人の投稿へアクセス時、ボタンが表示されない' do
+                visit episode_path(episode2)
+                expect(page).to have_no_link '編集する'
+                expect(page).to have_no_link '削除する'
+            end
+        end
         
         
     end
+    
 end
