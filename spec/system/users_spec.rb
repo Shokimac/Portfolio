@@ -129,6 +129,27 @@ describe "ユーザーのテスト" do
             end
         end
 
+        context 'パスワード変更' do
+            it '成功' do
+                visit edit_user_registration_path
+                fill_in '現在のパスワード',	with: user.password
+                fill_in '新しいパスワード',	with: 'itoito'
+                fill_in 'パスワード確認入力', with: "itoito"
+                click_button 'Update'
+                expect(page).to have_content 'successfully'
+            end
+
+            it '失敗' do
+                visit edit_user_registration_path
+                fill_in '現在のパスワード',	with: ''
+                fill_in '新しいパスワード',	with: 'itoito'
+                fill_in 'パスワード確認入力', with: "itoito"
+                click_button 'Update'
+                expect(page).to have_content 'error'
+            end
+        end
+
+
         context '他人の編集画面' do
             it 'アクセスできない' do
                 visit edit_user_path(user2)
