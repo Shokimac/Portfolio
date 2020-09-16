@@ -42,6 +42,23 @@ describe "エピソードのテスト" do
             end
         end
 
+        context "投稿テスト" do
+            it '投稿に成功する' do
+                fill_in "episode[title]",	with: episode.title 
+                fill_in "episode[body]",	with: episode.body
+                click_button '投稿する'
+                expect(page).to have_content('エピソードを投稿しました')
+            end
+
+            it '投稿に失敗する' do
+                fill_in "episode[title]",	with: ""
+                fill_in "episode[body]",	with: ""
+                click_button '投稿する'
+                expect(page).to have_content("can't be blank")
+            end
+        end
+
+        
         
         
     end
