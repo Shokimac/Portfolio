@@ -21,7 +21,11 @@ class ProverbsController < ApplicationController
     @proverbs = Proverb.all.includes(:user).page(params[:page]).reverse_order
     @user = User.find(current_user.id)
     @all_rank = Proverb.all.includes(:user).sort {|a,b| b.proverb_favorites.count <=> a.proverb_favorites.count}
-    @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    unless @user.image_id.nil?
+      @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    else
+      @image_url = "https://direct-access.s3-ap-northeast-1.amazonaws.com/no_image.png"
+    end
   end
 
   def show
