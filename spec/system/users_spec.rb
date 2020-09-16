@@ -110,5 +110,33 @@ describe "ユーザーのテスト" do
             end
         end
     end
+
+    describe 'プロフィール編集ページのテスト' do
+        context '自分の編集画面' do
+            it 'アクセスできる' do
+                visit edit_user_path(user)
+                expect(current_path).to eq('/users/' + user.id.to_s + '/edit')  
+            end
+
+            it '編集できる' do
+                visit edit_user_path(user)
+                click_button '更新'
+                expect(current_path).to eq(user_path(user))  
+            end
+            
+            it '編集に失敗する' do
+                
+            end
+        end
+
+        context '他人の編集画面' do
+            it 'アクセスできない' do
+                visit edit_user_path(user2)
+                expect(current_path).to eq('/users/' + user.id.to_s)  
+            end
+        end
+        
+        
+    end
     
 end
