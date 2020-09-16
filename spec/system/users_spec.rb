@@ -88,27 +88,27 @@ describe "ユーザーのテスト" do
         end
 
         context '本人以外のユーザーアクセス時の表示確認' do
+            
             it 'プロフィール画像が表示される' do
-                visit user_path(user)
+                visit user_path(user2)
                 expect(page).to have_css('.userProfile__image')
             end
 
             it '自己紹介が表示される' do
-                visit user_path(user)
-                expect(page).to have_content(user.introduction)
+                visit user_path(user2)
+                expect(page).to have_content(user2.introduction)
             end
 
             it 'プロフィール編集ボタンが表示されない' do
-                visit user_path(user)
-                expect(page).to have_no_link 'プロフィール編集', href: edit_user_path(user2)
+                visit user_path(user2)
+                expect(page).to have_no_link 'プロフィール編集', href: edit_user_path(user)
             end
 
             it 'お気に入りボタンが表示されない' do
-                visit user_path(user)
-                expect(page).to have_no_link 'お気に入り一覧', href: user_bookmarks_path(user2)
+                visit user_path(user2)
+                expect(page).to have_no_link 'お気に入り一覧', href: user_bookmarks_path(user)
             end
         end
     end
-    
     
 end
