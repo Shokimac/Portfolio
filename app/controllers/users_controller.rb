@@ -7,20 +7,18 @@ class UsersController < ApplicationController
     @episodes = Episode.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
     @proverbs = Proverb.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
     unless @user.image_id.nil?
-      @image_flg = 1
       @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
     else
-      @image_flg = 0
+      @image_url = "https://direct-access.s3-ap-northeast-1.amazonaws.com/no_image.png"
     end
   end
 
   def edit
     @user = User.find(params[:id])
     unless @user.image_id.nil?
-      @image_flg = 1
       @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
     else
-      @image_flg = 0
+      @image_url = "https://direct-access.s3-ap-northeast-1.amazonaws.com/no_image.png"
     end
   end
 

@@ -7,11 +7,7 @@
     <%= render 'layouts/error_message', model: f.object %>
 
     <div class="editProfile__image">
-        <% if @image_flg == 1 %>
-        <%= image_tag @image_url, size:"200x150", id:"img1" %><br>
-        <% elsif %>
-        <%= image_tag '/no_image.png', size:"200x150", id:"img1" %><br>
-        <% end %>
+        <%= image_tag @image_url, size:"400x300", id:"img1" %><br>
         <%= f.attachment_field :image, id:"myfile" %>
     </div>
 
