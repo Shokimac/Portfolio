@@ -47,7 +47,7 @@
     </div>
 
     <div class="userProfile">
-        <%= attachment_image_tag(@user, :image, size: "200x150", fallback: "no_image.png", class:"userProfile__image") %>
+        <%= image_tag @image_url, size:"200x150" %>
         <div class="userProfile__name">
             <p>ニックネーム：<%= @user.name %></p>
         </div>

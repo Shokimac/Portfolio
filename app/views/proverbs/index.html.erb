@@ -5,7 +5,6 @@
 </div>
 
 <div class="mainArea">
-
     <div class="rank">
         <div class="rank__section">
             <h3>いいねランキング</h3>
@@ -53,7 +52,7 @@
     </div>
 
     <div class="userProfile">
-        <%= attachment_image_tag(@user, :image, size: "250x250", fallback: "no_image.png", class:"userProfile__image") %>
+        <%= image_tag @image_url, size:"200x150" %>
         <p class="userProfile__name">ニックネーム： <%= @user.name %> </p>
         <%= link_to "格言投稿", new_proverb_path, class:"userProfile__button" %><br>
         <%= link_to "格言検索", proverbs_search_path, class:"userProfile__button--search" %><br>

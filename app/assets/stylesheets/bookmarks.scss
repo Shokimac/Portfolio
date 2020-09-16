@@ -13,9 +13,11 @@
 
 .episodeBookmarks {
     margin: 0 auto;
+    text-align: left;
 
     &__section {
         margin-bottom: 2em;
+        text-align: center;
     }
 
     &__name {
@@ -33,13 +35,15 @@
 
 .proverbBookmarks {
     margin: 0 auto;
+    text-align: left;
 
     &__section {
         margin-bottom: 2em;
+        text-align: center;
     }
 
     &__name {
-        margin-left: 2em;
+        margin-left: 0.5em;
     }
   
     &__body {

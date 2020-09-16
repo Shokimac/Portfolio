@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2020_08_27_041509) do
   end
 
   create_table "dropped_letters", force: :cascade do |t|
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "body"
     t.boolean "delete_flg", default: false, null: false
   end
 
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_041509) do
   create_table "episodes", force: :cascade do |t|
     t.integer "user_id", default: 0, null: false
     t.string "title", default: "", null: false
-    t.text "body", default: "", null: false
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_episodes_on_title"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_041509) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -87,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_041509) do
   create_table "proverbs", force: :cascade do |t|
     t.integer "user_id", default: 0, null: false
     t.string "name", default: "", null: false
-    t.text "body", default: "", null: false
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "introduction"
