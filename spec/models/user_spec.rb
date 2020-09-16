@@ -45,4 +45,19 @@ RSpec.describe 'Userモデルのテスト', type: :model do
     end    
   end
 
+  describe "バリデーションのテスト" do
+    before do
+      @user = FactoryBot.create(:user)
+    end
+
+    context 'nameカラム' do
+      it "空欄でないこと" do
+      @user.name = ''
+      expect(@user.valid?).to eq false;
+    end
+    
+  end
+  
+end
+
 end
