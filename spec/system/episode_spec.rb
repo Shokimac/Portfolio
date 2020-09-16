@@ -58,4 +58,25 @@ describe "エピソード" do
             end
         end
     end
+    
+    describe "投稿編集" do
+        let!(:user2) { create(:user) }
+        let!(:episode) { create(:episode, user: user) }
+        let!(:episode2) { create(:episode, user: user2) }
+
+        context "編集画面へのアクセス" do
+            it '自分が投稿したエピソードの編集画面にアクセスできる' do
+                visit edit_episode_path(episode)
+                expect(page).to have_content('エピソード編集') 
+            end
+
+            it '他人が投稿したエピソードの編集画面にはアクセスできない' do
+                visit edit_episode_path(episode2)
+                expect(current_path).to eq user_path(user)
+            end
+        end
+
+        
+        
+    end
 end
