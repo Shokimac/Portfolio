@@ -11,9 +11,11 @@
 
 .episodeBlock {
     margin: 0 auto;
+    text-align: left;
 
     &__section {
         margin: 2em 0;
+        text-align: center;
     }
 
     &__name {
@@ -31,9 +33,11 @@
 
 .proverbBlock {
     margin: 0 auto;
+    text-align: left;
 
     &__section {
         margin: 2em 0;
+        text-align: center;
     }
 
     &__name {

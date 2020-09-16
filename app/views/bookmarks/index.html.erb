@@ -18,7 +18,7 @@
                     </th>
                     <td>
                         <%= link_to bookmark.episode.user.name, user_path(bookmark.user) ,class:"episodeBookmarks__name" %>
-                        <%= bookmark.updated_at.strftime("%Y-%m-%d %H:%M") %>
+                        <%= bookmark.updated_at.strftime("%Y-%m-%d") %>
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,9 @@
             </div>
         </div>
         <div class="proverbBookmarks">
-            <h2 class="proverbBookmarks__section">みんなの格言</h2>
+        <div class="proverbBookmarks__section">
+            <h2>みんなの格言</h2>
+        </div>
             <% @proverbBookmarks.each do |bookmark| %>
             <table>
                 <tr>
@@ -42,7 +44,7 @@
                     </th>
                     <td>
                         <%= link_to bookmark.proverb.user.name, user_path(bookmark.user) ,class:"proverbBookmarks__name" %>
-                        <%= bookmark.updated_at.strftime("%Y-%m-%d %H:%M") %>
+                        <%= bookmark.updated_at.strftime("%Y-%m-%d") %>
                     </td>
                 </tr>
                 <tr>
