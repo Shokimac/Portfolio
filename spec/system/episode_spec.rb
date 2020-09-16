@@ -145,8 +145,23 @@ describe "エピソード" do
                 expect(page).to have_no_link '削除する'
             end
         end
-        
-        
+
+        context "詳細画面の表示確認" do
+            before do
+                visit episode_path(episode)
+            end
+
+            it '「エピソード詳細」と表示されている' do
+                expect(page).to have_content('エピソード詳細') 
+            end
+
+            it '投稿者のユーザー名が表示されている' do
+                expect(page).to have_content user.name
+            end
+
+            
+        end
+
     end
     
 end
