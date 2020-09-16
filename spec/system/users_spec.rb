@@ -149,6 +149,27 @@ describe "ユーザーのテスト" do
             end
         end
 
+        context "退会" do
+            it '退会確認画面にアクセスできる' do
+                visit edit_user_path(user)
+                click_link '退会する'
+                expect(current_path).to eq(user_withdrawal_path(user)) 
+            end
+
+            it '退会できる' do
+                visit user_withdrawal_path(user)
+                click_button '退会する'
+                expect(current_path).to eq(root_path) 
+            end
+
+            it '退会しないボタンのリンク先が正しい' do
+                visit user_withdrawal_path(user)
+                click_link '退会しない'
+                expect(current_path).to eq(user_path(user)) 
+            end
+        end
+        
+        
 
         context '他人の編集画面' do
             it 'アクセスできない' do
