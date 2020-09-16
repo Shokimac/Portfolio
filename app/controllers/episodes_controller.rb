@@ -22,7 +22,12 @@ class EpisodesController < ApplicationController
     @episodes = Episode.eager_load(:user).page(params[:page]).reverse_order
     @user_episodes = Episode.preload(:user).where(user_id: current_user.id).page(params[:page]).reverse_order
     @user = User.find(current_user.id)
-    @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    unless @user.image_id.nil?
+      @image_flg = 1
+      @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    else
+      @image_flg = 0
+    end
   end
 
   def show

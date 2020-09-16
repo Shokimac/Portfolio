@@ -6,7 +6,11 @@
     <div class="mainArea">
         <div class="userProfile">
             <div class="userProfile__image">
+                <% if @image_flg == 1 %>
                 <%= image_tag @image_url, size:"200x150" %><br>
+                <% elsif %>
+                <%= image_tag '/no_image.png', size:"200x150" %><br>
+                <% end %>
             </div>
             <div class="userProfile__section">
                 自己紹介
