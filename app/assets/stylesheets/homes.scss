@@ -39,11 +39,17 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
-    &__login {
+    &__button {
+        @include button-fade(#9ec34b, #cbe585);
+    }
+    &__button--proverb {
+        @include button-fade(#9ec34b, #cbe585);
+    }
+    &__button--login {
         @include button-fade(#9ec34b, #cbe585);
     }
 
-    &__signup {
+    &__button--signup {
         @include button-fade(#9ec34b, #cbe585);
     }
 }
