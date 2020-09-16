@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "エピソードのテスト" do
+describe "エピソード" do
     let(:user) { create(:user) }
 
     before do
@@ -11,12 +11,12 @@ describe "エピソードのテスト" do
     end
 
     describe "エピソード投稿" do
-        let!(:episode) { create(:episode) }
+        let!(:episode) { create(:episode, user: user) }
         before do
             visit new_episode_path
         end
 
-        context "表示の確認" do
+        context "投稿画面の表示確認" do
             it '「エピソード投稿」と表示される' do
                 expect(page).to have_content('エピソード投稿') 
             end
@@ -50,17 +50,12 @@ describe "エピソードのテスト" do
                 expect(page).to have_content('エピソードを投稿しました')
             end
 
-            it '投稿に失敗する' do
+            it 'フォームが空白のままだと投稿に失敗する' do
                 fill_in "episode[title]",	with: ""
                 fill_in "episode[body]",	with: ""
                 click_button '投稿する'
                 expect(page).to have_content("can't be blank")
             end
         end
-
-        
-        
-        
     end
-    
 end
