@@ -2,6 +2,10 @@ require 'rails_helper'
 
 describe "格言のテスト" do
     let(:user) {create(:user)}
+    let(:user2) {create(:user)}
+    let(:proverb) {create(:proverb, user: user)}
+    let(:proverb2) {create(:proverb, user: user2)}
+
 
     before do
         visit new_user_session_path
@@ -11,7 +15,6 @@ describe "格言のテスト" do
     end
 
     describe "格言投稿" do
-        let(:proverb) {create(:proverb, user: user)}
         before do
             visit new_proverb_path
         end
@@ -67,8 +70,22 @@ describe "格言のテスト" do
                 expect(page).to have_content("can't be blank")
             end
         end
-        
+    end
+
+    describe "格言編集" do
+        context "画面へのアクセステスト" do
+            it '自分の投稿した格言編集画面へアクセスできる' do
+                visit edit_proverb_path(proverb)
+                expect(current_path).to eq edit_proverb_path(proverb)
+            end
+
+            it '他人の投稿した格言編集画面にはアクセスできない' do
+                visit edit_proverb_path(proverb2)
+                expect(current_path).to eq  user_path(user)
+            end
+        end
         
     end
+    
     
 end
