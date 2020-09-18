@@ -26,7 +26,27 @@ describe "問い合わせテスト" do
             it '送信ボタンが表示されている' do
                 expect(page).to have_button '送信' 
             end
-            
         end
+
+        context "送信テスト" do
+            before do
+                visit new_inquiries_path
+            end
+
+            it '成功する' do
+                fill_in "inquiry[name]",	with: "test user"
+                fill_in "inquiry[message]",	with: "send test"
+                click_button '送信'
+                expect(current_path).to eq root_path
+            end
+
+            it '失敗する' do
+                fill_in "inquiry[name]",	with: ""
+                fill_in "inquiry[message]",	with: ""
+                click_button '送信'
+                expect(page).to have_content("can't be blank")
+            end
+        end
+        
     
 end
