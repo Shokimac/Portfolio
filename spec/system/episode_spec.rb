@@ -159,7 +159,41 @@ describe "エピソード" do
                 expect(page).to have_content user.name
             end
 
-            
+            it '投稿者のプロフィール画像が表示されている。' do
+                expect(page).to have_css('.leftSide__image')
+            end
+
+            it 'いいねボタンが表示されている。' do
+                expect(page).to have_css('.leftSide__favorite')
+            end
+
+            it 'いいね件数が表示されている。' do
+                expect(page).to have_content('いいね件数')
+            end
+
+            it 'お気に入りボタンが表示されている。' do
+                expect(page).to have_css('.leftSide__bookmark')
+            end
+
+            it 'お気に入り件数が表示されている。' do
+                expect(page).to have_content('お気に入り件数')
+            end
+
+            it 'ラベルにタイトルと表示されている。' do
+                expect(page).to have_content('タイトル')
+            end
+
+            it '投稿のタイトルが表示されている。' do
+                expect(page).to have_content episode.title 
+            end
+
+            it 'ラベルに内容と表示されている。' do
+                expect(page).to have_content('内容')
+            end
+
+            it '投稿の内容が表示されている。' do
+                expect(page).to have_content episode.body 
+            end
         end
 
     end
