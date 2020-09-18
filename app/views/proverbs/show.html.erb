@@ -53,6 +53,7 @@
             <div class="commentCreate">
                 <%= form_with model:@comment, url:proverb_post_comments_path(@proverb), local: true do |f| %>
                 <%= f.label :comment, "コメント投稿", class:"commentCreate__label" %><br>
+                <%= render 'layouts/error_message', model: f.object %>
                 <%= f.text_field :comment, class:"commentCreate__form" %><br>
                 <%= f.submit "投稿", class:"commentCreate__button" %>
                 <% end %>
