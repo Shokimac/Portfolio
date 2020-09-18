@@ -143,6 +143,65 @@ describe "格言のテスト" do
         end
     end
 
+    describe "格言詳細" do
+        context "編集＆削除ボタンの表示" do
+            it '自分の投稿へアクセス時、ボタンが表示される' do
+                visit proverb_path(proverb)
+                expect(page).to have_link '編集する' 
+                expect(page).to have_link '削除する' 
+            end
+
+            it '他人の投稿へアクセス時、ボタンが表示されない' do
+                visit proverb_path(proverb2)
+                expect(page).to have_no_link '編集する'
+                expect(page).to have_no_link '削除する'
+            end
+        end
+
+        context "画面表示の確認" do
+            before do
+                visit proverb_path(proverb2)
+            end
+
+            it '格言主の名前が表示されている' do
+                expect(page).to have_content proverb2.name
+            end
+
+            it '格言が表示されている' do
+                expect(page).to have_content proverb2.body 
+            end
+
+            it 'いいねボタンが表示されている' do
+                expect(page).to have_css('.showProverb__favoriteButton') 
+            end
+
+            it 'お気に入りボタンが表示されている' do
+                expect(page).to have_css('.showProverb__bookmarkButton') 
+            end
+
+            it '投稿者の名前が表示されている' do
+                expect(page).to have_content user2.name
+            end
+
+            it '投稿者のコメントが表示されている' do
+                expect(page).to have_content proverb2.introduction 
+            end
+
+            it '「みんなのコメント」と表示されている' do
+                expect(page).to have_content('みんなのコメント') 
+            end
+
+            it 'コメント投稿フォームが表示されている' do
+                expect(page).to have_field 'post_comment[comment]' 
+            end
+
+            it 'コメント投稿ボタンが表示されている' do
+                expect(page).to have_button '投稿' 
+            end
+            
+        end
+        
+    end
     
     
     
