@@ -9,7 +9,7 @@ class InquiriesController < ApplicationController
     InquiryMailer.send_mail(@inquiry).deliver_now
     redirect_to episodes_path
     else
-      @render.errors.full_messages
+      @inquiry.errors.full_messages
       render :new
     end
   end
