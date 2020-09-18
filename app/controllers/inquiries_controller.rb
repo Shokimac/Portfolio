@@ -7,7 +7,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
     InquiryMailer.send_mail(@inquiry).deliver_now
-    redirect_to episodes_path
+    redirect_to root_path, notice: 'メールが送信されました。'
     else
       @inquiry.errors.full_messages
       render :new
