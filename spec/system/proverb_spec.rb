@@ -6,7 +6,6 @@ describe "格言のテスト" do
     let(:proverb) {create(:proverb, user: user)}
     let(:proverb2) {create(:proverb, user: user2)}
 
-
     before do
         visit new_user_session_path
         fill_in 'user[email]', with: user.email
@@ -123,9 +122,28 @@ describe "格言のテスト" do
             end
         end
 
-        
-        
+        context "編集テスト" do
+            before do
+                visit edit_proverb_path(proverb)
+            end
+
+            it '編集が成功する' do
+                fill_in "proverb[body]",	with: Faker::Lorem.characters(number:20)
+                fill_in "proverb[name]",	with: Faker::Lorem.characters(number:10)
+                click_button '更新する'
+                expect(current_path).to eq proverb_path(proverb) 
+            end
+
+            it 'フォーム空白で編集が失敗する' do
+                fill_in "proverb[body]",	with: ""
+                fill_in "proverb[name]",	with: ""
+                click_button '更新する'
+                expect(page).to have_content("can't be blank") 
+            end
+        end
     end
+
+    
     
     
 end
