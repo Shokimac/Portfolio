@@ -1,24 +1,28 @@
-# README
+# いとをかし
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+開運や魔除けなど多くのご利益をもたらす天狗が運営する言葉の共有サイトです。  
+ユーザーが持つポジティブなエピソードを共有して頂き、その投稿に他ユーザーは良いねアクションを行えます。  
+また、偉人が遺した格言や有名な言葉を投稿して頂きその言葉に対してはリアクションとしてコメント投稿が行えます。  
+画像投稿やプレビュー機能、タイムライン表示、投稿データのインクリメンタルサーチも行えます。  
 
-Things you may want to cover:
+### サイトテーマ
+言葉の共有サービス
 
-* Ruby version
+### テーマを選んだ理由
+名前を「いとをかし」にした理由は、現代の技術であるWebサービスと、古文で使われていた日本人なら誰もが知る言葉をあえて掛け合わせてユーザーに興味を持たせる狙いと遊び心から付けました。  
+背景としましては、以前からSNS関連のニュースを見ていると匿名ユーザーから誹謗中傷を受けて自殺に走ってしまう有名人が後を絶たない印象を受けます。  
+有名人だけではなく、一般の方でも同じです。   
+他人への匿名攻撃だけでなく、ネットいじめ等陰湿な目的に使われたりしている現実があります。  
+SNSが匿名で発信出来ることや不特定多数で交流する特徴である以上、致し方のない事かもしれません。  
+ですが、誰かを暗い気分にさせるのではなく、暗い気分になった人をちょっと明るくできるサービスがあっても良い。  
+そんな考えから今回、このテーマを選びました。  
 
-* System dependencies
+### ターゲットユーザー
+10代〜20代をメインターゲット
 
-* Configuration
+### 主な利用シーン
+帰宅後から就寝までのリラックスシーン
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1aSVjimF7mwkxKKcXXKz3w3CTxZTOl3pt2bHnby7uT-s/edit#gid=0

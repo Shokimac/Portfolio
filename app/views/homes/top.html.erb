@@ -62,11 +62,16 @@
         <div class="bottom__text">
             <h2>是非、あなたの言葉を教えてください</h2><br>
             <h3>新規登録もしくはログインをして頂きましたら、天ちゃんの落とし文が表示されますので<br>
-            そちらも楽しみにして下さると天ちゃんは喜びます...</h3>
+                そちらも楽しみにして下さると天ちゃんは喜びます...</h3>
         </div>
         <div class="buttonGroup">
-            <%= link_to "ログインはこちら", new_user_session_path, class:"buttonGroup__login" %>
-            <%= link_to "新規登録はこちら", new_user_registration_path, class:"buttonGroup__signup" %>
+            <% if user_signed_in? %>
+            <%= link_to "みんなのエピソードへ", episodes_path, class:"buttonGroup__button" %>
+            <%= link_to "みんなの格言へ", proverbs_path, class:"buttonGroup__button--proverb" %>
+            <% else %>
+            <%= link_to "ログインはこちら", new_user_session_path, class:"buttonGroup__button--login" %>
+            <%= link_to "新規登録はこちら", new_user_registration_path, class:"buttonGroup__button--signup" %>
+            <% end %>
         </div>
     </div>
 </div>
