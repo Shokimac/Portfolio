@@ -54,7 +54,7 @@ describe "格言のテスト" do
         end
 
         context "格言投稿のテスト" do
-            it '成功する' do
+            it '投稿に成功する' do
                 fill_in "proverb[body]",	with: Faker::Lorem.characters(number:20)
                 fill_in "proverb[name]",	with: Faker::Lorem.characters(number:10) 
                 fill_in "proverb[introduction]",	with: Faker::Lorem.characters(number:50)
@@ -62,7 +62,7 @@ describe "格言のテスト" do
                 expect(current_path).to eq proverbs_path 
             end
 
-            it '失敗する' do
+            it 'フォームが空白のままだと投稿に失敗する' do
                 fill_in "proverb[body]",	with: ""
                 fill_in "proverb[name]",	with: ""
                 fill_in "proverb[introduction]",	with: ""
@@ -73,7 +73,7 @@ describe "格言のテスト" do
     end
 
     describe "格言編集" do
-        context "画面へのアクセステスト" do
+        context "編集画面へのアクセス" do
             it '自分の投稿した格言編集画面へアクセスできる' do
                 visit edit_proverb_path(proverb)
                 expect(current_path).to eq edit_proverb_path(proverb)
@@ -84,6 +84,46 @@ describe "格言のテスト" do
                 expect(current_path).to eq  user_path(user)
             end
         end
+        
+        context "格言編集画面表示の確認" do
+            before do
+                visit edit_proverb_path(proverb)
+            end
+
+            it '「格言編集」と表示される' do
+                expect(page).to have_content('格言編集') 
+            end
+
+            it 'ラベルに「格言」と表示される' do
+                expect(page).to have_content('格言')
+            end
+
+            it '格言入力フォームに投稿した格言が入っている' do
+                expect(page).to have_field 'proverb[body]', with: proverb.body 
+            end
+
+            it 'ラベルに「誰の格言か」と表示される' do
+                expect(page).to have_content('誰の格言か')
+            end
+
+            it '格言主の名前入力フォームに投稿した名前が入っている' do
+                expect(page).to have_field 'proverb[name]' , with: proverb.name
+            end
+
+            it 'ラベルに「格言に対してのコメント」と表示される' do
+                expect(page).to have_content('格言に対してのコメント')
+            end
+
+            it 'コメント入力フォームに投稿したコメントが入っている' do
+                expect(page).to have_field 'proverb[introduction]', with: proverb.introduction 
+            end
+
+            it '投稿ボタンが表示されている' do
+                expect(page).to have_button '更新する' 
+            end
+        end
+
+        
         
     end
     
