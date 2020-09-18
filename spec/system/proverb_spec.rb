@@ -198,8 +198,26 @@ describe "格言のテスト" do
             it 'コメント投稿ボタンが表示されている' do
                 expect(page).to have_button '投稿' 
             end
-            
         end
+
+        context "コメント投稿テスト" do
+            before do
+                visit proverb_path(proverb2)
+            end
+
+            it 'コメント投稿できる' do
+                fill_in "post_comment[comment]",	with: Faker::Lorem.characters(number:5)
+                click_button '投稿'
+                expect(current_path).to eq proverb_path(proverb2)
+            end
+
+            it '空白ではコメント投稿できない' do
+                fill_in "post_comment[comment]",	with: ""
+                click_button '投稿'
+                expect(page).to have_content("can't be blank")
+            end
+        end
+        
         
     end
     
