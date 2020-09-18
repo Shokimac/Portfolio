@@ -195,7 +195,102 @@ describe "エピソード" do
                 expect(page).to have_content episode.body 
             end
         end
-
     end
+
+    describe "エピソードタイムライン" do
+        let!(:user2) { create(:user) }
+        let!(:episode) { create(:episode, user: user) }
+        let!(:episode2) { create(:episode, user: user2) }
+
+        context '表示の確認' do
+            before do
+                visit episodes_path
+            end
+
+            it '「みんなのエピソード」と表示される' do
+                expect(page).to have_content('みんなのエピソード')
+            end
+
+            it '自分の投稿に対してのいいね件数が表示されている。' do
+                expect(page).to have_content('いいね件数')
+            end
+
+            it 'いいねがついた自分の投稿時間が表示されている' do
+                expect(page).to have_content episode.updated_at.strftime("%Y-%m-%d")
+            end
+
+            it 'いいねがついた自分の投稿タイトルが表示されている' do
+                expect(page).to have_content episode.title 
+            end
+
+            it 'タイムラインに他ユーザーの名前が表示されている' do
+                expect(page).to have_content user2.name
+            end
+
+            it 'タイムラインに他ユーザーのプロフィール写真が表示されている' do
+                expect(page).to have_css('.timeline__image') 
+            end
+
+            it 'タイムラインに他ユーザーの投稿日時が表示されている' do
+                expect(page).to have_content episode2.updated_at.strftime("%Y-%m-%d")
+            end
+
+            it 'タイムラインに他ユーザー投稿タイトルが表示されている' do
+                expect(page).to have_content episode2.title
+            end
+
+            it '他ユーザーの投稿タイトルのリンク先が正しい' do
+                click_link episode2.title
+                expect(current_path).to eq episode_path(episode2) 
+            end
+
+            it '自分のプロフィール画像が表示されている' do
+                expect(page).to have_css('.userProfile__image') 
+            end
+
+            it '自分のユーザー名が表示されている' do
+                expect(page).to have_content('ユーザー名：') 
+            end
+
+            it 'エピソード投稿ボタンが表示されている' do
+                expect(page).to have_link 'エピソード投稿' 
+            end
+
+            it 'エピソード投稿ボタンのリンク先が正しい' do
+                click_link 'エピソード投稿'
+                expect(current_path).to eq new_episode_path 
+            end
+
+            it 'エピソード検索ボタンが表示されている' do
+                expect(page).to have_link 'エピソード検索' 
+            end
+
+            it 'エピソード検索ボタンのリンク先が正しい' do
+                click_link 'エピソード検索'
+                expect(current_path).to eq episodes_search_path 
+            end
+
+            it 'プロフィール編集ボタンが表示されている' do
+                expect(page).to have_link 'プロフィール編集' 
+            end
+
+            it 'プロフィールボタンのリンク先が正しい' do
+                click_link 'プロフィール編集'
+                expect(current_path).to eq edit_user_path(user)
+            end
+
+            it 'お気に入り一覧ボタンが表示されている' do
+                expect(page).to have_link 'お気に入り一覧' 
+            end
+
+            it 'お気に入り一覧ボタンのリンク先が正しい' do
+                click_link 'お気に入り一覧'
+                expect(current_path).to eq user_bookmarks_path(user) 
+            end
+
+        end
+        
+    end
+    
     
 end
