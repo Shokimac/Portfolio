@@ -48,8 +48,26 @@ describe "格言のテスト" do
             it '投稿ボタンが表示されている' do
                 expect(page).to have_button '投稿する' 
             end
-            
         end
+
+        context "格言投稿のテスト" do
+            it '成功する' do
+                fill_in "proverb[body]",	with: Faker::Lorem.characters(number:20)
+                fill_in "proverb[name]",	with: Faker::Lorem.characters(number:10) 
+                fill_in "proverb[introduction]",	with: Faker::Lorem.characters(number:50)
+                click_button '投稿する'
+                expect(current_path).to eq proverbs_path 
+            end
+
+            it '失敗する' do
+                fill_in "proverb[body]",	with: ""
+                fill_in "proverb[name]",	with: ""
+                fill_in "proverb[introduction]",	with: ""
+                click_button '投稿する'
+                expect(page).to have_content("can't be blank")
+            end
+        end
+        
         
     end
     
