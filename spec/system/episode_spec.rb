@@ -112,8 +112,8 @@ describe "エピソード" do
             end
 
             it '編集が成功する' do
-                fill_in "episode[title]",	with: episode.title 
-                fill_in "episode[body]",	with: episode.body
+                fill_in "episode[title]",	with: Faker::Lorem.characters(number:10)
+                fill_in "episode[body]",	with: Faker::Lorem.characters(number:50)
                 click_button '更新する'
                 expect(current_path).to eq episode_path(episode) 
             end
