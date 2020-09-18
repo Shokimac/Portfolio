@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe "格言のテスト" do
-    let(:user) {create(:user)}
-    let(:user2) {create(:user)}
-    let(:proverb) {create(:proverb, user: user)}
-    let(:proverb2) {create(:proverb, user: user2)}
+    let!(:user) {create(:user)}
+    let!(:user2) {create(:user)}
+    let!(:proverb) {create(:proverb, user: user)}
+    let!(:proverb2) {create(:proverb, user: user2)}
 
     before do
         visit new_user_session_path
@@ -217,10 +217,82 @@ describe "格言のテスト" do
                 expect(page).to have_content("can't be blank")
             end
         end
-        
-        
     end
-    
-    
+
+    describe "格言タイムライン" do
+        context "表示の確認" do
+            before do
+                visit proverbs_path
+            end
+
+            it '「みんなの格言」と表示される' do
+                expect(page).to have_content('みんなの格言') 
+            end
+
+            it 'いいねランキングが表示されている' do
+                expect(page).to have_content('いいねランキング') 
+            end
+
+            it 'いいね件数が表示されている' do
+                expect(page).to have_content("いいね件数： #{proverb.proverb_favorites.count} 件") 
+            end
+
+            it 'ランキングの１位が King' do
+                
+            end
+
+            it 'タイムラインに投稿された格言主の名前が表示されている' do
+                expect(page).to have_content proverb2.name
+            end
+
+            it 'タイムラインに投稿したユーザーの名前が表示されている' do
+                expect(page).to have_content user2.name 
+            end
+
+            it '自分のプロフィール画像が表示されている' do
+                expect(page).to have_css('.userProfile__image') 
+            end
+
+            it '自分のユーザー名が表示されている' do
+                expect(page).to have_content('ユーザー名：') 
+            end
+
+            it 'エピソード投稿ボタンが表示されている' do
+                expect(page).to have_link '格言投稿' 
+            end
+
+            it 'エピソード投稿ボタンのリンク先が正しい' do
+                click_link '格言投稿'
+                expect(current_path).to eq new_proverb_path 
+            end
+
+            it '格言検索ボタンが表示されている' do
+                expect(page).to have_link '格言検索' 
+            end
+
+            it '格言検索ボタンのリンク先が正しい' do
+                click_link '格言検索'
+                expect(current_path).to eq proverbs_search_path 
+            end
+
+            it 'プロフィール編集ボタンが表示されている' do
+                expect(page).to have_link 'プロフィール編集' 
+            end
+
+            it 'プロフィールボタンのリンク先が正しい' do
+                click_link 'プロフィール編集'
+                expect(current_path).to eq edit_user_path(user)
+            end
+
+            it 'お気に入り一覧ボタンが表示されている' do
+                expect(page).to have_link 'お気に入り一覧' 
+            end
+
+            it 'お気に入り一覧ボタンのリンク先が正しい' do
+                click_link 'お気に入り一覧'
+                expect(current_path).to eq user_bookmarks_path(user) 
+            end
+        end
+    end
     
 end
