@@ -40,5 +40,30 @@ describe "[格言関連]非ログイン時" do
             delete proverb_path(proverb)
             expect(response).to have_http_status 302
         end
+
+        it '格言検索ページ' do
+            get proverbs_search_path
+            expect(response).to have_http_status 302
+        end
+
+        it '格言 いいねアクション' do
+            post proverb_proverb_favorites_path(proverb)
+            expect(response).to have_http_status 302
+        end
+
+        it '格言 いいね削除アクション' do
+            delete proverb_proverb_favorites_path(proverb)
+            expect(response).to have_http_status 302
+        end
+
+        it '格言 ブックマークアクション' do
+            post proverb_proverb_bookmarks_path(proverb)
+            expect(response).to have_http_status 302
+        end
+
+        it '格言 ブックマーク削除アクション' do
+            delete proverb_proverb_bookmarks_path(proverb)
+            expect(response).to have_http_status 302
+        end
     end
 end
