@@ -38,7 +38,8 @@ describe "管理者 ユーザー関連のテスト" do
     let!(:user2) { create(:user) }
     let!(:user4) { create(:user) }
     let!(:episode) { create(:episode, user: user) }
-    let!(:proverb) { create(:proverb, user: user2) }
+    let!(:proverb) { create(:proverb, user: user) }
+    let!(:user2_proverb) { create(:proverb, user: user2) }
 
     before do
         visit new_admin_session_path
@@ -107,5 +108,52 @@ describe "管理者 ユーザー関連のテスト" do
             expect(current_path).to eq admins_user_path(user)
         end
     end
+
+    context "プロフィールページの表示確認"do
+        before do
+            visit admins_user_path(user)
+        end
+
+        it '「ユーザー名 さんのプロフィール」と表示される' do
+            expect(page).to have_content("#{user.name} さんのプロフィール")
+        end
+
+        it 'ユーザーのプロフィール画像が表示されている' do
+            expect(page).to have_css '.userProfile__image' 
+        end
+
+        it '「自己紹介」と表示される' do
+            expect(page).to have_content('自己紹介') 
+        end
+
+        it '自己紹介文が表示される' do
+            expect(page).to have_content user.introduction 
+        end
+
+        it '「ユーザー名 さんが投稿したエピソード」と表示される' do
+            expect(page).to have_content("#{user.name} さんが投稿したエピソード") 
+        end
+
+        it 'エピソードが投稿された日時が表示されている' do
+            expect(page).to have_content episode.updated_at.strftime("%Y-%m-%d %H:%M")
+        end
+
+        it 'エピソードのタイトルが表示されている' do
+            expect(page).to  have_content episode.title
+        end
+
+        it '「ユーザー名 さんが投稿した格言」と表示される' do
+            expect(page).to have_content("#{user.name} さんが投稿した格言") 
+        end
+
+        it '格言が投稿された日時が表示されている' do
+            expect(page).to have_content proverb.updated_at.strftime("%Y-%m-%d %H:%M")
+        end
+
+        it '格言主名が表示されている' do
+            expect(page).to  have_content proverb.name
+        end
+    end
+    
     
 end
