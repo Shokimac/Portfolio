@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe "[格言関連]非ログイン時" do
     let(:user) { create(:user) }
-    let(:proverb) { create(:proverb, user: user) }
+    let(:user2) { create(:user) }
+    let(:proverb) { create(:proverb, user: user2) }
+    let(:post_comment) { create(:post_comment, user: user, proverb: proverb) }
 
     context "以下のアクションにはアクセスできない" do
         
@@ -72,7 +74,7 @@ describe "[格言関連]非ログイン時" do
         end
 
         it '格言 コメント削除アクション' do
-            delete proverb_post_comments_path(proverb)
+            delete proverb_post_comment_path(proverb, post_comment)
             expect(response).to have_http_status 302
         end
     end
