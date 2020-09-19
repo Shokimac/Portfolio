@@ -97,4 +97,15 @@ describe "管理者 ユーザー関連のテスト" do
         end
     end
 
+    context "ユーザー 一覧画面のリンク確認" do
+        before do
+            visit admins_users_path
+        end
+
+        it 'ユーザー名をクリックしてプロフィールへ飛べる' do
+            click_link user.name
+            expect(current_path).to eq admins_user_path(user)
+        end
+    end
+    
 end
