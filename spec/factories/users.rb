@@ -22,4 +22,13 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
   end
+
+  factory :user4, class:User do
+    name { Faker::Lorem.characters(number:10) }
+    sequence(:email) { |n| "testuser#{n}@sample.com" }
+    introduction { Faker::Lorem.characters(number:20) }
+    password { 'password' }
+    password_confirmation { 'password' }
+    delete_flg { true }
+  end
 end
