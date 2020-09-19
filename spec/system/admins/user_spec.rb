@@ -109,7 +109,7 @@ describe "管理者 ユーザー関連のテスト" do
         end
     end
 
-    context "プロフィールページの表示確認"do
+    context "プロフィールページの表示確認" do
         before do
             visit admins_user_path(user)
         end
@@ -153,7 +153,30 @@ describe "管理者 ユーザー関連のテスト" do
         it '格言主名が表示されている' do
             expect(page).to  have_content proverb.name
         end
+
+        it '退会ボタンが表示されている' do
+            expect(page).to have_link '退会する' 
+        end
+
     end
+
+    context "プロフィールページの各リンク先が正しい" do
+        before do
+            visit admins_user_path(user)
+        end
+
+        it 'タイトルからエピソード詳細画面へ飛べる' do
+            click_link episode.title
+            expect(current_path).to eq admins_episode_path(episode)
+        end
+
+        it '格言主名から格言詳細画面へ飛べる' do
+            click_link proverb.name
+            expect(current_path).to eq admins_proverb_path(proverb)
+        end
+    end
+    
+    
     
     
 end
