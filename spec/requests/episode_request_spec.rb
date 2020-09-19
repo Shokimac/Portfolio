@@ -36,8 +36,28 @@ describe "[エピソード関連]非ログイン時" do
             expect(response).to have_http_status 302
         end
 
-        it 'エピソード削除アクション' do
-            delete episode_path(episode)
+        it 'エピソード検索ページ' do
+            get episodes_search_path
+            expect(response).to have_http_status 302
+        end
+
+        it 'エピソード いいねアクション' do
+            post episode_episode_favorites_path(episode)
+            expect(response).to have_http_status 302
+        end
+
+        it 'エピソード いいね削除アクション' do
+            delete episode_episode_favorites_path(episode)
+            expect(response).to have_http_status 302
+        end
+
+        it 'エピソード ブックマークアクション' do
+            post episode_episode_bookmarks_path(episode)
+            expect(response).to have_http_status 302
+        end
+
+        it 'エピソード ブックマーク削除アクション' do
+            delete episode_episode_bookmarks_path(episode)
             expect(response).to have_http_status 302
         end
     end
