@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "[ユーザー関連]非ログイン時のアクセステスト" do
+describe "[ユーザー関連]非ログイン時" do
     let(:user) { create(:user) }
     context "以下にはアクセスできない" do
         

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "[エピソード関連]非ログイン時のアクセステスト" do
+describe "[エピソード関連]非ログイン時" do
     let(:user) { create(:user) }
     let(:episode) { create(:episode, user: user) }
 
