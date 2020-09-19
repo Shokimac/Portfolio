@@ -54,6 +54,29 @@ describe "ブックマーク" do
         it 'お気に入り登録した日にちが表示されている' do
             expect(page).to have_content proverb_bookmark.updated_at.strftime("%Y-%m-%d")
         end
-    end    
+    end
+
+    context "リンク先の確認" do
+        it 'お気に入り登録されたエピソードのユーザー名からプロフィールページに遷移できる' do
+            click_link user2.name
+            expect(current_path).to eq user_path(user2) 
+        end
+
+        it 'お気に入り登録したエピソードのタイトルから詳細ページへ遷移できる' do
+            click_link user2_episode.title
+            expect(current_path).to eq episode_path(user2_episode)
+        end
+
+        it 'お気に入り登録された格言のユーザー名からプロフィールページに遷移できる' do
+            click_link user3.name
+            expect(current_path).to eq user_path(user3) 
+        end
+
+        it 'お気に入り登録した格言主名から詳細ページへ遷移できる' do
+            click_link user3_proverb.name
+            expect(current_path).to eq proverb_path(user3_proverb)
+        end
+    end
+    
     
 end
