@@ -22,7 +22,7 @@ describe "管理者[エピソード関連] 非ログイン時" do
         end
         
         it '落とし文更新アクション' do
-            get admins_dropped_letter_path(letter)
+            patch admins_dropped_letter_path(letter)
             expect(response).to have_http_status 302
         end
     end
