@@ -1,3 +1,4 @@
+Admin.create!(email:ENV['ADMIN_EMAIL'],password:ENV['ADMIN_PASSWORD'])
 DroppedLetter.create!(body:"テスト１")
 DroppedLetter.create!(body:"テスト２")
 DroppedLetter.create!(body:"テスト３")
