@@ -22,7 +22,7 @@ Rails.application.routes.draw do
              }
              
   namespace :admins do
-    resources :users, only: %i[index show edit update] do
+    resources :users, only: %i[index show] do
       patch '/withdrawal' => 'users#withdrawal'
       put '/withdrawal' => 'users#withdrawal'
       patch '/return' => 'users#return'
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     resources :episodes, only: %i[show destroy]
     resources :proverbs, only: %i[show destroy]
     get '/top' => 'tops#top'
-    get '/search' => 'searches#search'
   end
 
   resources :users, only: %i[show edit update] do
