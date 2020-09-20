@@ -155,7 +155,7 @@ describe "管理者 ユーザー関連のテスト" do
         end
 
         it '退会ボタンが表示されている' do
-            expect(page).to have_link '退会する' 
+            expect(page).to have_button '退会する' 
         end
 
     end
@@ -174,6 +174,25 @@ describe "管理者 ユーザー関連のテスト" do
             click_link proverb.name
             expect(current_path).to eq admins_proverb_path(proverb)
         end
+    end
+
+    context "プロフィールページの退会ボタンテスト" do
+        before do
+            visit admins_user_path(user)
+        end
+
+        it "退会できる" do
+            click_button '退会する'
+            expect(current_path).to eq admins_users_path 
+        end
+
+        it '退会復帰する' do
+            click_button '退会する'
+            visit admins_user_path(user)
+            click_button '退会解除'
+            expect(current_path).to eq admins_users_path 
+        end
+        
     end
     
     
