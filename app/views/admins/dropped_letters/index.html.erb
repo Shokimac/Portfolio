@@ -14,7 +14,7 @@
 
         <div class="indexLetter">
             <table class="letterTable">
-                <% @letters.each do |letter| %>
+                <% @letters.each_with_index do |letter, i| %>
                 <tr class="letterTable__line">
                 <td class="letterTable__body">
                 <% if letter.delete_flg == true %>
@@ -23,7 +23,7 @@
                 </td>
                     <td class="letterTable__body"><%= letter.body %></td>
                     <td class="letterTable__body">
-                        <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"letterTable__button" %></td>
+                        <%= link_to "編集", edit_admins_dropped_letter_path(letter), class:"letterTable__button", id:"letter#{i}" %></td>
                 </tr>
                 <% end %>
             </table>
