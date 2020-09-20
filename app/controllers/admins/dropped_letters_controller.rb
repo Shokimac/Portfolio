@@ -26,8 +26,12 @@ class Admins::DroppedLettersController < ApplicationController
 
   def update
     @letter = DroppedLetter.find(params[:id])
-    @letter.update(letter_params)
-    redirect_to admins_dropped_letters_path
+    if @letter.update(letter_params)
+      redirect_to admins_dropped_letters_path, notice:"更新に成功しました。"
+    else
+      @letter.errors.full_messages
+      render :edit
+    end
   end
 
   private
