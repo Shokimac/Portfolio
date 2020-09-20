@@ -4,7 +4,6 @@
     </div>
     <%= form_with model:@letter, url:admins_dropped_letter_path(@letter) do |f| %>
     <div class="input">
-        <%= f.label :body, "落とし文", class:"input__label" %><br>
         <%= f.text_area :body, class:"input__form" %>
     </div>
     <div class="input">
