@@ -116,8 +116,16 @@ describe "落とし文編集画面" do
 
     context "編集アクション" do
         
-        it '成功する' do
+        it '表示側チェックで成功する' do
             fill_in "dropped_letter[body]",	with: Faker::Lorem.characters(number:10)
+            choose '表示'
+            click_button '更新'
+            expect(current_path).to eq admins_dropped_letters_path 
+        end
+        
+        it '非表示側チェックで成功する' do
+            fill_in "dropped_letter[body]",	with: Faker::Lorem.characters(number:10)
+            choose '非表示'
             click_button '更新'
             expect(current_path).to eq admins_dropped_letters_path 
         end
