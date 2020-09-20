@@ -56,5 +56,27 @@ describe "TOP画面" do
             expect(page).to have_content("#{proverb.name} の格言") 
         end
     end
-    
+
+    context "リンク先の確認" do
+        
+        it 'エピソード投稿ユーザー名からプロフィールへ飛べる' do
+            click_link user.name
+            expect(current_path).to eq admins_user_path(user) 
+        end
+
+        it 'タイトルからエピソード詳細ページへ飛べる' do
+            click_link episode.title
+            expect(current_path).to eq admins_episode_path(episode)
+        end
+
+        it '格言投稿ユーザー名からプロフィールへ飛べる' do
+            click_link user2.name
+            expect(current_path).to eq admins_user_path(user2) 
+        end
+
+        it '格言主名から格言詳細ページへ飛べる' do
+            click_link proverb.name
+            expect(current_path).to eq admins_proverb_path(proverb) 
+        end
+    end
 end
