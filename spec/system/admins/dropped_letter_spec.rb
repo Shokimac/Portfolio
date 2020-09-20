@@ -113,5 +113,21 @@ describe "落とし文編集画面" do
             expect(page).to have_button '更新' 
         end
     end
+
+    context "編集アクション" do
+        
+        it '成功する' do
+            fill_in "dropped_letter[body]",	with: Faker::Lorem.characters(number:10)
+            click_button '更新'
+            expect(current_path).to eq admins_dropped_letters_path 
+        end
+
+        it '失敗する' do
+            fill_in "dropped_letter[body]",	with: ""
+            click_button '更新'
+            expect(page).to have_content("can't be blank") 
+        end
+    end
+    
     
 end
