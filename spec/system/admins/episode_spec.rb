@@ -46,5 +46,14 @@ describe '管理者 エピソード関連のテスト' do
             expect(page).to have_link '削除する' 
         end
     end
+
+    context "削除ボタンの動作テスト" do
+        
+        it '削除できる' do
+            click_link '削除する'
+            expect(current_path).to eq admins_tops_top_path 
+        end
+    end
+    
     
 end
