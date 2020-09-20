@@ -5,6 +5,7 @@ describe "格言のテスト" do
     let!(:user2) {create(:user)}
     let!(:proverb) {create(:proverb, user: user)}
     let!(:proverb2) {create(:proverb, user: user2)}
+    let!(:user_comment) { create(:post_comment, user: user, proverb: proverb2) }
 
     before do
         visit new_user_session_path
@@ -189,6 +190,22 @@ describe "格言のテスト" do
 
             it '「みんなのコメント」と表示されている' do
                 expect(page).to have_content('みんなのコメント') 
+            end
+
+            it 'コメントを投稿したユーザーの名前が表示されている' do
+                expect(page).to have_content user.name 
+            end
+    
+            it 'コメントを投稿したユーザーのプロフィール画像が表示されている' do
+                expect(page).to have_css '.comment__image'
+            end
+    
+            it 'コメントを投稿した日にちが表示されている' do
+                expect(page).to have_content user_comment.created_at.strftime("%Y-%m-%d")
+            end
+    
+            it 'コメントが表示されている' do
+                expect(page).to have_content user_comment.comment
             end
 
             it 'コメント投稿フォームが表示されている' do
