@@ -31,6 +31,10 @@ ja:
           attributes:
             body:
               blank: 'が空のままです。'
+        post_comment:
+          attributes:
+            comment:
+              blank: 'を入力して下さい。'
     models:
       user: 'ユーザー'
       proverb: '格言'
@@ -49,6 +53,8 @@ ja:
         message: 'お問い合わせ内容'
       dropped_letter:
         body: '落とし文'
+      post_comment:
+        comment: 'コメント'
   date:
     abbr_day_names:
     - 日
