@@ -21,6 +21,12 @@ ja:
               blank: 'が空になっているので投稿できません。' 
             body: 
               blank: 'が空になっているので投稿できません。'
+        inquiry:
+          attributes:
+            name:
+              blank: 'が空になっているので入力をお願いいたします。'
+            message:
+              blank: 'が空になっているので入力をお願いいたします。'
     models:
       user: 'ユーザー'
       proverb: '格言'
@@ -34,6 +40,9 @@ ja:
       episode:
         title: 'タイトル'
         body: '内容'
+      inquiry:
+        name: 'お名前'
+        message: 'お問い合わせ内容'
   date:
     abbr_day_names:
     - 日
