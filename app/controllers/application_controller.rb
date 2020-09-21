@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
     when Admin
       admins_tops_top_path
     when User
-      dropped_letter_path
+      if params[:action] == 'google_oauth2'
+        user_confirmation_path(current_user)
+      else
+        dropped_letter_path
+      end
     end
   end
 
