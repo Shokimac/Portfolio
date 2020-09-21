@@ -6,6 +6,22 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+      models:
+        proverb:
+          attributes:
+            name:
+              blank: ' 空になっているので、投稿できません。' 
+            body: 
+              blank: ' 空になっているので、投稿できません。'
+            introduction:
+              blank: ' 空になっているので、投稿できません。'
+    models:
+      proverb: '格言'
+    attributes:
+      proverb:
+        name: '格言主の名前'
+        body: '格言'
+        introduction: 'コメント'
   date:
     abbr_day_names:
     - 日
