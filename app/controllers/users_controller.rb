@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), notice:"プロフィールを更新しました。"
     else
     @user.errors.full_messages
+    unless @user.image_id.nil?
+      @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    else
+      @image_url = "https://direct-access.s3-ap-northeast-1.amazonaws.com/no_image.png"
+    end
     render :edit
     end
   end
