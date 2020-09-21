@@ -1,20 +1,21 @@
-<div class="editProfile">
-    <div class="editProfile__section">
+<div class="confirmationProfile">
+    <div class="confirmationProfile__section">
         <h1>プロフィール作成画面</h1>
     </div>
 
-    <div class="signin__nav">
-    <p>
-      よろしければ、あなたのプロフィールを作成ください。<br>
-      このまま、先へ進むこともできます。
-    </p>
-  </div>
+    <div class="confirmationProfile__nav">
+        <p>
+            よろしければ、あなたのプロフィールを作成ください。<br>
+            このまま、先へ進むこともできます。<br>
+            ※この画面は初回ログイン時のみ表示されます。
+        </p>
+    </div>
 
     <%= form_with model: @user, url: user_path(@user.id), local: true do |f| %>
     <%= render 'layouts/error_message', model: f.object %>
 
-    <div class="editProfile__image">
-    <%= f.label :image, "プロフィール画像", class:"input__label" %>
+    <div class="input">
+        <%= f.label :image, "プロフィール画像", class:"input__label" %><br>
         <%= image_tag @image_url, size:"400x300", id:"img1" %><br>
         <%= f.attachment_field :image, id:"myfile" %>
     </div>
@@ -24,8 +25,8 @@
         <%= f.text_field :name, class:"input__form"  %><br>
     </div>
 
-    <%= f.label :email, "メールアドレス", class:"editProfile__label" %><br>
-    <div class="editProfile__email">
+    <%= f.label :email, "メールアドレス", class:"confirmationProfile__label" %><br>
+    <div class="confirmationProfile__email">
         <%= @user.email %>
     </div>
 
@@ -34,6 +35,6 @@
         <%= f.text_area :introduction, class:"input__form--area" %>
     </div>
 
-    <%= f.submit "ようこそ、いとをかしへ", class: "editProfile__button" %><br>
+    <%= f.submit "ようこそ、いとをかしへ", class: "confirmationProfile__button" %><br>
     <% end %>
 </div>
