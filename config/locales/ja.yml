@@ -16,8 +16,11 @@ ja:
             introduction:
               blank: ' 空になっているので、投稿できません。'
     models:
+      user: 'ユーザー'
       proverb: '格言'
     attributes:
+      user:
+        name: 'ユーザー名'
       proverb:
         name: '格言主の名前'
         body: '格言'
