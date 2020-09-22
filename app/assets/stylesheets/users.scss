@@ -18,20 +18,6 @@
         line-height: 1.6em;
     }
 
-    &__image {
-        margin: 1.5em;
-    }
-
-    &__label {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    &__email {
-        font-size: 1.3em;
-        margin: 1.2em 0;
-    }
-
     &__button {
         @include button-fade(#2288e7, #3ca5e2);
     }
