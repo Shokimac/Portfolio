@@ -54,9 +54,13 @@ class UsersController < ApplicationController
 
   def withdrawal_update
     @user = current_user
-    @user.update(delete_flg: true)
+    if @user.update(delete_flg: true)
     reset_session
     redirect_to root_path
+    else
+      render :withdrawal, notice:'退会に失敗しました。'
+    end
+
   end
 
   private
