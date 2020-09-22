@@ -17,14 +17,20 @@ class Admins::UsersController < ApplicationController
   def withdrawal
     @user = User.find(params[:user_id])
     @user.delete_flg = true
-    @user.save
+    if @user.save
     redirect_to admins_users_path
+    else
+      render :show, notice: '退会フラグ更新に失敗しました。'
+    end
   end
 
   def return
     @user = User.find(params[:user_id])
     @user.delete_flg = false
-    @user.save
+    if @user.save
     redirect_to admins_users_path
+    else
+      render :show, notice: '退会フラグ更新に失敗しました。'
+    end
   end
 end
