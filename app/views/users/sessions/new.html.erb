@@ -1,21 +1,20 @@
-<div class="errorMessage">
-  <%= flash[:error] %>
-</div>
-
 <div class="signin">
+  <% flash.each do |message_type, message| %>
+    <%= content_tag :div, message, class: message_type %>
+  <% end %>
 
   <div class="signin__section">
     <h1>ログイン</h1>
   </div>
 
   <div class="signin__nav">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <p>
       いとをかしに登録している方は、下記からログインしてください。<br>
       まだ登録していない方は <%= link_to "こちらから登録", new_registration_path(resource_name) %> してください。
     </p>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="input">
     <%= f.label :email, class:"input__label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input__form" %>

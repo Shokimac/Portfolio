@@ -35,7 +35,7 @@
   <%= link_to "ログイン", new_session_path(resource_name), class:"signup__button--login" %><br />
 
   <p class="signup__loginNavi--google">Googleアカウントをお持ちの方はこちら</p>
-  <%- resource_class.omniauth_providers.each do |provider| %>
+  <%= resource_class.omniauth_providers.each do |provider| %>
   <%= link_to omniauth_authorize_path(resource_name, provider) do %>
   <%= image_tag 'google.png', size:"200x50" , class:"signup__button--google" %>
   <% end %>

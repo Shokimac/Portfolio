@@ -4,6 +4,39 @@
 
 @import "./user_variable";
 
+.confirmationProfile {
+    @include container();
+
+    &__section {
+        @include section();
+    }
+
+    &__nav {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 1em;
+        line-height: 1.6em;
+    }
+
+    &__image {
+        margin: 1.5em;
+    }
+
+    &__label {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__email {
+        font-size: 1.3em;
+        margin: 1.2em 0;
+    }
+
+    &__button {
+        @include button-fade(#2288e7, #3ca5e2);
+    }
+}
+
 .showUser {
     @include container();
     margin: 0 auto;

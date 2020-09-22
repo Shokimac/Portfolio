@@ -2,7 +2,8 @@
     <div class="editLetter__section">
         <h1>落とし文編集</h1>
     </div>
-    <%= form_with model:@letter, url:admins_dropped_letter_path(@letter) do |f| %>
+    <%= form_with model:@letter, url:admins_dropped_letter_path(@letter), local: true do |f| %>
+    <%= render 'layouts/error_message', model: f.object %>
     <div class="input">
         <%= f.label :body, "落とし文", class:"input__label" %><br>
         <%= f.text_area :body, class:"input__form" %>

@@ -7,7 +7,12 @@ class ApplicationController < ActionController::Base
     when Admin
       admins_tops_top_path
     when User
-      dropped_letter_path
+      # Google認証 かつ 初回ログイン時のみプロフィール作成画面へ誘導
+      if params[:action] == 'google_oauth2' && (Time.zone.now - current_user.created_at) < 10.seconds
+        user_confirmation_path(current_user)
+      else
+        dropped_letter_path
+      end
     end
   end
 
