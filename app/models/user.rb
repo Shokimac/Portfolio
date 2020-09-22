@@ -19,8 +19,9 @@ class User < ApplicationRecord
   has_many :proverb_bookmarks, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 20}  
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 50}
+  validates :introduction, presence: true, length: {maximum: 150}
 
 
   def active_for_authentication?
