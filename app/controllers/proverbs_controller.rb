@@ -51,8 +51,11 @@ class ProverbsController < ApplicationController
 
   def destroy
     @proverb = Proverb.find(params[:id])
-    @proverb.destroy
+    if @proverb.destroy
     redirect_to proverbs_path
+    else
+      render :edit, notice: '削除に失敗しました。'
+    end
   end
 
   def search

@@ -11,7 +11,10 @@ class Admins::EpisodesController < ApplicationController
 
   def destroy
     @episode = Episode.find(params[:id])
-    @episode.destroy
+    if @episode.destroy
     redirect_to admins_tops_top_path
+    else
+      render :show, notice: '削除に失敗しました。'
+    end
   end
 end

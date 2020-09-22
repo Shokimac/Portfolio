@@ -4,8 +4,8 @@ class Episode < ApplicationRecord
   has_many :episode_favorites
   has_many :episode_bookmarks
 
-  validates :title, presence: true
-  validates :body, presence: true
+  validates :title, presence: true, length: {maximum: 80} 
+  validates :body, presence: true, length: {maximum: 500} 
 
   def self.search(word)
     @episodes = Episode.where("title Like ?", "%#{word}%")

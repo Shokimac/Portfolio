@@ -50,8 +50,11 @@ class EpisodesController < ApplicationController
 
   def destroy
     @episode = Episode.find(params[:id])
-    @episode.destroy
+    if @episode.destroy
     redirect_to episodes_path
+    else
+      render :edit, notice: '削除に失敗しました。'
+    end
   end
 
   def search

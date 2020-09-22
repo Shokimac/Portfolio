@@ -11,8 +11,11 @@ class Admins::ProverbsController < ApplicationController
 
   def destroy
     @proverb = Proverb.find(params[:id])
-    @proverb.destroy
+    if @proverb.destroy
     redirect_to admins_tops_top_path
+    else
+      render :show, notice: '削除に失敗しました。'
+    end
   end
 
 end
