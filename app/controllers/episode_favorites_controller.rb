@@ -6,12 +6,20 @@ class EpisodeFavoritesController < ApplicationController
     @episode = Episode.find(params[:episode_id])
     favorite = current_user.episode_favorites.new
     favorite.episode_id = @episode.id
-    favorite.save
+    unless favorite.save
+      @episode = Episode.find(params[:id])
+      @user = User.find(@proverb.user_id)
+      render 'episodes/show'
+    end
   end
 
   def destroy
     @episode = Episode.find(params[:episode_id])
     favorite = EpisodeFavorite.find_by(episode_id: @episode.id, user_id: current_user.id)
-    favorite.destroy
+    unless favorite.destroy
+      @episode = Episode.find(params[:id])
+      @user = User.find(@proverb.user_id)
+      render 'episodes/show'
+    end
   end
 end
