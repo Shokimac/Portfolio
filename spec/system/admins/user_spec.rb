@@ -9,7 +9,7 @@ describe "管理者認証" do
                 fill_in "admin[email]",	with: ENV['ADMIN_EMAIL']
                 fill_in "admin[password]",	with: ENV['ADMIN_PASSWORD']
                 click_button 'ログイン'
-                expect(page).to have_content('Signed in successfully.')
+                expect(page).to have_content('ログインしました。')
             end
 
             it '失敗する' do
