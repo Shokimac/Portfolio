@@ -71,7 +71,7 @@ describe "管理者 落とし文関連のテスト" do
         it '失敗する' do
             fill_in "dropped_letter[body]",	with: ""
             click_button '投稿'
-            expect(page).to have_content("can't be blank") 
+            expect(page).to have_content("落とし文が空のままです。") 
         end
     end
 end
@@ -133,7 +133,7 @@ describe "落とし文編集画面" do
         it '失敗する' do
             fill_in "dropped_letter[body]",	with: ""
             click_button '更新'
-            expect(page).to have_content("can't be blank") 
+            expect(page).to have_content("落とし文が空のままです。") 
         end
     end
     
