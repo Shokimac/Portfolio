@@ -1,6 +1,6 @@
 # いとをかし
 
-# https://itowokashi.club
+## https://itowokashi.club
 
 ## サイト概要
 開運や魔除けなど多くのご利益をもたらす天狗が運営する言葉の共有サイトです。  
