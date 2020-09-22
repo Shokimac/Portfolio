@@ -2,6 +2,15 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
 
+  def confirmation
+    @user = User.find(params[:user_id])
+    unless @user.image_id.nil?
+      @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    else
+      @image_url = "https://direct-access.s3-ap-northeast-1.amazonaws.com/no_image.png"
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     @episodes = Episode.includes(:user).where(user_id: @user.id).page(params[:page]).reverse_order
@@ -29,6 +38,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), notice:"プロフィールを更新しました。"
     else
     @user.errors.full_messages
+    unless @user.image_id.nil?
+      @image_url = "https://image-resize-itowokashi.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    else
+      @image_url = "https://direct-access.s3-ap-northeast-1.amazonaws.com/no_image.png"
+    end
     render :edit
     end
   end

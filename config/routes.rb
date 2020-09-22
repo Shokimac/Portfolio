@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[show edit update] do
+    get '/confirmation' => 'users#confirmation'
     get '/withdrawal' => 'users#withdrawal'
     patch '/withdrawal' => 'users#withdrawal_update'
     put '/withdrawal' => 'users#withdrawal_update'

@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   validates :name, presence: true
+  validates :email, presence: true
+
 
   def active_for_authentication?
     super && (self.delete_flg === false)
