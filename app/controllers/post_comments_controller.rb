@@ -17,8 +17,11 @@ class PostCommentsController < ApplicationController
 
     def destroy
         comment = PostComment.find(params[:id])
-        comment.destroy
+        if comment.destroy
         redirect_to proverb_path(params[:proverb_id])
+        else
+            render 'proverbs/show', notice: 'コメントの削除に失敗しました。'
+        end
     end
 
     private
