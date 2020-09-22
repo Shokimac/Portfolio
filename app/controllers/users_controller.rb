@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :confirmation]
+  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :ensure_correct_confirmation, only: [:confirmation]
 
   def confirmation
     @user = User.find(params[:user_id])
@@ -66,6 +67,13 @@ class UsersController < ApplicationController
 
   def ensure_correct_user
     user = User.find(params[:id])
+    unless user == current_user
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def ensure_correct_confirmation
+    user = User.find(params[:user_id])
     unless user == current_user
       redirect_to user_path(current_user)
     end
