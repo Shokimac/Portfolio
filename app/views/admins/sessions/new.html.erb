@@ -5,6 +5,12 @@
     <h1>管理者ログイン</h1>
   </div>
 
+  <div class='signin__error'>
+    <% flash.each do |message_type, message| %>
+    <%= content_tag :div, message, class: message_type %>
+    <% end %>
+  </div>
+
   <div class="input">
     <%= f.label :email, "メールアドレス", class:"input__label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input__form" %>
