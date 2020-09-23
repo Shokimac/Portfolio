@@ -5,7 +5,6 @@ describe "格言のテスト" do
     let!(:user2) {create(:user)}
     let!(:proverb) {create(:proverb, user: user)}
     let!(:proverb2) {create(:proverb, user: user2)}
-    let!(:user_comment) { create(:post_comment, user: user, proverb: proverb2) }
 
     before do
         visit new_user_session_path
@@ -67,7 +66,9 @@ describe "格言のテスト" do
                 fill_in "proverb[name]",	with: ""
                 fill_in "proverb[introduction]",	with: ""
                 click_button '投稿する'
-                expect(page).to have_content("can't be blank")
+                expect(page).to have_content("格言主の名前が空になっているので、投稿できません。")
+                expect(page).to have_content("格言が空になっているので、投稿できません。")
+                expect(page).to have_content("コメントが空になっているので、投稿できません。")
             end
         end
     end
@@ -138,8 +139,11 @@ describe "格言のテスト" do
             it 'フォーム空白で編集が失敗する' do
                 fill_in "proverb[body]",	with: ""
                 fill_in "proverb[name]",	with: ""
+                fill_in "proverb[introduction]",	with: "" 
                 click_button '更新する'
-                expect(page).to have_content("can't be blank") 
+                expect(page).to have_content("格言主の名前が空になっているので、投稿できません。")
+                expect(page).to have_content("格言が空になっているので、投稿できません。")
+                expect(page).to have_content("コメントが空になっているので、投稿できません。")
             end
         end
     end
@@ -160,6 +164,7 @@ describe "格言のテスト" do
         end
 
         context "画面表示の確認" do
+            let!(:user_comment) { create(:post_comment, user: user, proverb: proverb2) }
             before do
                 visit proverb_path(proverb2)
             end
@@ -222,17 +227,18 @@ describe "格言のテスト" do
                 visit proverb_path(proverb2)
             end
 
+            it '空白ではコメント投稿できない' do
+                fill_in "post_comment[comment]",	with: ""
+                click_button '投稿'
+                expect(page).to have_content("コメントを入力して下さい。")
+            end
+            
             it 'コメント投稿できる' do
                 fill_in "post_comment[comment]",	with: Faker::Lorem.characters(number:5)
                 click_button '投稿'
                 expect(current_path).to eq proverb_path(proverb2)
             end
 
-            it '空白ではコメント投稿できない' do
-                fill_in "post_comment[comment]",	with: ""
-                click_button '投稿'
-                expect(page).to have_content("can't be blank")
-            end
         end
     end
 
