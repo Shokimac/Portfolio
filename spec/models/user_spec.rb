@@ -46,18 +46,53 @@ RSpec.describe 'Userモデルのテスト', type: :model do
   end
 
   describe "バリデーションのテスト" do
-    before do
-      @user = FactoryBot.create(:user)
+    let(:user) { create(:user) }
+    
+    context 'nameカラム' do
+        it "空欄でないこと" do
+        user.name = ''
+        expect(user.valid?).to eq false;
+        end
+
+        it "20文字以内であること" do
+        user.name = Faker::Lorem.characters(number:20)
+        expect(user.valid?).to eq true;
+        end
+
+        it "21文字目で弾かれること" do
+        user.name = Faker::Lorem.characters(number:21)
+        expect(user.valid?).to eq false;
+        end
     end
 
-    context 'nameカラム' do
-      it "空欄でないこと" do
-      @user.name = ''
-      expect(@user.valid?).to eq false;
+    context 'emailカラム' do
+        it "空欄でないこと" do
+        user.email = ''
+        expect(user.valid?).to eq false;
+        end
+
+        it "50文字以内あること" do
+        user.email = "#{Faker::Lorem.characters(number:39)}@sample.com"
+        expect(user.valid?).to eq true;
+        end
+
+        it "51文字目で弾かれること" do
+        user.email = "#{Faker::Lorem.characters(number:40)}@sample.com"
+        expect(user.valid?).to eq false;
+        end
     end
-    
-  end
-  
+
+    context 'introductionカラム' do
+        it "150文字以内であること" do
+        user.introduction = Faker::Lorem.characters(number:150)
+        expect(user.valid?).to eq true;
+        end
+
+        it "151文字目で弾かれること" do
+        user.introduction = Faker::Lorem.characters(number:151)
+        expect(user.valid?).to eq false;
+        end
+    end
 end
 
 end
