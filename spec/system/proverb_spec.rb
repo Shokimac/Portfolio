@@ -316,6 +316,27 @@ describe "格言のテスト" do
                 expect(current_path).to eq user_bookmarks_path(user) 
             end
         end
+
+        context "投稿数が5個の場合のページネーション表示確認" do
+            let!(:proverb) { create_list(:proverb, 5, user: user) }
+            before do
+                visit user_path(user)
+            end
+
+            it 'ページネーションが表示されない' do
+                expect(page).to_not have_content('1 2 Next Last')
+            end
+        end
+
+        context "投稿数が6個の場合のページネーション表示確認" do
+            let!(:proverb) { create_list(:proverb, 6, user: user) }
+            before do
+                visit user_path(user)
+            end
+
+            it 'ページネーションが表示される' do
+                expect(page).to have_content('1 2 Next Last')
+            end
+        end
     end
-    
 end
