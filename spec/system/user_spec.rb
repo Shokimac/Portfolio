@@ -66,51 +66,95 @@ describe "ユーザーのテスト" do
     end
 
     describe 'プロフィールページのテスト' do
+
         context '本人アクセス時の表示確認' do
-            it 'プロフィール画像が表示される' do
+            before do
                 visit user_path(user)
+            end
+            it 'プロフィール画像が表示される' do
                 expect(page).to have_css('.userProfile__image')
             end
 
             it '自己紹介が表示される' do
-                visit user_path(user)
                 expect(page).to have_content(user.introduction)
             end
 
             it '本人ログイン時、プロフィール編集ボタンが表示される' do
-                visit user_path(user)
                 expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
             end
 
             it '本人ログイン時、お気に入りボタンが表示される' do
-                visit user_path(user)
                 expect(page).to have_link 'お気に入り一覧'
             end
         end
 
+        context "エピソード投稿数が5個の場合のページネーション表示確認" do
+            let!(:episode) { create_list(:episode, 5, user: user) }
+            before do
+                visit user_path(user)
+            end
+
+            it 'ページネーションが表示されない' do
+                expect(page).to_not have_content('1 2 Next Last')
+            end
+        end
+
+        context "エピソード投稿数が6個の場合のページネーション表示確認" do
+            let!(:episode) { create_list(:episode, 6, user: user) }
+            before do
+                visit user_path(user)
+            end
+
+            it 'ページネーションが表示される' do
+                expect(page).to have_content('1 2 Next Last')
+            end
+        end
+
+        context "格言投稿数が5個の場合のページネーション表示確認" do
+            let!(:proverb) { create_list(:proverb, 5, user: user) }
+            before do
+                visit user_path(user)
+            end
+
+            it 'ページネーションが表示されない' do
+                expect(page).to_not have_content('1 2 Next Last')
+            end
+        end
+
+        context "格言の投稿数が6個の場合のページネーション表示確認" do
+            let!(:proverb) { create_list(:proverb, 6, user: user) }
+            before do
+                visit user_path(user)
+            end
+
+            it 'ページネーションが表示される' do
+                expect(page).to have_content('1 2 Next Last')
+            end
+        end
+
         context '本人以外のユーザーアクセス時の表示確認' do
+            before do
+                visit user_path(user2)
+            end
             
             it 'プロフィール画像が表示される' do
-                visit user_path(user2)
                 expect(page).to have_css('.userProfile__image')
             end
 
             it '自己紹介が表示される' do
-                visit user_path(user2)
                 expect(page).to have_content(user2.introduction)
             end
 
             it 'プロフィール編集ボタンが表示されない' do
-                visit user_path(user2)
                 expect(page).to have_no_link 'プロフィール編集', href: edit_user_path(user)
             end
 
             it 'お気に入りボタンが表示されない' do
-                visit user_path(user2)
                 expect(page).to have_no_link 'お気に入り一覧', href: user_bookmarks_path(user)
             end
         end
     end
+    
 
     describe 'プロフィール編集のテスト' do
         context '他人の編集画面' do
