@@ -9,12 +9,44 @@ describe "エピソード" do
         fill_in 'user[password]', with: user.password
         click_button 'ログイン'
     end
+    
 
     describe "エピソード投稿" do
-        let!(:episode) { create(:episode, user: user) }
         before do
             visit new_episode_path
         end
+
+        context "文字数制限テスト" do
+            it 'タイトルに80文字入力して成功する' do
+                fill_in "episode[title]",	with: Faker::Lorem.characters(number:80)
+                fill_in "episode[body]",	with: "sometext"
+                click_button '投稿する'
+                expect(page).to have_content('エピソードを投稿しました')
+            end
+            
+            it 'タイトルに81文字入力して失敗する' do
+                fill_in "episode[title]",	with: Faker::Lorem.characters(number:81)
+                fill_in "episode[body]",	with: "sometext"
+                click_button '投稿する'
+                expect(page).to have_content('80文字以内で入力してください')
+            end
+
+            it '内容に500文字入力して成功する' do
+                fill_in "episode[title]",	with: "sometext"
+                fill_in "episode[body]",	with: Faker::Lorem.characters(number:500)
+                click_button '投稿する'
+                expect(page).to have_content('エピソードを投稿しました')
+            end
+
+            it '内容に501文字入力して失敗する' do
+                fill_in "episode[title]",	with: "sometext"
+                fill_in "episode[body]",	with: Faker::Lorem.characters(number:501)
+                click_button '投稿する'
+                expect(page).to have_content('500文字以内で入力してください')
+            end
+
+        end
+        
 
         context "投稿画面の表示確認" do
             it '「エピソード投稿」と表示される' do
@@ -54,7 +86,8 @@ describe "エピソード" do
                 fill_in "episode[title]",	with: ""
                 fill_in "episode[body]",	with: ""
                 click_button '投稿する'
-                expect(page).to have_content("can't be blank")
+                expect(page).to have_content("タイトルが空になっているので投稿できません。")
+                expect(page).to have_content("内容が空になっているので投稿できません。")
             end
         end
     end
@@ -122,7 +155,8 @@ describe "エピソード" do
                 fill_in "episode[title]",	with: ""
                 fill_in "episode[body]",	with: ""
                 click_button '更新する'
-                expect(page).to have_content("can't be blank") 
+                expect(page).to have_content("タイトルが空になっているので投稿できません。")
+                expect(page).to have_content("内容が空になっているので投稿できません。") 
             end
         end
     end
