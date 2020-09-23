@@ -44,7 +44,8 @@ describe "問い合わせテスト" do
                 fill_in "inquiry[name]",	with: ""
                 fill_in "inquiry[message]",	with: ""
                 click_button '送信'
-                expect(page).to have_content("can't be blank")
+                expect(page).to have_content("お名前が空になっているので入力をお願いいたします。")
+                expect(page).to have_content("お問い合わせ内容が空になっているので入力をお願いいたします。")
             end
         end
 end
