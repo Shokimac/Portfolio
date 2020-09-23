@@ -7,11 +7,11 @@ class PostCommentsController < ApplicationController
         @comment = current_user.post_comments.new(comment_params)
         @comment.proverb_id = @proverb.id
         if @comment.save
-        redirect_to proverb_path(@proverb)
+            redirect_to proverb_path(@proverb)
         else
-        @comment.errors.full_messages
-        @comments = PostComment.where(proverb_id: @proverb.id).includes(:user, :proverb).page(params[:page]).reverse_order
-        render 'proverbs/show'
+            @comment.errors.full_messages
+            @comments = PostComment.where(proverb_id: @proverb.id).includes(:user, :proverb).page(params[:page]).reverse_order
+            render 'proverbs/show'
         end
     end
 
