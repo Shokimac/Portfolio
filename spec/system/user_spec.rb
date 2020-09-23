@@ -12,8 +12,7 @@ describe 'ユーザー認証のテスト' do
                 fill_in 'user[password]', with: 'password'
                 fill_in 'user[password_confirmation]', with: 'password'
                 click_button '登録'
-
-                expect(page).to have_content 'successfully'
+                expect(page).to have_content 'アカウント登録が完了しました。'
             end
             
             it '新規登録に失敗する' do
@@ -23,7 +22,9 @@ describe 'ユーザー認証のテスト' do
                 fill_in 'user[password_confirmation]', with:''
                 click_button '登録'
 
-                expect(page).to have_content 'error'
+                expect(page).to have_content 'Eメールを入力してください'
+                expect(page).to have_content 'パスワードを入力してください'
+                expect(page).to have_content 'ユーザー名を入力してください'
             end
         end
     end
@@ -132,7 +133,11 @@ describe "ユーザーのテスト" do
             end
             
             it '編集に失敗する' do
-                
+                visit edit_user_path(user)
+                fill_in "user[name]",	with: ""
+                fill_in "user[introduction]",	with: ""
+                click_button '更新'
+                expect(page).to have_content('ユーザー名を入力してください') 
             end
         end
 
@@ -140,19 +145,19 @@ describe "ユーザーのテスト" do
             it '成功' do
                 visit edit_user_registration_path
                 fill_in '現在のパスワード',	with: user.password
-                fill_in '新しいパスワード',	with: 'itoito'
-                fill_in 'パスワード確認入力', with: "itoito"
+                fill_in '新しいパスワード',	with: 'aiueoka'
+                fill_in 'パスワード確認入力', with: "aiueoka"
                 click_button 'Update'
-                expect(page).to have_content 'successfully'
+                expect(page).to have_content 'アカウント情報を変更しました。'
             end
 
             it '失敗' do
                 visit edit_user_registration_path
                 fill_in '現在のパスワード',	with: ''
-                fill_in '新しいパスワード',	with: 'itoito'
-                fill_in 'パスワード確認入力', with: "itoito"
+                fill_in '新しいパスワード',	with: 'password'
+                fill_in 'パスワード確認入力', with: "password"
                 click_button 'Update'
-                expect(page).to have_content 'error'
+                expect(page).to have_content '現在のパスワードを入力してください'
             end
         end
 
