@@ -4,8 +4,8 @@
   <div class="signin__section">
     <h1>ログイン</h1>
   </div>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <div class='signin__error'>
     <% flash.each do |message_type, message| %>
