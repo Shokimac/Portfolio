@@ -83,6 +83,10 @@
 .userEpisode {
     margin: 0 30px;
     text-align: center;
+
+    @include sm {
+        margin: 1.5em auto;
+    }
     
     &__section {
         margin-bottom: 1.5em;
@@ -102,6 +106,10 @@
 .userProverb {
     margin-right: 30px;
     text-align: center;
+
+    @include sm {
+        margin: 1.5em auto;
+    }
     
     &__section {
         margin-bottom: 1.5em;
