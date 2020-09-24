@@ -60,7 +60,11 @@ header {
     background-image: image-url("logo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    margin-left: 5%;
+
+    @include sm {
+      width: 200px;
+      height: 40px;
+    }
   }
 
   &__nav {
