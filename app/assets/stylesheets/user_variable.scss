@@ -26,6 +26,10 @@ $md: 960px;
     margin: 60px auto;
     border-bottom: 2px solid #78bae6;
     font-size: 20px;
+
+    @include sm {
+        font-size: 0.8em;
+    }
 }
 
 @mixin button-fade($mainColor, $borderColor) {
