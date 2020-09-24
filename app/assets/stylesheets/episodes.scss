@@ -5,9 +5,7 @@
 @import "./user_variable";
 
 .indexEpisode {
-    width: 1170px;
-    margin: 0 auto;
-    text-align: center;
+    @include container();
 
         &__section {
             @include section();
@@ -29,6 +27,10 @@
 
     &__title {
         margin-right: 0.5em;
+    }
+
+    @include sm {
+        margin: 1em auto;
     }
 }
 
