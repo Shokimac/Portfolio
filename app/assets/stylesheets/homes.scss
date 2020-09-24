@@ -13,10 +13,16 @@
     background-color:rgba(255,255,255,0.4);
     background-size: cover;
     background-blend-mode:lighten;
+
+    @include sm {
+        background-size: 100% auto;
+        padding-top: 125px;
+        padding-bottom: 105px;
+    }
 }
 
 .top {
-    width: 1170px;
+    width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin: 0 auto;
@@ -25,6 +31,10 @@
         font-size: 45px;
         letter-spacing: 5px;
         margin-bottom: 15px;
+
+        @include sm {
+            font-size: 36px;
+        }
     }
 
     &__subtitle {
@@ -34,6 +44,100 @@
         font-size: 1.5em;
     }
 }
+
+.detailSection {
+    text-align: center;
+    padding-bottom: 100px;
+    height: 670px;
+
+    @include sm {
+        padding-bottom: 10px;
+        height: auto;
+    }
+}
+
+.detail {
+    width: 100%;
+    margin: 0 auto;
+
+    &__header {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        color: #5f5d60;
+
+        @include sm {
+            padding: 30px 0px 15px 0px;
+        }
+    }
+}
+
+.sideLeft {
+    float: left;
+    width: 50%;
+    line-height: 2em;
+
+    @include sm {
+        float: none;
+        width: 95%;
+        font-size: 0.9em;
+    }
+}
+
+.sideRight {
+    float: right;
+    width: 50%;
+    height: 540px;
+    background-image: image-url("tengu.jpg");
+    background-size: cover;
+
+    @include sm {
+        float: none;
+        width: 100%;
+        height: auto;
+        background-size: 100% auto;
+        padding-top: 200px;
+        padding-bottom: 200px;
+    }
+}
+
+.sideRightLeaf {
+    float: right;
+    width: 50%;
+    height: 540px;
+    background-image: image-url("leaf.jpg");
+    background-size: cover;
+
+    @include sm {
+        float: none;
+        width: 100%;
+        height: auto;
+        background-size: cover;
+        padding: 180px;
+        margin-top: 10px;
+    }
+}
+
+.bottomSection {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+.bottom {
+    @include container();
+
+    &__text {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        color: #5f5d60;
+
+        @include sm {
+            padding: 30px 0px 15px 0px;
+            font-size: 0.9em;
+        }
+    }
+}
+
 
 .buttonGroup {
     margin-top: 20px;
@@ -51,61 +155,6 @@
 
     &__button--signup {
         @include button-fade(#9ec34b, #cbe585);
-    }
-}
-
-.detailSection {
-    text-align: center;
-    padding-bottom: 100px;
-    height: 670px;
-}
-
-.detail {
-    width: 1170px;
-    margin: 0 auto;
-
-    &__header {
-        padding-top: 60px;
-        padding-bottom: 30px;
-        color: #5f5d60;
-    }
-}
-
-.sideLeft {
-    float: left;
-    width: 50%;
-    line-height: 2em;
-}
-
-.sideRight {
-    float: right;
-    width: 50%;
-    height: 540px;
-    background-image: image-url("tengu.jpg");
-    background-size: cover;
-}
-
-.sideRightLeaf {
-    float: right;
-    width: 50%;
-    height: 540px;
-    background-image: image-url("leaf.jpg");
-    background-size: cover;
-}
-
-.bottomSection {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 80px;
-    text-align: center;
-}
-
-.bottom {
-    @include container();
-
-    &__text {
-        padding-top: 60px;
-        padding-bottom: 30px;
-        color: #5f5d60;
     }
 }
 
