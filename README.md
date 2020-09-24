@@ -28,3 +28,6 @@ SNSが匿名で発信出来ることや不特定多数で交流する特徴で�
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1aSVjimF7mwkxKKcXXKz3w3CTxZTOl3pt2bHnby7uT-s/edit#gid=0
+
+### AWS構成図
+https://drive.google.com/file/d/1nhZWVVbeB5jcB3KOxyM59jtSOetn-kGv/view?usp=sharing
