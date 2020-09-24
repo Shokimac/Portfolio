@@ -166,6 +166,14 @@ header {
     font-size: 20px;
   }
 
+  &__image {
+    margin-left: 2em;
+
+    @include sm {
+      margin-left: 3em;
+    }
+  }
+
   &__name {
       margin: 0 0.5em;
   }
