@@ -4,19 +4,19 @@
     </div>
 
     <div class="mainArea">
-        <div class="userProfile">
-            <div class="userProfile__image">
+        <div class="userInfo">
+            <div class="userInfo__image">
                 <%= image_tag @image_url, size:"200x150" %><br>
             </div>
-            <div class="userProfile__section">
+            <div class="userInfo__section">
                 自己紹介
             </div>
-            <div class="userProfile__introduction">
+            <div class="userInfo__introduction">
                 <%= @user.introduction %>
             </div>
             <% if @user == current_user %>
-            <%= link_to "プロフィール編集", edit_user_path(current_user), class:"userProfile__editButton" %><br>
-            <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"userProfile__bookmarkButton" %>
+            <%= link_to "プロフィール編集", edit_user_path(current_user), class:"userInfo__editButton" %><br>
+            <%= link_to "お気に入り一覧", user_bookmarks_path(current_user), class:"userInfo__bookmarkButton" %>
             <% end %>
         </div>
 
