@@ -74,6 +74,10 @@ header {
     }
   }
 
+  @include sm {
+    font-size: 0.8em;
+  }
+
 }
 
 .mainArea {
