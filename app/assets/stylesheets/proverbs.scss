@@ -5,9 +5,7 @@
 @import "./user_variable.scss";
 
 .indexProverb {
-    width: 1170px;
-    margin: 0 auto;
-    text-align: center;
+    @include container();
 
     &__section {
         @include section();
@@ -25,6 +23,10 @@
 
     &__row {
         line-height: 2em;
+    }
+
+    @include sm {
+        margin: 1em auto;
     }
 }
 
