@@ -3,13 +3,13 @@ $sm: 560px;
 $md: 960px;
 
 @mixin sm {
-    @media (max-width: ($sm)){
+    @media (min-width: ($sm)){
         @content;
     }
 }
 
 @mixin tb {
-    @media (max-width: ($md)){
+    @media (min-width: ($md)){
         @content;
     }
 }
