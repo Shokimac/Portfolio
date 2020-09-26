@@ -71,13 +71,12 @@ header {
     flex: right;
     & li {
       display: inline-block;
+      @include sm {
+        font-size: 0.7em;
+        margin-left: 20px;
+      }
     }
   }
-
-  @include sm {
-    font-size: 0.7em;
-  }
-
 }
 
 .mainArea {
