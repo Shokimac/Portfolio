@@ -175,6 +175,10 @@ header {
 
   &__name {
       margin: 0 0.5em;
+
+      @include sm {
+        margin-left: 3em;
+      }
   }
 
   &__body {
@@ -204,33 +208,37 @@ header {
       font-weight: bold;
       text-align: center;
       border-bottom: 1px solid #000000;
+
+      @include sm {
+        margin: 0.7em 1em;
+    }
   }
 
   &__button {
       @include button-fade(#2288e7, #3ca5e2);
       @include sm {
-        margin-left: 32%;
+        margin-left: 6em;
       }
   }
 
   &__button--search {
       @include button-fade(#8f2eeb, #cd93ee);
       @include sm {
-        margin-left: 32%;
+        margin-left: 6em;
       }
   }
 
   &__button--edit {
       @include button-fade(#9ec34b, #cbe585);
       @include sm {
-        margin-left: 32%;
+        margin-left: 6em;
       }
   }
 
   &__button--bookmark {
       @include button-fade(#d8691f, #e7b26c);
       @include sm {
-        margin-left: 32%;
+        margin-left: 6em;
       }
   }
 }

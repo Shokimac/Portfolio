@@ -29,6 +29,7 @@ $md: 960px;
 
     @include sm {
         font-size: 0.8em;
+        margin: 30px auto;
     }
 }
 
@@ -129,6 +130,10 @@ $md: 960px;
         letter-spacing: 1px;
         border: 2px solid #1b2538;
         border-radius: 4px;
+        
+        @include sm {
+            width: 80%;
+        }
     }
 
     &__form--area {
@@ -142,5 +147,9 @@ $md: 960px;
         border: 2px solid #1b2538;
         border-radius: 4px;
         height: 300px;
+
+        @include sm {
+            width: 80%;
+        }
     }
 }

@@ -135,6 +135,12 @@
 
     &__image {
         margin: 1.5em;
+
+        @include sm {
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 1em;
+        }
     }
 
     &__label {
