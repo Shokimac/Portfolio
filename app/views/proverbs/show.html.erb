@@ -31,7 +31,7 @@
                 <table>
                     <tr>
                         <th rowspan="3">
-                            <%= attachment_image_tag(comment.user, :image, size: "100x100", fallback: "no_image.png", class: "comment__image") %>
+                            <%= attachment_image_tag(comment.user, :image, size: "70x70", fallback: "no_image.png", class: "comment__image") %>
                         </th>
                         <td><%= link_to comment.user.name, user_path(comment.user) ,class:"comment__name" %>
                             <%= comment.created_at.strftime("%Y-%m-%d") %>
