@@ -12,9 +12,9 @@
         <div class="favorite__time">
             <%= episode.updated_at.strftime("%Y-%m-%d")  %>
         </div>
-        <span class="favorite__title">
+        <p class="favorite__title">
             <%= link_to episode.title, episode_path(episode) %>
-        </span>
+        </p>
         <span class="favorite__count">
             <%= episode.episode_favorites.count %> 件
         </span>

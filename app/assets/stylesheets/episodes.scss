@@ -19,14 +19,33 @@
     
     &__section {
         margin-bottom: 1em;
+        
+        @include sm {
+            font-size: 0.8em;
+        }
     }
 
     &__time {
         margin-top: 0.5em;
+
+        @include sm {
+            font-size: 0.7em;
+        }
     }
 
     &__title {
         margin-right: 0.5em;
+
+        @include sm {
+            font-size: 0.8em;
+        }
+    }
+
+    &__count {
+
+        @include sm {
+            font-size: 0.8em;
+        }
     }
 
     @include sm {
@@ -122,6 +141,10 @@
         letter-spacing: 1px;
         border: 2px solid #1b2538;
         border-radius: 4px;
+
+        @include sm {
+            width: 80%;
+        }
     }
 }
 
