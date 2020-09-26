@@ -23,6 +23,10 @@
 
     &__row {
         line-height: 2em;
+
+        & i {
+            color: #ff5100;
+        }
     }
 
     @include sm {
@@ -55,6 +59,10 @@
         text-align: center;
         margin: 2em 0;
         font-size: 1.7em;
+
+        @include sm {
+            font-size: 1em;
+        }
     }
 
     &__favoriteButton {
@@ -84,6 +92,10 @@
         margin-bottom: 2em;
         font-weight: bold;
         font-size: 1.2em;
+
+        @include sm {
+            font-size: 1em;
+        }
     }
 
     &__comment {
@@ -98,6 +110,10 @@
         font-size: 1.2em;
         font-weight: bold;
         margin-bottom: 2em;
+
+        @include sm {
+            margin-top: 1.2em;
+        }
     }
 }
 
@@ -110,6 +126,10 @@
 
     &__button {
         @include button-fade(#e74949, #ee9f7a);
+
+        @include sm {
+            padding: 3px 9px;
+        }
     }
 }
 
@@ -168,6 +188,10 @@
         letter-spacing: 1px;
         border: 2px solid #1b2538;
         border-radius: 4px;
+
+        @include sm {
+            width: 80%;
+        }
     }
 }
 
