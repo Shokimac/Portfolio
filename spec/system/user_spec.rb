@@ -72,7 +72,7 @@ describe "ユーザーのテスト" do
                 visit user_path(user)
             end
             it 'プロフィール画像が表示される' do
-                expect(page).to have_css('.userProfile__image')
+                expect(page).to have_css('.userInfo__image')
             end
 
             it '自己紹介が表示される' do
@@ -138,7 +138,7 @@ describe "ユーザーのテスト" do
             end
             
             it 'プロフィール画像が表示される' do
-                expect(page).to have_css('.userProfile__image')
+                expect(page).to have_css('.userInfo__image')
             end
 
             it '自己紹介が表示される' do
