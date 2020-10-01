@@ -5,15 +5,15 @@
 <img width="1439" alt="top_page" src="https://user-images.githubusercontent.com/64714255/94778642-9c140180-0400-11eb-80f5-205af0087425.png">
 ![proverb](https://user-images.githubusercontent.com/64714255/94784199-c8cc1700-0408-11eb-94be-b33c50260525.png)
 
+# URL https://itowokashi.club
+ Googleアカウントをお持ちでしたら、Google認証でログインできます。
+
 # 背景
 名前を 「いとをかし」 とした理由は、現代の技術であるWebサービスと、古文で使われていた日本人なら誰もが知る言葉をあえて掛け合わせ若い世代のユーザーから興味を引く狙いと遊び心から付けました。 <br>
 背景としましては、以前からSNS関連のニュースを見ていると匿名ユーザーから誹謗中傷を受けて自殺に走ってしまう有名人や一般人が後を絶たない印象を受け異常であると常々思っています。<br>
 他人への匿名攻撃だけでなく、ネットいじめ等陰湿な目的に使われたりしている現実があります。<br>
 誰かを暗い気分にさせるのではなく、利用者全員が明るい気持ちになれることを願うサービスがあっても良いのではないか。<br>  
 そんな考えから今回、このWebサービスを作成しました。  
-
-# URL https://itowokashi.club
- Googleアカウントをお持ちでしたら、Google認証でログインできます。
 
 # AWS構成図
 ![AWS構成図(いとをかし)](https://user-images.githubusercontent.com/64714255/94783709-08deca00-0408-11eb-95e0-a130fefaf12e.jpg)
