@@ -3,7 +3,8 @@
 ユーザーが持つポジティブなエピソードやユーザーお気に入りの格言を共有できます。<br>
 レスポンシブ対応していますので、スマートフォンからもご覧頂けます。
 <img width="1439" alt="top_page" src="https://user-images.githubusercontent.com/64714255/94778642-9c140180-0400-11eb-80f5-205af0087425.png">
-<img width="398" alt="smartphone" src="https://user-images.githubusercontent.com/64714255/94778768-cc5ba000-0400-11eb-86b6-6407a4d64a8a.png">
+![proverb](https://user-images.githubusercontent.com/64714255/94784199-c8cc1700-0408-11eb-94be-b33c50260525.png)
+
 
 # 背景
 名前を 「いとをかし」 とした理由は、現代の技術であるWebサービスと、古文で使われていた日本人なら誰もが知る言葉をあえて掛け合わせ若い世代のユーザーから興味を引く狙いと遊び心から付けました。 <br>
