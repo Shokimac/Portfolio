@@ -1,10 +1,9 @@
 # いとをかし
 開運や魔除けなど多くのご利益をもたらす天狗が運営する言葉の共有サイトです。<br>
 ユーザーが持つポジティブなエピソードやユーザーお気に入りの格言を共有できます。<br>
-レスポンシブ対応していますので、スマートフォンからもご覧頂けます。
+レスポンシブ対応していますので、スマートフォンからもご覧頂けます。<br>
 <img width="1439" alt="top_page" src="https://user-images.githubusercontent.com/64714255/94778642-9c140180-0400-11eb-80f5-205af0087425.png">
 ![proverb](https://user-images.githubusercontent.com/64714255/94784199-c8cc1700-0408-11eb-94be-b33c50260525.png)
-
 
 # 背景
 名前を 「いとをかし」 とした理由は、現代の技術であるWebサービスと、古文で使われていた日本人なら誰もが知る言葉をあえて掛け合わせ若い世代のユーザーから興味を引く狙いと遊び心から付けました。 <br>
@@ -14,8 +13,8 @@
 そんな考えから今回、このWebサービスを作成しました。  
 
 # URL
-https://itowokashi.club <br>
-Googleアカウントをお持ちでしたら、Google認証でログインできます。
+## https://itowokashi.club <br>
+ Googleアカウントをお持ちでしたら、Google認証でログインできます。
 
 # AWS構成図
 ![AWS構成図(いとをかし)](https://user-images.githubusercontent.com/64714255/94783709-08deca00-0408-11eb-95e0-a130fefaf12e.jpg)
@@ -28,17 +27,21 @@ Googleアカウントをお持ちでしたら、Google認証でログインで�
 - Puma
 - AWS
   - VPC
-  - EC2 (異なるAZへそれぞれ2台を起動し、冗長化構成を構築)
-  - RDS (プライベートサブネット上で立ち上げ、セキュリティグループで2台のEC2からのみ通信許可)
+  - EC2 (異なるAZへそれぞれ1台ずつ起動した冗長化構成)
+  - RDS (プライベートサブネット上で立ち上げ、セキュリティグループで2台のEC2からのみ通信を許可)
   - Route 53
-  - CloudWatch
-  - S3
-  - ELB
+  - CloudWatch (異常発生時、管理者へメールで通知するように設定)
+  - S3 (オリジナルサイズを保存するバケットとリサイズした画像を保存するバケットをそれぞれ連携)
+  - ALB
   - Auto Scaling (自動拡張)
-  - Lambda (S3へトリガーを設置し、画像投稿されたタイミングで画像の自動圧縮を実施)
+  - Lambda (S3へトリガーを設置し、画像が投稿されたタイミングで画像圧縮を自動で行う)
 - Capistrano
 - Rspec
-- Google OmniAuth2
+- omniauth-google-oauth2
+- devise
+- Ajax
+- refile
+- kaminari
 
 # 機能一覧
 https://docs.google.com/spreadsheets/d/1aSVjimF7mwkxKKcXXKz3w3CTxZTOl3pt2bHnby7uT-s/edit#gid=0
