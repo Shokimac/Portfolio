@@ -1,7 +1,7 @@
 # いとをかし
 開運や魔除けなど多くのご利益をもたらす天狗が運営する言葉の共有サイトです。<br>
 ユーザーが持つポジティブなエピソードやユーザーお気に入りの格言を共有できます。<br>
-レスポンシブ対応していますので、スマートフォンからもご覧頂けます。<br>
+レスポンシブ対応していますので、スマートフォンからもご覧頂けます。<br><br>
 <img width="1439" alt="top_page" src="https://user-images.githubusercontent.com/64714255/94778642-9c140180-0400-11eb-80f5-205af0087425.png">
 ![proverb](https://user-images.githubusercontent.com/64714255/94784199-c8cc1700-0408-11eb-94be-b33c50260525.png)
 
@@ -12,8 +12,7 @@
 誰かを暗い気分にさせるのではなく、利用者全員が明るい気持ちになれることを願うサービスがあっても良いのではないか。<br>  
 そんな考えから今回、このWebサービスを作成しました。  
 
-# URL
-## https://itowokashi.club <br>
+# URL https://itowokashi.club
  Googleアカウントをお持ちでしたら、Google認証でログインできます。
 
 # AWS構成図
