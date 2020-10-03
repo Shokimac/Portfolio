@@ -43,7 +43,7 @@
 - kaminari
 
 # 機能一覧
-https://docs.google.com/spreadsheets/d/1aSVjimF7mwkxKKcXXKz3w3CTxZTOl3pt2bHnby7uT-s/edit#gid=0
+https://docs.google.com/spreadsheets/d/1ThKXqANzTH2QS4iD4_JJ9In0VjqmNn-glbNyR-Me6bI/edit?usp=sharing
 
 # テスト
 - Rspec
